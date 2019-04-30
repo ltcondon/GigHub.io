@@ -32,11 +32,7 @@ import CardFooter from "components/Card/CardFooter.jsx";
 
 // import { bugs, website, server } from "variables/general.jsx";
 
-import {
-  dailySalesChart,
-//   emailsSubscriptionChart,
-//   completedTasksChart
-} from "variables/charts.jsx";
+import dailySalesChart from "variables/charts.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
@@ -177,4 +173,5 @@ Dashboard.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(dashboardStyle)(Dashboard);
+export default withStyles(dashboardStyle) (Dashboard);
+
