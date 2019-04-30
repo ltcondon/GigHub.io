@@ -1,52 +1,23 @@
 {
-  "name": "project-3",
-  "version": "1.0.0",
-  "description": "An app that helps users keep track of their job search progress and offer helpful information to aid their search",
-  "main": "server.js",
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ltcondon/Project-3.git"
-  },
-  "keywords": [
-    "job",
-    "jobs",
-    "job-search",
-    "career",
-    "career",
-    "planning",
-    "interview",
-    "phone",
-    "calls"
-  ],
-  "author": "Liam Condon, Eric Hager, Thor Nolan, and Calvin Chau",
-  "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "express": "^4.16.3",
-    "if-env": "^1.0.4",
-    "mongoose": "^5.3.16",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-reveal": "^1.2.2",
-    "scrollreveal": "^4.0.5"
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
+    "ejs": "~2.5.7",
+    "express": "~4.15.5",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5",
+    "superagent": "^3.8.2"
   },
-  "bugs": {
-    "url": "https://github.com/ltcondon/Project-3/issues"
-  },
-  "homepage": "https://github.com/ltcondon/Project-3#readme"
+  "engines": {
+    "node": "^8",
+    "yarn": "1.4.0"
+  }
 }
