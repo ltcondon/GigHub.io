@@ -1,18 +1,17 @@
 import "./LoginStyle.css";
 import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
-
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
-// Import my required components
+// Import required components
 import Alert from "react-s-alert";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import ProfileCard from "../../components/ProfileCard";
 import Nav from '../../components/Nav';
+import Fab from '@material-ui/core/Fab';
 
 
-// var IN = null;
-
+// Login/landing page keeps track of user authentication state as well as user data pulled from the LinkedIn API
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -21,12 +20,9 @@ class Login extends Component {
       firstName: null,
       lastName: null,
       email: null,
-      // profileURL: null,
       pictureURL: null,
       location: null,
       id:null
-      // positions: null,
-      // summary: null
     };
   }
 
@@ -57,15 +53,7 @@ class Login extends Component {
       })
   }
 
-  // updateEmail = (email) => {
-  //   console.log(email);
-  //   this.setState({
-  //     email: email.elements[0]["handle~"].emailAddress
-  //   })
-  // }
-
   requestProfile = () => {
-    // var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.REACT_APP_CLIENT_ID}&scope=r_basicprofile%20r_emailaddress%20w_member_social&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`
     var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.REACT_APP_CLIENT_ID}&scope=r_liteprofile%20r_emailaddress%20w_member_social&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`
 
     var width = 450,
@@ -88,23 +76,23 @@ class Login extends Component {
   };
 
   render() {
+
+    // Function checks state of component, and will redirect user to thier dashboard if LinkedIn auth is successful
+    if (this.state.isAuthorized) {
+        return <Redirect to='/dashboard' />
+    }
+
     return ( 
       <div className="App">
         <Nav /> 
-        <header className="App-header">
-          <h1 className="App-title">React Linkedin Login</h1>
-          <p className="App-intro">A demo page for Linkedin login</p>
-          <FontAwesomeIcon icon={["fab", "github"]} />{" "}
-          <a
-            href="https://github.com/tonyxu-io/React-Linkedin-Login"
-            className="github-link"
-          >
-            tonyxu-io/React-Linkedin-Login
-          </a>
-          <Alert />
-        </header>
+        
         <div className="App-body">
-          <button onClick={this.requestProfile}>Linkedin Login</button>
+          <Fab variant="extended" aria-label="Delete" onClick={this.requestProfile} color='primary'>
+            <i className='fab fa-linkedin' color='primary'/>
+              <span className='login-text'>
+              Sign-in With LinkedIn
+              </span>
+          </Fab>
           {this.state.isAuthorized &&
             (
               <ProfileCard
