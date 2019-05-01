@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 
 var UserSchema = new mongoose.Schema({
-  _id: String,
   linkedInId: {type: String, unique: true},
   email: String,
   image: String,
@@ -10,4 +9,5 @@ var UserSchema = new mongoose.Schema({
   createdAt: {type: Date, default: Date.now}
 }, {timestamps: true});
 
-mongoose.model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
+module.exports = User;

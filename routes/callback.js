@@ -2,8 +2,11 @@ var express = require('express');
 var router = express.Router();
 const request = require('superagent');
 require('dotenv').config()
+const db = require("../backend/models");
 
 /* GET users listing. */
+
+
 
 router.get("/", function(req, res, next) {
   requestAccessToken(req.query.code, req.query.state)
@@ -12,6 +15,15 @@ router.get("/", function(req, res, next) {
     .then(response => {
       console.log(response.body)
       res.render("callback", {profile: response.body});
+
+      var responseObj = {
+          linkedInId: response.body.id,
+          image: response.body.profilePicture["displayImage~"].elements[3].identifiers[0].identifier,
+          firstName: response.body.firstName.localized.en_US,
+          lastName: response.body.lastName.localized.en_US
+        }
+
+      db.User.create(responseObj);
     })
   })
   .catch((error) => {
