@@ -8,7 +8,7 @@ import Alert from "react-s-alert";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import ProfileCard from "./components/ProfileCard";
 
-var IN = null;
+// var IN = null;
 
 class App extends Component {
   constructor(props) {
