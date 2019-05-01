@@ -18,6 +18,20 @@ router.get('/', function(req, res, next) {
   })
 });
 
+// router.get("/", function(req, res, next) {
+//   requestAccessToken(req.query.code, req.query.state)
+//   .then((response) => {
+//     requestEmail(response.body.access_token)
+//     .then(response => {
+//       console.log(response.body)
+//       res.render("callback", {email: response.body});
+//     })
+//   })
+//   .catch((error) => {
+//     res.send(`${error}`)
+//   })
+// });
+
 
 function requestAccessToken(code,state) {
   return request.post('https://www.linkedin.com/oauth/v2/accessToken')
