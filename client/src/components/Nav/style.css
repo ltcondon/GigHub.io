@@ -2,22 +2,23 @@ nav.navbar.navbar-default {
     margin-bottom: 0;
 }
 
+.logo-image {
+    width: 70px;
+    height: auto;
+}
+
+/* alternate color: #E3E3E3 */
 .navbar {
-    background-color: #FFCA4F;
+    background-color: #F7F4E9;
 }
 
 .navbar-brand, .nav-item a {
-    font-family: 'Rubik', sans-serif;
-    color: #fff;
+    color: black;
 }
 
 .navbar-brand {
-    color: #21D0C2;
+    color: black;
     text-decoration: none;
-}
-
-.navbar-brand:hover {
-    color: #21D0C2
 }
 
 .nav-item a:hover {
@@ -26,6 +27,14 @@ nav.navbar.navbar-default {
 
 .active {
     color: #FF5C62;
+}
+
+.right {
+    right: 2px;
+}
+
+.loginText {
+    padding-left: 2px;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 479px){ 
