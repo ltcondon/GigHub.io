@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
       <Link className="navbar-brand" to="/">
-        MERN Google Books Search
+        GigHub
       </Link>
       <div>
         <ul className="navbar-nav">
