@@ -8,7 +8,6 @@ import Alert from "react-s-alert";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import ProfileCard from "./components/ProfileCard";
 
-
 var IN = null;
 
 class App extends Component {
@@ -35,7 +34,7 @@ class App extends Component {
     if (event.data.type === "profile") {
       debugger;
       this.updateProfile(event.data.profile);
-      Alert.success(`Welcome, ${event.data.profile.localizedFirstName}`,{position:'top'});
+      Alert.success(`Login successful: ${event.data.profile.localizedFirstName}`,{position:'top'});
     }
   };
 
@@ -91,13 +90,12 @@ class App extends Component {
         </header>
         <div className="App-body">
           <button onClick={this.requestProfile}>Linkedin Login</button>
-          {this.state.isAuthorized && 
+          {this.state.isAuthorized &&
             (
-            
               <ProfileCard
                 firstName={this.state.firstName}
-                headline={this.state.headline}
-                //lastName={this.state.lastName}
+                // headline={this.state.headline}
+                lastName={this.state.lastName}
                 // profileURL={this.state.profileURL}
                 // pictureURL={this.state.pictureURL}
                 // location={this.state.location}
@@ -105,11 +103,6 @@ class App extends Component {
                 // summary={this.state.summary}
                 // connectionsCount={this.state.connectionsCount}
               />
-              // <Router history={hist}>
-              //   <Switch>
-              //     <Route path="/dashboard" component={Dashboard} />
-              //   </Switch>
-              // </Router>
             )}
         </div>
       </div>
