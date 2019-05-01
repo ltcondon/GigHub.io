@@ -1,0 +1,51 @@
+nav.navbar.navbar-default {
+    margin-bottom: 0;
+}
+
+.navbar {
+    background-color: #FFCA4F;
+}
+
+.navbar-brand, .nav-item a {
+    font-family: 'Rubik', sans-serif;
+    color: #fff;
+}
+
+.navbar-brand {
+    color: #21D0C2;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #21D0C2
+}
+
+.nav-item a:hover {
+    color: #FF5C62;
+}
+
+.active {
+    color: #FF5C62;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px){ 
+    .navbar-brand, .nav-item a {
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    .navbar-brand, .nav-item a {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){ 
+    .navbar-brand, .nav-item a {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (min-width: 992px){
+
+}
