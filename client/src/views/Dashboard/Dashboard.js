@@ -112,7 +112,7 @@ class Dashboard extends React.Component {
 
   render() {
     const { classes } = this.props;
-
+    console.log(`Username: ${this.props.location.state.firstName} ${this.props.location.state.lastName}`)
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -139,7 +139,7 @@ class Dashboard extends React.Component {
               noWrap
               className={classes.title}
             >
-              Dashboard
+              Welcome back, {this.props.location.state.firstName} {this.props.location.state.lastName}!
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
