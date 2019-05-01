@@ -18,6 +18,7 @@ router.get('/', function(req, res, next) {
   })
 });
 
+
 function requestAccessToken(code,state) {
   return request.post('https://www.linkedin.com/oauth/v2/accessToken')
     .send('grant_type=authorization_code')
@@ -29,8 +30,13 @@ function requestAccessToken(code,state) {
 }
 
 function requestProfile(token) {
-  return request.get('https://api.linkedin.com/v2/me')
+  return request.get('https://api.linkedin.com/v2/me?projection=(id,firstName,lastName,profilePicture(displayImage~:playableStreams))')
   .set('Authorization', `Bearer ${token}`)
 }
+
+// function requestEmail(token) {
+//   return request.get("https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))")
+//   .set('Authorization', `Bearer ${token}`)
+// }
 
 module.exports = router;

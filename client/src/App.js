@@ -8,7 +8,6 @@ import Alert from "react-s-alert";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import ProfileCard from "./components/ProfileCard";
 
-
 var IN = null;
 
 class App extends Component {
@@ -18,10 +17,11 @@ class App extends Component {
       isAuthorized: false,
       firstName: null,
       lastName: null,
-      // headline: null,
+      email: null,
       // profileURL: null,
       pictureURL: null,
-      location: null
+      location: null,
+      id:null
       // positions: null,
       // summary: null
     };
@@ -35,7 +35,8 @@ class App extends Component {
     if (event.data.type === "profile") {
       debugger;
       this.updateProfile(event.data.profile);
-      Alert.success(`Welcome, ${event.data.profile.localizedFirstName}`,{position:'top'});
+      // this.updateEmail(event.data.email);
+      Alert.success(`Login successful: ${event.data.profile.firstName.localized.en_US}`,{position:'top'});
     }
   };
 
@@ -43,13 +44,22 @@ class App extends Component {
     console.log(profile)
       this.setState({
         isAuthorized: true,
-        firstName: profile.localizedFirstName,
-        lastName: profile.localizedLastName
+        firstName: profile.firstName.localized.en_US,
+        lastName: profile.lastName.localized.en_US,
+        id: profile.id,
+        pictureURL: profile.profilePicture["displayImage~"].elements[3].identifiers[0].identifier
         // headline: profile.headline.localized[`${profile.headline.preferredLocale.language}_${profile.headline.preferredLocale.country}`],
         // profileUrl: `https://www.linkedin.com/in/${profile.vanityName}`,
         // summary: profile.summary.localized[`${profile.summary.preferredLocale.language}_${profile.summary.preferredLocale.country}`].rawText
       })
   }
+
+  // updateEmail = (email) => {
+  //   console.log(email);
+  //   this.setState({
+  //     email: email.elements[0]["handle~"].emailAddress
+  //   })
+  // }
 
   requestProfile = () => {
     // var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.REACT_APP_CLIENT_ID}&scope=r_basicprofile%20r_emailaddress%20w_member_social&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`
@@ -91,25 +101,20 @@ class App extends Component {
         </header>
         <div className="App-body">
           <button onClick={this.requestProfile}>Linkedin Login</button>
-          {this.state.isAuthorized && 
+          {this.state.isAuthorized &&
             (
-            
               <ProfileCard
                 firstName={this.state.firstName}
-                headline={this.state.headline}
-                //lastName={this.state.lastName}
+                // headline={this.state.headline}
+                lastName={this.state.lastName}
+                id={this.state.id}
                 // profileURL={this.state.profileURL}
-                // pictureURL={this.state.pictureURL}
+                pictureURL={this.state.pictureURL}
                 // location={this.state.location}
                 // positions={this.state.positions}
                 // summary={this.state.summary}
                 // connectionsCount={this.state.connectionsCount}
               />
-              // <Router history={hist}>
-              //   <Switch>
-              //     <Route path="/dashboard" component={Dashboard} />
-              //   </Switch>
-              // </Router>
             )}
         </div>
       </div>
