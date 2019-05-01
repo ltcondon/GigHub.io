@@ -35,7 +35,6 @@ class App extends Component {
     if (event.data.type === "profile") {
       debugger;
       this.updateProfile(event.data.profile);
-      // this.updateEmail(event.data.email);
       Alert.success(`Login successful: ${event.data.profile.firstName.localized.en_US}`,{position:'top'});
     }
   };
@@ -53,13 +52,6 @@ class App extends Component {
         // summary: profile.summary.localized[`${profile.summary.preferredLocale.language}_${profile.summary.preferredLocale.country}`].rawText
       })
   }
-
-  // updateEmail = (email) => {
-  //   console.log(email);
-  //   this.setState({
-  //     email: email.elements[0]["handle~"].emailAddress
-  //   })
-  // }
 
   requestProfile = () => {
     // var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.REACT_APP_CLIENT_ID}&scope=r_basicprofile%20r_emailaddress%20w_member_social&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`
@@ -110,6 +102,7 @@ class App extends Component {
                 id={this.state.id}
                 // profileURL={this.state.profileURL}
                 pictureURL={this.state.pictureURL}
+                // email={this.state.email}
                 // location={this.state.location}
                 // positions={this.state.positions}
                 // summary={this.state.summary}

@@ -7,6 +7,9 @@ class ProfileCard extends Component {
           // <h2>{this.props.headline}</h2>
           // <p className="profile-summary">{this.props.summary}</p>
 
+        // <h3>Your Email: {this.props.email}</h3>
+
+
   render(){
     return (
       <div className="profile">
@@ -14,6 +17,7 @@ class ProfileCard extends Component {
         <h1>{this.props.firstName} {this.props.lastName} </h1>
         <h2>Your ID: {this.props.id}</h2>
         <img src={this.props.pictureURL} />
+
           <hr/>
         </div>
       </div>

@@ -4,33 +4,20 @@ const request = require('superagent');
 require('dotenv').config()
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  requestAccessToken(req.query.code,req.query.state)
+
+router.get("/", function(req, res, next) {
+  requestAccessToken(req.query.code, req.query.state)
   .then((response) => {
     requestProfile(response.body.access_token)
     .then(response => {
       console.log(response.body)
-      res.render('callback', { profile: response.body});
+      res.render("callback", {profile: response.body});
     })
   })
   .catch((error) => {
     res.send(`${error}`)
   })
 });
-
-// router.get("/", function(req, res, next) {
-//   requestAccessToken(req.query.code, req.query.state)
-//   .then((response) => {
-//     requestEmail(response.body.access_token)
-//     .then(response => {
-//       console.log(response.body)
-//       res.render("callback", {email: response.body});
-//     })
-//   })
-//   .catch((error) => {
-//     res.send(`${error}`)
-//   })
-// });
 
 
 function requestAccessToken(code,state) {
@@ -47,10 +34,5 @@ function requestProfile(token) {
   return request.get('https://api.linkedin.com/v2/me?projection=(id,firstName,lastName,profilePicture(displayImage~:playableStreams))')
   .set('Authorization', `Bearer ${token}`)
 }
-
-// function requestEmail(token) {
-//   return request.get("https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))")
-//   .set('Authorization', `Bearer ${token}`)
-// }
 
 module.exports = router;
