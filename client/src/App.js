@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Nav from './components/Nav';
 import Login from './views/Login/Login';
+import Dashboard from './views/Dashboard/Dashboard';
 
 const App = () => (
   <Router>
@@ -15,7 +16,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Login}/>
         <Route exact path="/login" component={Login}/>
-        {/* <Route exact path="/dashboard" component={Dashboard}/> */}
+        <Route exact path="/dashboard" component={Dashboard} classes="dashboard"/>
       </Switch>
     </div>
   </Router>
