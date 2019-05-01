@@ -12,6 +12,8 @@ class ProfileCard extends Component {
       <div className="profile">
         <div className="profile-container">
         <h1>{this.props.firstName} {this.props.lastName} </h1>
+        <h2>Your ID: {this.props.id}</h2>
+        <img src={this.props.pictureURL} />
           <hr/>
         </div>
       </div>
