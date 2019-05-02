@@ -37,16 +37,16 @@ router.route('/:id').get(function (req, res) {
     });
 });
 
-router.route('/add').post(function(req, res) {
-    console.log(req.body);
-    let job = new Job(req.body);
-    console.log(job);
-    job.save(function(err) {
-        if (err)
-          res.send(err);
-        res.send('Job successfully added!');
-    });
-});
+// router.route('/add').post(function(req, res) {
+//     console.log(req.body);
+//     let job = new Job(req.body);
+//     console.log(job);
+//     job.save(function(err) {
+//         if (err)
+//           res.send(err);
+//         res.send('Job successfully added!');
+//     });
+// });
 
 router.route('/update/:id').post(function (req, res) {
     Job.findById(req.params.id, function (err, job) {
