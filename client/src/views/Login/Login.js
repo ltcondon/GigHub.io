@@ -11,6 +11,7 @@ import Alert from "react-s-alert";
 import Nav from '../../components/Nav';
 import LandingFooter from '../../components/LandingFooter';
 import Fab from '@material-ui/core/Fab';
+import AngleJumbo from '../../components/AngleJumbo';
 
 
 // Login/landing page keeps track of user authentication state as well as user data pulled from the LinkedIn API
@@ -95,10 +96,11 @@ class Login extends Component {
     }
 
     return ( 
+    <div className="page-container"> 
       <div className="Landing">
         <BgPattern />
         <Nav /> 
-        
+        <AngleJumbo />
         <div className="App-body">
           <Fab variant="extended" aria-label="Delete" onClick={this.requestProfile} color='primary'>
             <i className='fab fa-linkedin' color='primary'/>
@@ -106,7 +108,6 @@ class Login extends Component {
               Sign-in With LinkedIn
               </span>
           </Fab>
-          <LandingFooter />
           {/* {this.state.isAuthorized &&
             (
               <ProfileCard
@@ -124,6 +125,8 @@ class Login extends Component {
             )} */}
         </div>
       </div>
+      <LandingFooter />
+    </div> 
     );
   }
 }

@@ -7,7 +7,7 @@
     background-color: #F7F4E9;
     height: 100px;
     margin: 0px;
-    width: 100%;
+    width: 100vw;
 }
 
 .footer a {
@@ -16,5 +16,7 @@
 
 .sticky-footer{
   position: absolute;
+  right: 0;
   bottom: 0;
+  left: 0;
 }

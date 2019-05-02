@@ -4,6 +4,7 @@ img.bg-img {
     width: 100vw;
     height: 200vh;
     position: fixed;
+    background-attachment: fixed;
     top: 0;
     left: 0;
     z-index: -50;

@@ -14,7 +14,7 @@ function Navbar() {
         </span>
       </Link>
       <div>
-        <ul className="navbar-nav right">
+        <ul className="navbar-nav mr-3">
 
           <li className="nav-item">
             <a

@@ -3,10 +3,10 @@ import {Col, Row} from "../Grid/Grid";
 import "./style.css";
 
 const LandingFooter = () => (
-<Row className="justify-content-center footer sticky-footer p-0">
+<Row className="justify-content-center footer sticky-footer">
   
   <nav class="navbar footer sticky-footer">
-    <Col size="12 col-md-12" className="pt-3">
+    <Col size="12 col-sm-12" className="pt-3">
 
       <p className="text-center font-italic footer-text">
         Created by Liam, Eric, Calvin &amp; Thor.
