@@ -22,8 +22,13 @@ router.get("/", function(req, res, next) {
           firstName: response.body.firstName.localized.en_US,
           lastName: response.body.lastName.localized.en_US
         }
-
-      db.User.create(responseObj);
+      db.User.findOne({ linkedInId : response.body.id}).select("linkedInId").lean().then(result => {
+        if (result) {
+          return;
+        } else {
+          db.User.create(responseObj);
+        }
+      })
     })
   })
   .catch((error) => {
