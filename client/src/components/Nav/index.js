@@ -9,21 +9,23 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg sticky-top">
       <Link className="navbar-brand" to="/">
         <Logo />
-        Welcome to GigHub
+        <span className="logoText">
+        GigHub
+        </span>
       </Link>
       <div>
         <ul className="navbar-nav right">
 
           <li className="nav-item">
-            <Link
-              to="/dashboard"
-              className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
+            <a
+              className="btn btn-small"
+              href="/"
             >
               <i className='fab fa-linkedin' color='primary'/>
               <span className="loginText">
                 Login 
               </span>
-            </Link>
+            </a>
           </li>
 
         </ul>

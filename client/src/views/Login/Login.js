@@ -5,9 +5,11 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
 // Import required components
+import BgPattern from '../../components/BgPattern';
 import Alert from "react-s-alert";
-import ProfileCard from "../../components/ProfileCard";
+// import ProfileCard from "../../components/ProfileCard";
 import Nav from '../../components/Nav';
+import LandingFooter from '../../components/LandingFooter';
 import Fab from '@material-ui/core/Fab';
 
 
@@ -77,7 +79,7 @@ class Login extends Component {
 
   render() {
 
-    // Function checks state of component, and will redirect user to thier dashboard if LinkedIn auth is successful
+    // Function checks state of component, and will redirect user to their dashboard if LinkedIn auth is successful and simultaneously pass down user info as props to our dashboard
     if (this.state.isAuthorized) {
         return <Redirect to={{
           pathname: '/dashboard', 
@@ -93,7 +95,8 @@ class Login extends Component {
     }
 
     return ( 
-      <div className="App">
+      <div className="Landing">
+        <BgPattern />
         <Nav /> 
         
         <div className="App-body">
@@ -103,7 +106,8 @@ class Login extends Component {
               Sign-in With LinkedIn
               </span>
           </Fab>
-          {this.state.isAuthorized &&
+          <LandingFooter />
+          {/* {this.state.isAuthorized &&
             (
               <ProfileCard
                 firstName={this.state.firstName}
@@ -117,7 +121,7 @@ class Login extends Component {
                 // summary={this.state.summary}
                 // connectionsCount={this.state.connectionsCount}
               />
-            )}
+            )} */}
         </div>
       </div>
     );

@@ -10,7 +10,11 @@ nav.navbar.navbar-default {
 /* alternate color: #E3E3E3 */
 .navbar {
     background-color: #F7F4E9;
-}
+    /* background: -moz-linear-gradient(top, rgba(247,244,233,1) 64%, rgba(247,244,233,1) 75%, rgba(247,244,233,0.64) 84%, rgba(247,244,233,0.4) 90%, rgba(125,185,232,0) 100%);
+    background: -webkit-linear-gradient(top, rgba(247,244,233,1) 64%,rgba(247,244,233,1) 75%,rgba(247,244,233,0.64) 84%,rgba(247,244,233,0.4) 90%,rgba(125,185,232,0) 100%);
+    background: linear-gradient(to bottom, rgba(247,244,233,1) 64%,rgba(247,244,233,1) 75%,rgba(247,244,233,0.64) 84%,rgba(247,244,233,0.4) 90%,rgba(125,185,232,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f4e9', endColorstr='#007db9e8',GradientType=0 ); */
+} 
 
 .navbar-brand, .nav-item a {
     color: black;
@@ -21,7 +25,7 @@ nav.navbar.navbar-default {
     text-decoration: none;
 }
 
-.nav-item a:hover {
+.navbar-brand:hover, .nav-item a:hover {
     color: #FF5C62;
 }
 
@@ -29,30 +33,29 @@ nav.navbar.navbar-default {
     color: #FF5C62;
 }
 
-.right {
-    right: 2px;
+.nav-item a {
+    float: right;
 }
 
 .loginText {
     padding-left: 2px;
 }
 
+.logoText {
+    padding-top: 2%;
+    padding-left: 4%;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 479px){ 
-    .navbar-brand, .nav-item a {
-        font-size: 0.9rem;
-    }
+    
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px){
-    .navbar-brand, .nav-item a {
-        font-size: 1rem;
-    }
+    
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px){ 
-    .navbar-brand, .nav-item a {
-        font-size: 1.3rem;
-    }
+    
 }
 
 @media only screen and (min-width: 992px){

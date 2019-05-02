@@ -1,7 +1,7 @@
-.App {
+.Landing {
     text-align: center;
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue
-  }
+    font-family: 'Roboto', sans-serif;
+}
   
 .login-text {
     font-size: 14px;
