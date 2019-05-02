@@ -15,7 +15,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-import SimpleLineChart from './SimpleLineChart';
+// import SimpleLineChart from './SimpleLineChart';
 import SimpleTable from './SimpleTable';
 
 const drawerWidth = 240;
@@ -26,6 +26,7 @@ const styles = theme => ({
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
+    maxHeight: 'inherit'
   },
   toolbarIcon: {
     display: 'flex',
@@ -40,6 +41,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    maxHeight: 65
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -170,9 +172,7 @@ class Dashboard extends React.Component {
           <Typography variant="h4" gutterBottom component="h2">
             Orders
           </Typography>
-          <Typography component="div" className={classes.chartContainer}>
-            <SimpleLineChart />
-          </Typography>
+
           <Typography variant="h4" gutterBottom component="h2">
             Products
           </Typography>
