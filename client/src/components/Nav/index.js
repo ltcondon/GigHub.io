@@ -13,7 +13,7 @@ function Navbar() {
         GigHub
         </span>
       </Link>
-      <div>
+      <div className="navLinks">
         <ul className="navbar-nav mr-3">
 
           <li className="nav-item">
