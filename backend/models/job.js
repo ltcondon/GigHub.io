@@ -6,13 +6,11 @@ const JobSchema = new Schema({
   company: { type: String, required: true },
   role: { type: String, required: true },
   status: [{
-    name: String,
-    createdAt: {type: Date, default: Date.now},
+    position: {type: String},
+    updatedAt: {type: Date, default: Date.now},
   }],
   createdAt: {type: Date, default: Date.now},
-  updatedAt: {type: Date, required: true, default: Date.now},
-
-  userID: {type: String}
+  hired: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model('Job', JobSchema);
