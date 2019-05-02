@@ -20,25 +20,25 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB, and allow Heroku to connect to provisioned db
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jobsearch");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gighub");
 
-seeder.connect('mongodb://localhost/sample-dev', function() {
+// seeder.connect('mongodb://localhost/sample-dev', function() {
  
-  // Load Mongoose models
-  seeder.loadModels([
-    'backend/models/job.js',
-    'backend/models/user.js'
-  ]);
+//   // Load Mongoose models
+//   seeder.loadModels([
+//     'backend/models/job.js',
+//     'backend/models/user.js'
+//   ]);
  
-    // Callback to populate DB once collections have been cleared
-    seeder.populateModels(data, function() {
-      seeder.disconnect();
-    });
+//     // Callback to populate DB once collections have been cleared
+//     seeder.populateModels(data, function() {
+//       seeder.disconnect();
+//     });
  
-});
+// });
  
-// Data array containing seed data - documents organized by Model
-var data = seeds;
+// // Data array containing seed data - documents organized by Model
+// var data = seeds;
 
 
 // Start the API server

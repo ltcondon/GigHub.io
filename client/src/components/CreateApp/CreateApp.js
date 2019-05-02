@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import API from '../../utils/API'
 
 export default class CreateApp extends Component {
     constructor(props) {
@@ -64,11 +65,16 @@ export default class CreateApp extends Component {
             date: this.state.createdAt
         };
 
-        // console.log(newJob);
+        console.log(newJob);
 
-        axios.post('http://localhost:3000/gighub/add/', newJob)
-            .then(res => console.log(res.data));
+        // axios.post('http://localhost:3000/gighub/add/', newJob)
+        //     .then(res => console.log(res.data));
 
+        API.saveJob(newJob)
+        .then(res => {
+            console.log(res.status, res.statusText);
+            alert('Job Added!', {type: 'success'})
+          })
 
         this.setState({
             company: '',

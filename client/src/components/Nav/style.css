@@ -8,14 +8,11 @@ nav.navbar.navbar-default {
 }
 
 /* alternate color: #E3E3E3 */
-.navbar {
+
+.landingNav {
     background-color: #F7F4E9;
     max-height: 65px;
-    /* background: -moz-linear-gradient(top, rgba(247,244,233,1) 64%, rgba(247,244,233,1) 75%, rgba(247,244,233,0.64) 84%, rgba(247,244,233,0.4) 90%, rgba(125,185,232,0) 100%);
-    background: -webkit-linear-gradient(top, rgba(247,244,233,1) 64%,rgba(247,244,233,1) 75%,rgba(247,244,233,0.64) 84%,rgba(247,244,233,0.4) 90%,rgba(125,185,232,0) 100%);
-    background: linear-gradient(to bottom, rgba(247,244,233,1) 64%,rgba(247,244,233,1) 75%,rgba(247,244,233,0.64) 84%,rgba(247,244,233,0.4) 90%,rgba(125,185,232,0) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f4e9', endColorstr='#007db9e8',GradientType=0 ); */
-} 
+}
 
 .navLinks {
     right: 0;
