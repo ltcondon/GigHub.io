@@ -5,10 +5,13 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
 // Import required components
+import BgPattern from '../../components/BgPattern';
 import Alert from "react-s-alert";
-import ProfileCard from "../../components/ProfileCard";
+// import ProfileCard from "../../components/ProfileCard";
 import Nav from '../../components/Nav';
+import LandingFooter from '../../components/LandingFooter';
 import Fab from '@material-ui/core/Fab';
+import AngleJumbo from '../../components/AngleJumbo';
 
 
 // Login/landing page keeps track of user authentication state as well as user data pulled from the LinkedIn API
@@ -77,7 +80,7 @@ class Login extends Component {
 
   render() {
 
-    // Function checks state of component, and will redirect user to thier dashboard if LinkedIn auth is successful
+    // Function checks state of component, and will redirect user to their dashboard if LinkedIn auth is successful and simultaneously pass down user info as props to our dashboard
     if (this.state.isAuthorized) {
         return <Redirect to={{
           pathname: '/dashboard', 
@@ -93,9 +96,11 @@ class Login extends Component {
     }
 
     return ( 
-      <div className="App">
+    <div className="page-container"> 
+      <div className="Landing">
+        <BgPattern />
         <Nav /> 
-        
+        <AngleJumbo />
         <div className="App-body">
           <Fab variant="extended" aria-label="Delete" onClick={this.requestProfile} color='primary'>
             <i className='fab fa-linkedin' color='primary'/>
@@ -103,7 +108,7 @@ class Login extends Component {
               Sign-in With LinkedIn
               </span>
           </Fab>
-          {this.state.isAuthorized &&
+          {/* {this.state.isAuthorized &&
             (
               <ProfileCard
                 firstName={this.state.firstName}
@@ -117,9 +122,11 @@ class Login extends Component {
                 // summary={this.state.summary}
                 // connectionsCount={this.state.connectionsCount}
               />
-            )}
+            )} */}
         </div>
       </div>
+      <LandingFooter />
+    </div> 
     );
   }
 }

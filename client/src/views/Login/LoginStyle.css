@@ -1,7 +1,13 @@
-.App {
+.page-container {
+    position: relative;
+    min-height: 200vh;
+}
+
+.Landing {
     text-align: center;
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue
-  }
+    font-family: 'Roboto', sans-serif;
+    min-height: 200vh;
+}
   
 .login-text {
     font-size: 14px;

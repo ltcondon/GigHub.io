@@ -1,0 +1,31 @@
+header {
+    position: relative;
+    height: 300px;
+    background-color: #F7F4E9;
+}
+  
+h1 {
+    padding: 100px 0;
+    font-size: 44px;
+    text-align: center;
+}
+  
+header h1 {
+    color: black;
+}
+  
+svg {
+    bottom: -100px;
+    left: 0;
+    width: 100vw;
+    height: 100px;
+    fill: #F7F4E9;
+}
+  
+.epicenter {
+    color: #FF5C62;
+}
+
+.subTitle {
+    padding-bottom: 10%;
+}
