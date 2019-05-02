@@ -3,7 +3,7 @@ import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import Scrollspy from 'react-scrollspy'
+import Scrollchor from 'react-scrollchor';
 
 // Import required components
 import BgPattern from '../../components/BgPattern';
@@ -16,6 +16,7 @@ import AboutStepper from '../../components/AboutStepper';
 
 // Import react-reveal methods for revealing content on scroll
 import Slide from 'react-reveal/Slide';
+import Fade from 'react-reveal/Fade';
 
 // Login/landing page keeps track of user authentication state as well as user data pulled from the LinkedIn API
 class Login extends Component {
@@ -113,22 +114,22 @@ class Login extends Component {
           </div>
         </Slide> 
 
-        <Scrollspy items={ ['section-2'] } currentClassName="is-current">
-        <div className='scrollspy-container'>
-        <ul className='nav-ul'>
-        <li className="nav-arrows">
-          <a href="#section-2">
-            <svg class="arrows">
-              <path d="M0 20 L20 42 L40 20"></path>
-              <path d="M0 40 L20 62 L40 40"></path>
-            </svg>
-          </a>
-        </li>
-        </ul>
+        <Fade bottom big>
+        <div className="navbar justify-content-center down-arrow">
+          <ul className="navbar-nav">
+           <li className="nav-item">
+             <Scrollchor to="#section-2" className="nav-link active" animate={{offset: 100, duration: 675}}>
+               <svg class="arrows">
+                 <path d="M0 20 L20 42 L40 20"></path>
+                 <path d="M0 40 L20 62 L40 40"></path>
+               </svg>
+             </Scrollchor>
+            </li>
+          </ul>
         </div>
-        </Scrollspy>
+        </Fade>
 
-        <div className="App-body section-2">
+        <div className="App-body" id="section-2">
           <AboutStepper />
           <Fab variant="extended" aria-label="Delete" onClick={this.requestProfile} color='primary' className="login-btn">
             <i className='fab fa-linkedin' color='primary'/>
