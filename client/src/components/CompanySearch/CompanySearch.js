@@ -52,6 +52,8 @@ function showResults(data){
         var ceoName = employer.ceo && employer.ceo.name
             ? employer.ceo.name
             : "";
+        var ceoPic = employer.ceo.image && employer.ceo.image.src ? employer.ceo.image.src : ""; 
+
 
         var ratings = "Company: " + employer.overallRating
             + "<br>Career Opportunities: " + employer.careerOpportunitiesRating
@@ -68,7 +70,7 @@ function showResults(data){
                     : "");					
         
         $("#show-results").show(); 
-        $(".table").append("<tr><td>" + employer.id + "</td><td>" + employer.name  + "</td><td>" + ceoName + "</td><td>" + ratings + "</td></tr>");
+        $(".table").append("<tr><td>" + employer.id + "</td><td>" + employer.name + "<br><a href=" + employer.featuredReview.attributionURL + " target='_blank'>" + "<img src=" + employer.squareLogo + "> </a> </br>"  + "</td><td>" + ceoName +"<br><img src=" + ceoPic + "> </br>" + "</td><td>" + ratings + "</td></tr>");
 
         $(".page-indicator").text("Page " + data.response.currentPageNumber + " of " + data.response.totalNumberOfPages); 
 
