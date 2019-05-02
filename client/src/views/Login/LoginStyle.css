@@ -1,6 +1,7 @@
 .page-container {
     position: relative;
     min-height: 200vh;
+    min-width: 100vw;
 }
 
 .Landing {
@@ -13,5 +14,72 @@
     font-size: 14px;
     padding-left: 5px;
     text-transform: lowercase;
-}  
+} 
+
+.arrows {
+	width: 60px;
+    height: 72px;
+    padding-left: 10px;
+}
+
+.scrollspy-container ul {
+    padding-inline-start: 0px;
+}
+
+.arrows path {
+	stroke: #F2E6C6;
+	fill: transparent;
+	stroke-width: 1.5px;	
+}
+
+.login-btn {
+    background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
+    background-size: 400% 400%;
+      -webkit-animation: Gradient 15s ease infinite;
+      -moz-animation: Gradient 15s ease infinite;
+      animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+
+/* gradient from logo: 
+first: #3552B2
+second: #6D5CC0
+third: #A767CF
+third: #C06CD6 */
   
