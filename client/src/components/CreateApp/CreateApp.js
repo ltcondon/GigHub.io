@@ -66,7 +66,7 @@ export default class CreateApp extends Component {
 
         // console.log(newJob);
 
-        axios.post('http://localhost:3000/gighub-test/add/', newJob)
+        axios.post('http://localhost:3000/gighub/add/', newJob)
             .then(res => console.log(res.data));
 
 
