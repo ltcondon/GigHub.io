@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Login from './views/Login/Login';
 import Dashboard from './views/Dashboard/Dashboard';
+import CreateApp from "./components/CreateApp/CreateApp";
 
 const App = () => (
   <Router>
@@ -15,6 +16,7 @@ const App = () => (
         <Route exact path="/" component={Login}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/dashboard" component={Dashboard} classes="dashboard"/>
+        <Route path="/add" component={CreateApp} />
       </Switch>
     </div>
   </Router>
