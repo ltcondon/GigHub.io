@@ -6,8 +6,9 @@ export default {
     return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=15`)
   },
 
-  saveBook: function (bookData) {
-    return axios.post('/api/books/saved', bookData);
+  saveJob: function (jobData) {
+    console.log(jobData)
+    return axios.post('/api/jobs', jobData);
   },
 
   getSaved: function () {
