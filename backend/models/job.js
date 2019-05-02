@@ -11,6 +11,8 @@ const JobSchema = new Schema({
   }],
   createdAt: {type: Date, default: Date.now},
   updatedAt: {type: Date, required: true, default: Date.now},
+
+  userID: {type: String}
 });
 
 module.exports = mongoose.model('Job', JobSchema);
