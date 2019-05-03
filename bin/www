@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
-const routes = require("../routes");
+var routes = require("../routes");
 
 
 /**
@@ -16,7 +16,7 @@ const routes = require("../routes");
 
 var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
-app.use("/",routes);
+app.use("/", routes);
 
 /**
  * Create HTTP server.
@@ -98,4 +98,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log('Listening on ' + bind + '!');
 }
