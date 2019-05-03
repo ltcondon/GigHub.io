@@ -34,16 +34,28 @@
 }
 
 
+.grow { 
+    transition: all 3.5s ease-in-out; 
+}
+
+.grow:hover { 
+    transform: scale(1.15); 
+}
+
 .login-btn {
+    margin-top: 2%;
     background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
     background-size: 400% 400%;
-      -webkit-animation: Gradient 10s ease infinite;
-      -moz-animation: Gradient 10s ease infinite;
-      animation: Gradient 10s ease infinite;
+      -webkit-animation: Gradient 3.75s ease infinite;
+      -moz-animation: Gradient 3.75s ease infinite;
+      animation: Gradient 3.75s ease infinite;
 }
 
 .login-btn:hover {
     box-shadow: 0 3px 5px 2px rgba(226, 33, 243, 0.3);
+    -webkit-animation: Gradient 2.75s ease infinite;
+      -moz-animation: Gradient 2.75s ease infinite;
+      animation: Gradient 2.75s ease infinite;
 }
 
 .MuiFab-extended-152 {

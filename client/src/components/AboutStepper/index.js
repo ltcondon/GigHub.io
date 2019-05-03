@@ -15,13 +15,20 @@ const styles = theme => ({
     root: {
       width: '100%',
       background: 'rgba(0,0,0,0)',
+      paddingRight: '14.25%',
+      paddingLeft: '12%',
     },
     button: {
       marginTop: theme.spacing.unit,
       marginRight: theme.spacing.unit,
+      textTransform: 'lowercase',
+      outline: 'none',
       background: '#FF5C62',
-      maxHeight: '32px',
+      maxHeight: '25px',
       color: 'white',
+      paddingLeft: '5%',
+      paddingBottom: '1%',
+      marginLeft: '1.5%',
     },
     actionsContainer: {
       marginBottom: theme.spacing.unit * 2,
@@ -37,6 +44,12 @@ const styles = theme => ({
       color: '#F7F4E9',
       fontSize: '1.35rem',
     },
+    typography: {
+      paddingLeft: '2.25%',
+    },
+    topButton: {
+      marginLeft: '2.5%',
+    },
 });
 
 const style = {
@@ -47,20 +60,20 @@ const style = {
   
 // Get steps returns the the values of the steps for each tab
 function getSteps() {
-  return ['Track and update your milestones', 'All the essential info in one place', 'Never miss an opportunity'];
+  return [`――     `, `―――     `, `――――     `];
 }
   
 // Switch case for determining which content to display based on step indice 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return `The job search can get overwhelming fast. How many applications have I sent out? Which companies have called me back? Do I have interviews coming up? We've got the tools you need to keep track of all this and more.`;
+      return ` < 𝙏𝙧𝙖𝙘𝙠 𝙖𝙣𝙙 𝙪𝙥𝙙𝙖𝙩𝙚 𝙮𝙤𝙪𝙧 𝙢𝙞𝙡𝙚𝙨𝙩𝙤𝙣𝙚𝙨. >  The job search can get overwhelming fast. How many applications have I sent out? Which companies have called me back? Do I have interviews coming up? We've got the tools you need to keep track of all this and more.`;
 
       case 1:
-      return `GigHub tracks and visualizes the progression of your job search from start to finish. See what people are saying about the work environment at the companies you've applied to, and track statistics for your application process.`;
+      return `GigHub tracks and visualizes the progression of your job search from start to finish. See what people are saying about the work environment at the companies you've applied to, and track statistics for your application process! < 𝘼𝙡𝙡 𝙩𝙝𝙚 𝙚𝙨𝙨𝙚𝙣𝙩𝙞𝙖𝙡 𝙞𝙣𝙛𝙤 𝙞𝙨 𝙝𝙚𝙧𝙚 𝙞𝙣 𝙤𝙣𝙚 𝙥𝙡𝙖𝙘𝙚. > `;
 
       case 2:
-        return `Knowing where you're at is as important as knowing where you're going. Sometimes that last-minute email after a phone-screen is enough to signal that you're really interested in working somewhere, and given how many applications you'll be sending out, it isn't always easy to remember where you're at in the process. Don't worry, GigHub's got you covered!`;
+        return `Knowing where you're at is as important as knowing where you're going. Sometimes that last-minute email after a phone-screen is enough to signal that you're really interested in working somewhere, and with how many applications you'll be sending out, it isn't always easy to remember where you're at in the process. Worry no more, < 𝙂𝙞𝙜𝙃𝙪𝙗'𝙨 𝙜𝙤𝙩 𝙮𝙤𝙪 𝙘𝙤𝙫𝙚𝙧𝙚𝙙! >  Don't stress, and don't miss another opportunity. Login with your LinkedIn account below to get started.`;
 
       default:
         return 'Unknown step';
@@ -134,9 +147,9 @@ class AboutStepper extends React.Component {
           </Stepper>
           {activeStep === steps.length && (
             <Paper style={style} square elevation={0} className={classes.resetContainer}>
-              <Typography>Login with your LinkedIn to get started</Typography>
-              <Button onClick={this.handleReset} className={classes.button}>
-                Top ↑
+              <Typography className={classes.typography}>―――――</Typography>
+              <Button onClick={this.handleReset} className={classes.topButton}>
+                top ↑
               </Button>
             </Paper>
           )}

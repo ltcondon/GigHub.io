@@ -124,7 +124,7 @@ class Login extends Component {
           </div>
         </Slide> 
 
-        <Fade bottom big>
+        <Fade bottom big duration={1650}>
         <div className="navbar justify-content-center down-arrow">
           <ul className="navbar-nav">
            <li className="nav-item">
@@ -142,17 +142,19 @@ class Login extends Component {
         </Fade>
 
         <div className="App-body" id="section-2">
-          <Fade duration={2500} delay={250}>
+          <Fade duration={3500}>
             <AboutStepper />
           </Fade>
 
-            <Fab variant="extended" aria-label="Delete" onClick={this.requestProfile} color='primary' className="login-btn" style={style}>
+          <div className='mx-auto align-items-center'>
+            <Fab variant="extended" aria-label="Delete" onClick={this.requestProfile} color='primary' className="login-btn grow" style={style}>
               <i className='fab fa-linkedin' color='primary'/>
                 <span className='login-text'>
                 Sign-in With LinkedIn
                 </span>
             </Fab>
-            
+          </div>
+
         </div>
       </div>
       <LandingFooter />
