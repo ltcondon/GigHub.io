@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "body-parser": "~1.18.2",
+    "chart.js": "^2.8.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "dotenv": "^5.0.1",
@@ -16,8 +17,10 @@
     "mongoose-seed": "^0.6.0",
     "morgan": "~1.9.0",
     "react": "^16.6.3",
+    "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.8.6",
     "react-reveal": "^1.2.2",
+    "react-scrollchor": "^6.0.0",
     "serve-favicon": "~2.4.5",
     "superagent": "^3.8.2"
   },

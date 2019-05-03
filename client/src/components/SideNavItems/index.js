@@ -1,71 +1,65 @@
 import React from 'react';
+import './style.css'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
+import AccountBox from '@material-ui/icons/AccountBox';
+import PlaylistAddCheckTwoTone from '@material-ui/icons/PlaylistAddCheckTwoTone';
+import Domain from '@material-ui/icons/Domain';
 import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import Note from '@material-ui/icons/Note';
 
 // The following list items populate the side nav on the dashboard page
 export const mainListItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
+    <ListItem button className='listBtn'>
+      <ListItemIcon className='listIcon'>
+        <AccountBox />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="Overview" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ShoppingCartIcon />
+    <ListItem button className='listBtn'>
+      <ListItemIcon className='listIcon'>
+        <PlaylistAddCheckTwoTone />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="Milestones" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
+    <ListItem button className='listBtn'>
+      <ListItemIcon className='listIcon'>
+        <Domain />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="Company Search" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
+    <ListItem button className='listBtn'>
+      <ListItemIcon className='listIcon'>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <ListItemText primary="Progress Tracker" />
     </ListItem>
   </div>
 );
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
+    <ListSubheader inset>Pinned Items</ListSubheader>
+    <ListItem button className='listBtn'>
+      <ListItemIcon className='listIcon'>
+        <Note />
       </ListItemIcon>
-      <ListItemText primary="Current month" />
+      <ListItemText primary="Find job" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
+    <ListItem button className='listBtn'>
+      <ListItemIcon className='listIcon'>
+        <Note />
       </ListItemIcon>
-      <ListItemText primary="Last quarter" />
+      <ListItemText primary="Interview" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
+    <ListItem button className='listBtn'>
+      <ListItemIcon className='listIcon'>
+        <Note />
       </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
+      <ListItemText primary="Land job" />
     </ListItem>
   </div>
 );
