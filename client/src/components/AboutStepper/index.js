@@ -22,12 +22,13 @@ const styles = theme => ({
       marginTop: theme.spacing.unit,
       marginRight: theme.spacing.unit,
       textTransform: 'lowercase',
+      outline: 'none',
       background: '#FF5C62',
       maxHeight: '25px',
       color: 'white',
       paddingLeft: '5%',
       paddingBottom: '1%',
-      marginLeft: '2.5%',
+      marginLeft: '1.5%',
     },
     actionsContainer: {
       marginBottom: theme.spacing.unit * 2,
@@ -45,6 +46,9 @@ const styles = theme => ({
     },
     typography: {
       paddingLeft: '2.25%',
+    },
+    topButton: {
+      marginLeft: '2.5%',
     },
 });
 
@@ -144,7 +148,7 @@ class AboutStepper extends React.Component {
           {activeStep === steps.length && (
             <Paper style={style} square elevation={0} className={classes.resetContainer}>
               <Typography className={classes.typography}>―――――</Typography>
-              <Button onClick={this.handleReset} className={classes.button}>
+              <Button onClick={this.handleReset} className={classes.topButton}>
                 top ↑
               </Button>
             </Paper>
