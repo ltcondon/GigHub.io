@@ -55,7 +55,7 @@ const styles = theme => ({
 const style = {
   background: 'rgba(0,0,0,0)',
   color: '#F7F4E9',
-  fontSize: '1.35rem',
+  fontSize: '1.2rem',
 }
   
 // Get steps returns the the values of the steps for each tab

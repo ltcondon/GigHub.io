@@ -1,6 +1,9 @@
 import React from 'react';
+import "./DashboardStyle.css";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+// import material-ui components used by this page
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -10,10 +13,10 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
+// import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import ExitToApp from '@material-ui/icons/ExitToApp';
 import { mainListItems, secondaryListItems } from './listItems';
 // import SimpleLineChart from './SimpleLineChart';
 import SimpleTable from './SimpleTable';
@@ -41,7 +44,9 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    maxHeight: 65
+    maxHeight: 65,
+    backgroundColor: '#F7F4E9',
+    color: 'black',
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -65,6 +70,8 @@ const styles = theme => ({
     position: 'relative',
     whiteSpace: 'nowrap',
     width: drawerWidth,
+    backgroundColor: '#F7F4E9',
+    color: 'black',
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -72,6 +79,8 @@ const styles = theme => ({
   },
   drawerPaperClose: {
     overflowX: 'hidden',
+    backgroundColor: '#F7F4E9',
+    color: 'black',
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -141,13 +150,15 @@ class Dashboard extends React.Component {
               noWrap
               className={classes.title}
             >
-              Welcome back, {this.props.location.state.firstName} {this.props.location.state.lastName}!
+              Welcome back, <span className="userName">{this.props.location.state.firstName} {this.props.location.state.lastName}</span>!
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            {/* <IconButton color="inherit"> */}
+              {/* <Badge badgeContent={4} color="secondary"> */}
+                <a className="logoutBtn" href="/">
+                  <ExitToApp />
+                </a>
+              {/* </Badge> */}
+            {/* </IconButton> */}
           </Toolbar>
         </AppBar>
         <Drawer
