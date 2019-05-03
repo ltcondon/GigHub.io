@@ -1,0 +1,11 @@
+.userName {
+    color: #FF5C62;
+}
+
+.logoutBtn {
+    color: black;
+}
+
+.logoutBtn:hover {
+    color: #FF5C62;
+}
