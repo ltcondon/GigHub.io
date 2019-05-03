@@ -10,7 +10,7 @@ function Navbar() {
       <Link className="navbar-brand" to="/">
         <Logo />
         <span className="logoText">
-        GigHub
+        <span id="g">G</span>ig<span id="h">H</span>ub
         </span>
       </Link>
       <div className="navLinks">

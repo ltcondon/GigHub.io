@@ -8,6 +8,7 @@ h1 {
     padding: 100px 0;
     font-size: 44px;
     text-align: center;
+    margin-bottom: -2%;
 }
   
 header h1 {
@@ -24,6 +25,7 @@ svg {
   
 .epicenter {
     color: #FF5C62;
+    font-weight: bold;
 }
 
 .subTitle {
