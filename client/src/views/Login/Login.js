@@ -130,7 +130,7 @@ class Login extends Component {
            <li className="nav-item">
             <Pulse forever duration={1650}>
              <Scrollchor to="#section-2" className="nav-link active" animate={{offset: 150, duration: 750}}>
-               <svg class="arrows">
+               <svg className="arrows">
                  <path d="M0 20 L20 42 L40 20"></path>
                  <path d="M0 40 L20 62 L40 40"></path>
                </svg>
