@@ -8,7 +8,8 @@ export default class CompanySearch extends Component {
 	// 	super(props);
 	// }
 
-$(document).ready(function(){
+// $(document).ready(function(){
+componentDidMount() {
 
     $(".do-search").click(searchCompanies);    
 });
@@ -92,7 +93,7 @@ render() {
 			<p>The first page of results will return the company ID, company name, and any field that contains the word "rating" in it. If a CEO record exists, return the CEO name and CEO rating.</p>  
 			<form>
 			  <div className="input-group">
-				<input id="input-search" type="text" className="form-control" placeholder="Search">
+				<input id="input-search" type="text" className="form-control" placeholder="Search" />
 				<div className="input-group-btn">
 				  <button id="btn-submit" className="btn btn-success do-search" type="submit">
 					<i className="glyphicon glyphicon-search"></i>
