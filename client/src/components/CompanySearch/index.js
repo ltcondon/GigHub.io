@@ -3,16 +3,15 @@ import React, { Component } from "react";
 var endpoint = "http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=177283&t.k=ffvMT8m8Fem&action=employers&userip=192.168.43.42&useragent=Mozilla/%2F4.0&callback=?";
 var currentPage = 1;
 
-export default class CompanySearch extends Component {
+class CompanySearch extends Component {
 	// constructor(props) {
 	// 	super(props);
 	// }
 
 // $(document).ready(function(){
 componentDidMount() {
-
     $(".do-search").click(searchCompanies);    
-});
+};
 
 // Function to kick off AJAX request:
 function searchCompanies(event){
@@ -137,3 +136,5 @@ render() {
 }
 
 }
+
+export default CompanySearch;
