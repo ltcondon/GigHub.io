@@ -1,4 +1,5 @@
 const db = require("../models");
+console.log("***", Object.keys(db));
 
 // Defining methods for the booksController
 module.exports = {
