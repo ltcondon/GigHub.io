@@ -78,7 +78,7 @@ function getStepContent(step) {
       default:
         return 'Unknown step';
     }
-  }
+}
   
 // Stepper component from React Material UI with some important info about our app to display on landing page
 class AboutStepper extends React.Component {
