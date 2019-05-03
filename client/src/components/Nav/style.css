@@ -5,6 +5,11 @@ nav.navbar.navbar-default {
 .logo-image {
     width: 50px;
     height: auto;
+    padding-bottom: 7%;
+}
+
+#g, #h {
+    font-size:1.22rem;
 }
 
 /* alternate color: #E3E3E3 */

@@ -14,9 +14,19 @@ import Fab from '@material-ui/core/Fab';
 import AngleJumbo from '../../components/AngleJumbo';
 import AboutStepper from '../../components/AboutStepper';
 
-// Import react-reveal methods for revealing content on scroll
+// Import react-reveal methods for revealing content with animations on scroll
 import Slide from 'react-reveal/Slide';
 import Fade from 'react-reveal/Fade';
+import Pulse from 'react-reveal/Pulse';
+
+// Inline styling that will be passed down to LinkedIn login button to override material ui styles
+const style = {
+  marginTop: '5%',
+  marginBottom: '5%',
+  position: 'absolute',
+  marginLeft: '-6%',
+  bottom: '85px',
+}
 
 // Login/landing page keeps track of user authentication state as well as user data pulled from the LinkedIn API
 class Login extends Component {
@@ -88,7 +98,7 @@ class Login extends Component {
 
   render() {
 
-    // Function checks state of component, and will redirect user to their dashboard if LinkedIn auth is successful and simultaneously pass down user info as props to the dashboard
+    // Function checks state of component, and will redirect user to their dashboard if LinkedIn auth is successful and simultaneously pass down user info as props to the dashboard page
     if (this.state.isAuthorized) {
         return <Redirect to={{
           pathname: '/dashboard', 
@@ -118,25 +128,31 @@ class Login extends Component {
         <div className="navbar justify-content-center down-arrow">
           <ul className="navbar-nav">
            <li className="nav-item">
-             <Scrollchor to="#section-2" className="nav-link active" animate={{offset: 100, duration: 675}}>
+            <Pulse forever duration={1650}>
+             <Scrollchor to="#section-2" className="nav-link active" animate={{offset: 150, duration: 750}}>
                <svg class="arrows">
                  <path d="M0 20 L20 42 L40 20"></path>
                  <path d="M0 40 L20 62 L40 40"></path>
                </svg>
              </Scrollchor>
+            </Pulse> 
             </li>
           </ul>
         </div>
         </Fade>
 
         <div className="App-body" id="section-2">
-          <AboutStepper />
-          <Fab variant="extended" aria-label="Delete" onClick={this.requestProfile} color='primary' className="login-btn">
-            <i className='fab fa-linkedin' color='primary'/>
-              <span className='login-text'>
-              Sign-in With LinkedIn
-              </span>
-          </Fab>
+          <Fade duration={2500} delay={250}>
+            <AboutStepper />
+          </Fade>
+
+            <Fab variant="extended" aria-label="Delete" onClick={this.requestProfile} color='primary' className="login-btn" style={style}>
+              <i className='fab fa-linkedin' color='primary'/>
+                <span className='login-text'>
+                Sign-in With LinkedIn
+                </span>
+            </Fab>
+            
         </div>
       </div>
       <LandingFooter />
@@ -146,19 +162,3 @@ class Login extends Component {
 }
 
 export default Login;
-
-// {this.state.isAuthorized &&
-//     (
-//         <ProfileCard
-//             firstName={this.state.firstName}
-//             // headline={this.state.headline}
-//             lastName={this.state.lastName}
-//             id={this.state.id}
-//             // profileURL={this.state.profileURL}
-//             pictureURL={this.state.pictureURL}
-//             // location={this.state.location}
-//             // positions={this.state.positions}
-//             // summary={this.state.summary}
-//             // connectionsCount={this.state.connectionsCount}
-//     />
-// )} 

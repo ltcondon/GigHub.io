@@ -10,26 +10,44 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import "./style.css";
 
-// Stepper component from React Material UI with some important info about our app to display on landing page
+// Styling that will be exported with the component
 const styles = theme => ({
     root: {
-      width: '90%',
+      width: '100%',
+      background: 'rgba(0,0,0,0)',
     },
     button: {
       marginTop: theme.spacing.unit,
       marginRight: theme.spacing.unit,
+      background: '#FF5C62',
+      maxHeight: '32px',
+      color: 'white',
     },
     actionsContainer: {
       marginBottom: theme.spacing.unit * 2,
+      background: 'rgba(0,0,0,0)',
     },
     resetContainer: {
       padding: theme.spacing.unit * 3,
     },
+    activeStep: {
+      background: '#FF5C62',
+    },
+    label: {
+      color: '#F7F4E9',
+      fontSize: '1.35rem',
+    },
 });
+
+const style = {
+  background: 'rgba(0,0,0,0)',
+  color: '#F7F4E9',
+  fontSize: '1.35rem',
+}
   
 // Get steps returns the the values of the steps for each tab
 function getSteps() {
-  return ['Track your milestones', 'All the essential info in one place', 'Never miss an opportunity'];
+  return ['Track and update your milestones', 'All the essential info in one place', 'Never miss an opportunity'];
 }
   
 // Switch case for determining which content to display based on step indice 
@@ -39,19 +57,17 @@ function getStepContent(step) {
       return `The job search can get overwhelming fast. How many applications have I sent out? Which companies have called me back? Do I have interviews coming up? We've got the tools you need to keep track of all this and more.`;
 
       case 1:
-      return 'GigHub tracks and visualizes your job search progression from start to finish.';
+      return `GigHub tracks and visualizes the progression of your job search from start to finish. See what people are saying about the work environment at the companies you've applied to, and track statistics for your application process.`;
 
       case 2:
-        return `Try out different ad text to see what brings in the most customers,
-                and learn how to enhance your ads using features like ad extensions.
-                If you run into any problems with your ads, find out how to tell if
-                they're running and how to resolve approval issues.`;
+        return `Knowing where you're at is as important as knowing where you're going. Sometimes that last-minute email after a phone-screen is enough to signal that you're really interested in working somewhere, and given how many applications you'll be sending out, it isn't always easy to remember where you're at in the process. Don't worry, GigHub's got you covered!`;
 
       default:
         return 'Unknown step';
     }
   }
   
+// Stepper component from React Material UI with some important info about our app to display on landing page
 class AboutStepper extends React.Component {
 
     // This component keeps track of which step is active so that each step can be linked to the one before it and the one after it for navigation purposes
@@ -86,13 +102,14 @@ class AboutStepper extends React.Component {
       const { activeStep } = this.state;
   
       return (
+      <div className="aboutStepper">
         <div className={classes.root}>
-          <Stepper activeStep={activeStep} orientation="vertical">
+          <Stepper style={style} activeStep={activeStep} orientation="vertical">
             {steps.map((label, index) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-                <StepContent>
-                  <Typography>{getStepContent(index)}</Typography>
+              <Step key={label} style={style}>
+                <StepLabel className={classes.label}>{label}</StepLabel>
+                <StepContent style={style}>
+                  <Typography style={style}>{getStepContent(index)}</Typography>
                   <div className={classes.actionsContainer}>
                     <div>
                       <Button
@@ -100,15 +117,14 @@ class AboutStepper extends React.Component {
                         onClick={this.handleBack}
                         className={classes.button}
                       >
-                        Back
+                        ←
                       </Button>
                       <Button
                         variant="contained"
-                        color="primary"
                         onClick={this.handleNext}
                         className={classes.button}
                       >
-                        {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                        {activeStep === steps.length - 1 ? '→' : '→'}
                       </Button>
                     </div>
                   </div>
@@ -117,14 +133,15 @@ class AboutStepper extends React.Component {
             ))}
           </Stepper>
           {activeStep === steps.length && (
-            <Paper square elevation={0} className={classes.resetContainer}>
-              <Typography>All steps completed - you&apos;re finished</Typography>
+            <Paper style={style} square elevation={0} className={classes.resetContainer}>
+              <Typography>Login with your LinkedIn to get started</Typography>
               <Button onClick={this.handleReset} className={classes.button}>
-                Reset
+                Top ↑
               </Button>
             </Paper>
           )}
         </div>
+      </div>
       );
     }
 }

@@ -7,7 +7,7 @@ const AngleJumbo = () => (
     <header>
       <h1>Welcome to the <span className="epicenter">epicenter</span> of your job search</h1>
 
-      <p className="subTitle">GigHub is here to help you land your next gig, so what are you waiting for?</p>
+      <p className="subTitle font-weight-bold">GigHub is here to help you land your next gig... <br/> <span className="font-italic">so what are you waiting for?</span></p>
 
     </header>
 
