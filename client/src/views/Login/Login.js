@@ -73,7 +73,7 @@ class Login extends Component {
       })
   }
 
-  // Open a sign-in window, which queries the LinkedIn API to get back an authorization token
+  // Open a sign-in window, which lets users enter sign-in info and then queries the LinkedIn API to get back an authorization token
   requestProfile = () => {
     var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.REACT_APP_CLIENT_ID}&scope=r_liteprofile%20r_emailaddress%20w_member_social&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`
 
@@ -130,7 +130,7 @@ class Login extends Component {
            <li className="nav-item">
             <Pulse forever duration={1650}>
              <Scrollchor to="#section-2" className="nav-link active" animate={{offset: 150, duration: 750}}>
-               <svg class="arrows">
+               <svg className="arrows">
                  <path d="M0 20 L20 42 L40 20"></path>
                  <path d="M0 40 L20 62 L40 40"></path>
                </svg>
@@ -149,7 +149,7 @@ class Login extends Component {
           <div className='mx-auto align-items-center'>
             <Fab variant="extended" aria-label="Delete" onClick={this.requestProfile} color='primary' className="login-btn grow" style={style}>
               <i className='fab fa-linkedin' color='primary'/>
-                <span className='login-text'>
+                <span className='login-text text-capitalize'>
                 Sign-in With LinkedIn
                 </span>
             </Fab>
