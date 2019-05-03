@@ -10,6 +10,7 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
+// The following list items populate the side nav on the dashboard page
 export const mainListItems = (
   <div>
     <ListItem button>

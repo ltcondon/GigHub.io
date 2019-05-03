@@ -3,6 +3,7 @@ import "./DashboardStyle.css";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+
 // import material-ui components used by this page
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -17,7 +18,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ExitToApp from '@material-ui/icons/ExitToApp';
-import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems, secondaryListItems } from '../../components/SideNavItems';
+import Avatar from '@material-ui/core/Avatar';
 // import SimpleLineChart from './SimpleLineChart';
 import SimpleTable from './SimpleTable';
 
@@ -106,17 +108,24 @@ const styles = theme => ({
   h5: {
     marginBottom: theme.spacing.unit * 2,
   },
+  avatar: {
+    
+  },
 });
 
+
 class Dashboard extends React.Component {
+  // Initial state is set to open, and will be set to closed when the sidenav is collapsed
   state = {
     open: true,
   };
 
+  // Handle opening side navigation bar...
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
 
+  // ...and handle closing it
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
@@ -143,6 +152,7 @@ class Dashboard extends React.Component {
             >
               <MenuIcon />
             </IconButton>
+            <Avatar alt="avatar picture" src={this.props.location.state.pictureURL} className={classes.avatar}/>
             <Typography
               component="h1"
               variant="h6"
@@ -152,13 +162,9 @@ class Dashboard extends React.Component {
             >
               Welcome back, <span className="userName">{this.props.location.state.firstName} {this.props.location.state.lastName}</span>!
             </Typography>
-            {/* <IconButton color="inherit"> */}
-              {/* <Badge badgeContent={4} color="secondary"> */}
                 <a className="logoutBtn" href="/">
                   <ExitToApp />
                 </a>
-              {/* </Badge> */}
-            {/* </IconButton> */}
           </Toolbar>
         </AppBar>
         <Drawer
@@ -173,7 +179,6 @@ class Dashboard extends React.Component {
               <ChevronLeftIcon />
             </IconButton>
           </div>
-          <Divider />
           <List>{mainListItems}</List>
           <Divider />
           <List>{secondaryListItems}</List>
