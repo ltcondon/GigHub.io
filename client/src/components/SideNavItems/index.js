@@ -15,33 +15,34 @@ import Note from '@material-ui/icons/Note';
 // The following list items populate the side nav on the dashboard page
 export const mainListItems = (
   <div>
-    <ListItem button id='overview' className='listBtn'>
+    <ListItem button id='overviewBtn' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <AccountBox />
       </ListItemIcon>
       <ListItemText primary='Overview' className='listTxt' />
     </ListItem>
-    <ListItem button id='milestones' className='listBtn'>
+    <ListItem button id='milestonesBtn' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <PlaylistAddCheckTwoTone />
       </ListItemIcon>
       <ListItemText primary='Milestones' className='listTxt' />
     </ListItem>
-    <ListItem button id='companySearch' className='listBtn'>
+    <ListItem button id='companiesBtn' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <Domain />
       </ListItemIcon>
-      <ListItemText primary='Company Search' className='listTxt' />
+      <ListItemText primary='Companies' className='listTxt' />
     </ListItem>
-    <ListItem button id='progressTracker' className='listBtn'>
+    <ListItem button id='progressBtn' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary='Progress Tracker' className='listTxt' />
+      <ListItemText primary='Progress' className='listTxt' />
     </ListItem>
   </div>
 );
 
+// Secondary list items are currently a stand-in for a to-do's/notes sections on the side nav
 export const secondaryListItems = (
   <div>
     <ListSubheader inset>To-Do's</ListSubheader>

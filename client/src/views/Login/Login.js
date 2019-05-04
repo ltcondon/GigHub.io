@@ -1,13 +1,13 @@
-import "./LoginStyle.css";
-import "react-s-alert/dist/s-alert-default.css";
-import "react-s-alert/dist/s-alert-css-effects/slide.css";
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import './LoginStyle.css';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import Scrollchor from 'react-scrollchor';
 
 // Import required components
 import BgPattern from '../../components/BgPattern';
-import Alert from "react-s-alert";
+import Alert from 'react-s-alert';
 import Nav from '../../components/Nav';
 import LandingFooter from '../../components/LandingFooter';
 import Fab from '@material-ui/core/Fab';

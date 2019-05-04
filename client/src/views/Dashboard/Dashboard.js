@@ -3,9 +3,10 @@ import "./DashboardStyle.css";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fade from 'react-reveal/Fade'; 
+import {BrowserRouter as HashRouter, Route, Switch} from 'react-router-dom';
 
-// import material-ui components used by this page
-import BgPattern from '../../components/BgPattern'
+// import components used by this page
+import BgPattern from '../../components/BgPattern';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -15,14 +16,13 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-// import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ExitToApp from '@material-ui/icons/ExitToApp';
 import { mainListItems, secondaryListItems } from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
 // import SimpleLineChart from './SimpleLineChart';
-// import SimpleTable from './SimpleTable';
+import SimpleTable from './SimpleTable';
 
 const drawerWidth = 200;
 
@@ -70,7 +70,6 @@ const styles = theme => ({
   },
   title: {
     flexGrow: 1,
-    fontWeight: 'bold',
   },
   drawerPaper: {
     position: 'relative',
@@ -143,7 +142,7 @@ class Dashboard extends React.Component {
         <CssBaseline />
         <BgPattern />
         <AppBar
-          position="absolute"
+          position='absolute'
           className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
         >
           <Toolbar disableGutters={!this.state.open} className={classes.toolbar}>
@@ -166,7 +165,7 @@ class Dashboard extends React.Component {
               noWrap
               className={classes.title}
             >
-              Welcome back, <span className="userName">{this.props.location.state.firstName} {this.props.location.state.lastName}</span>
+              Welcome back, <span className="userName">{this.props.location.state.firstName} {this.props.location.state.lastName}!</span>
             </Typography>
                 <a className="logoutBtn" href="/">
                   <ExitToApp />
@@ -195,7 +194,13 @@ class Dashboard extends React.Component {
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
-          
+          <HashRouter basename="/dashboard">
+            <div className='displayArea'>
+              <Switch>
+                <Route path="/table" component={SimpleTable}/>
+              </Switch>
+            </div>  
+          </HashRouter>
         </main>
       </div>
     );

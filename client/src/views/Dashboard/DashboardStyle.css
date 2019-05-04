@@ -26,6 +26,44 @@
     border-right: none !important;
 }
 
+.MuiTypography-subheading-85 {
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+}
+
+/* Underline From Left effect from Hover.css */
+.MuiTypography-subheading-85 {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+}
+
+.MuiTypography-subheading-85:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #FF5C62;
+  height: 3.5px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.MuiTypography-subheading-85:hover:before, .MuiTypography-subheading-85:focus:before, .MuiTypography-subheading-85:active:before {
+    right: 20px;
+}
+
 @media only screen and (min-width: 200px) and (max-width: 299px){ 
     .Dashboard-avatar-16 {
         margin-left: 0 !important;
@@ -74,6 +112,7 @@
     .MuiTypography-subheading-85 {
         font-size: 0.8rem !important;
     }
+
 }
 
 @media only screen and (min-width: 400px) and (max-width: 479px) {
@@ -116,7 +155,7 @@
     } 
 }
 
-@media only screen and (min-width: 768px) and (max-width: 992px){ 
+@media only screen and (min-width: 768px) and (max-width: 849px){ 
     .Dashboard-avatar-16 {
         margin-left: 16% !important;
         margin-right: -16% !important;
@@ -127,6 +166,17 @@
     }
 }
 
+@media only screen and (min-width: 850px) and (max-width: 992px) {
+    .Dashboard-avatar-16 {
+        margin-left: 22% !important;
+        margin-right: -22% !important;
+    }
+
+    .MuiTypography-h6-95 {
+        font-size: 1.37rem !important;
+    }
+}
+
 @media only screen and (min-width: 993px) and (max-width: 1140px) {
     .Dashboard-avatar-16 {
         margin-left: 28% !important;
@@ -134,17 +184,28 @@
     }
 
     .MuiTypography-h6-95 {
-        font-size: 1.26rem !important;
+        font-size: 1.37rem !important;
     }
 }
 
-@media only screen and (min-width: 1140px) {
+@media only screen and (min-width: 1140px) and (max-width: 1375px) {
     .Dashboard-avatar-16 {
         margin-left: 31% !important;
         margin-right: -28% !important;
     }
 
     .MuiTypography-h6-95 {
-        font-size: 1.3rem !important;
+        font-size: 1.4rem !important;
+    }
+}
+
+@media only screen and (min-width: 1376px) {
+    .Dashboard-avatar-16 {
+        margin-left: 33% !important;
+        margin-right: -33% !important;
+    }
+
+    .MuiTypography-h6-95 {
+        font-size: 1.4rem !important;
     }
 }
