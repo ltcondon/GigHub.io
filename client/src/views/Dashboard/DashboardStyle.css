@@ -26,14 +26,14 @@
     border-right: none !important;
 }
 
-.MuiTypography-subheading-85 {
+.MuiListItemText-primary-502 {
     font-family: 'Roboto Condensed', sans-serif !important;
     font-size: 0.9rem !important;
     text-transform: uppercase !important;
 }
 
 /* Underline From Left effect from Hover.css */
-.MuiTypography-subheading-85 {
+.MuiListItemText-primary-502 {
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -43,7 +43,7 @@
     overflow: hidden;
 }
 
-.MuiTypography-subheading-85:before {
+.MuiListItemText-primary-502:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -60,7 +60,7 @@
   transition-timing-function: ease-out;
 }
 
-.MuiTypography-subheading-85:hover:before, .MuiTypography-subheading-85:focus:before, .MuiTypography-subheading-85:active:before {
+.MuiListItemText-primary-502:hover:before, .MuiListItemText-primary-502:focus:before, .MuiListItemText-primary-502:active:before {
     right: 20px;
 }
 
@@ -84,7 +84,7 @@
         margin-right: -7%;
     }
 
-    .MuiTypography-subheading-85 {
+    .MuiListItemText-primary-502 {
         font-size: 0.8rem !important;
     }
 }
@@ -109,7 +109,7 @@
         margin-right: -5%;
     }
 
-    .MuiTypography-subheading-85 {
+    .MuiListItemText-primary-502 {
         font-size: 0.8rem !important;
     }
 
