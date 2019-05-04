@@ -24,7 +24,7 @@ import Avatar from '@material-ui/core/Avatar';
 // import SimpleLineChart from './SimpleLineChart';
 // import SimpleTable from './SimpleTable';
 
-const drawerWidth = 240;
+const drawerWidth = 218;
 
 const styles = theme => ({
   root: {

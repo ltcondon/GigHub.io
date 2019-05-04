@@ -54,18 +54,79 @@ nav.navbar.navbar-default {
     padding-left: 4%;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 479px){ 
-    
+@media only screen and (min-width: 200px) and (max-width: 299px){ 
+    .navLinks {
+        right: 0;
+        margin-left: 3%;
+    }
+
+    .navbar {
+        font-size: 14px;
+    }
+
+    .logo-image {
+        width: 28px;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 479px){ 
+    .navLinks {
+        right: 0;
+        margin-left: 13%;
+    }
+
+    .logo-image {
+        width: 32px;
+        height: auto;
+    }
+
+    .navbar {
+        font-size: 15px;
+    }
+
+    #g, #h {
+        font-size: 1rem;
+    }
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px){
-    
+    .navLinks {
+        right: 0;
+        margin-left: 45%;
+    }
+
+    .logo-image {
+        width: 42px;
+        height: auto;
+    }
+
+    .navbar {
+        font-size: 16.5px;
+    }
+
+    #g, #h {
+        font-size: 1.1rem;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px){ 
-    
+    .navLinks {
+        right: 0;
+        margin-left: 65%;
+    }
 }
 
 @media only screen and (min-width: 992px){
+    .navLinks {
+        right: 0;
+        margin-left: 82%;
+    }
+}
 
+@media only screen and (min-width: 993px) and (max-width: 1140px) {
+    .navLinks {
+        right: 0;
+        margin-left: 75%;
+    }
 }

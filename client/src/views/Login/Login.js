@@ -23,8 +23,6 @@ import Pulse from 'react-reveal/Pulse';
 const style = {
   marginTop: '5%',
   marginBottom: '5%',
-  position: 'absolute',
-  marginLeft: '-6%',
   bottom: '85px',
 }
 
@@ -117,7 +115,7 @@ class Login extends Component {
         <Nav />
         <Slide top duration={1300}>
           <div> 
-            <AngleJumbo />
+            <AngleJumbo className="angleJumbo"/>
           </div>
         </Slide> 
 
