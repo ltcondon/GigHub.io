@@ -1,13 +1,13 @@
-import "./LoginStyle.css";
-import "react-s-alert/dist/s-alert-default.css";
-import "react-s-alert/dist/s-alert-css-effects/slide.css";
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import './LoginStyle.css';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import Scrollchor from 'react-scrollchor';
 
 // Import required components
 import BgPattern from '../../components/BgPattern';
-import Alert from "react-s-alert";
+import Alert from 'react-s-alert';
 import Nav from '../../components/Nav';
 import LandingFooter from '../../components/LandingFooter';
 import Fab from '@material-ui/core/Fab';
@@ -23,8 +23,6 @@ import Pulse from 'react-reveal/Pulse';
 const style = {
   marginTop: '5%',
   marginBottom: '5%',
-  position: 'absolute',
-  marginLeft: '-6%',
   bottom: '85px',
 }
 
@@ -117,7 +115,7 @@ class Login extends Component {
         <Nav />
         <Slide top duration={1300}>
           <div> 
-            <AngleJumbo />
+            <AngleJumbo className="angleJumbo"/>
           </div>
         </Slide> 
 
