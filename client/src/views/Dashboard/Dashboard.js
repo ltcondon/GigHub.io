@@ -24,7 +24,7 @@ import Avatar from '@material-ui/core/Avatar';
 // import SimpleLineChart from './SimpleLineChart';
 // import SimpleTable from './SimpleTable';
 
-const drawerWidth = 218;
+const drawerWidth = 200;
 
 const styles = theme => ({
   root: {
@@ -62,9 +62,11 @@ const styles = theme => ({
   menuButton: {
     marginLeft: 12,
     marginRight: 36,
+    backgroundColor: '#FF5C62',
   },
   menuButtonHidden: {
     display: 'none',
+    color: '#FF5C62',
   },
   title: {
     flexGrow: 1,
@@ -111,7 +113,8 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 2,
   },
   avatar: {
-    
+    marginLeft: '35%',
+    marginRight: '-35%',
   },
 });
 
@@ -163,7 +166,7 @@ class Dashboard extends React.Component {
               noWrap
               className={classes.title}
             >
-              Welcome back, <span className="userName">{this.props.location.state.firstName} {this.props.location.state.lastName}</span>!
+              Welcome back, <span className="userName">{this.props.location.state.firstName} {this.props.location.state.lastName}</span>
             </Typography>
                 <a className="logoutBtn" href="/">
                   <ExitToApp />
@@ -192,16 +195,7 @@ class Dashboard extends React.Component {
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
-          {/* <Typography variant="h4" gutterBottom component="h2">
-            Orders
-          </Typography>
-
-          <Typography variant="h4" gutterBottom component="h2">
-            Products
-          </Typography>
-          <div className={classes.tableContainer}>
-            <SimpleTable />
-          </div> */}
+          
         </main>
       </div>
     );

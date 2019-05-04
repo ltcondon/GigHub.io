@@ -19,25 +19,25 @@ export const mainListItems = (
       <ListItemIcon className='listIcon'>
         <AccountBox />
       </ListItemIcon>
-      <ListItemText primary='Overview' />
+      <ListItemText primary='Overview' className='listTxt' />
     </ListItem>
     <ListItem button id='milestones' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <PlaylistAddCheckTwoTone />
       </ListItemIcon>
-      <ListItemText primary='Milestones' />
+      <ListItemText primary='Milestones' className='listTxt' />
     </ListItem>
     <ListItem button id='companySearch' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <Domain />
       </ListItemIcon>
-      <ListItemText primary='Company Search' />
+      <ListItemText primary='Company Search' className='listTxt' />
     </ListItem>
     <ListItem button id='progressTracker' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary='Progress Tracker' />
+      <ListItemText primary='Progress Tracker' className='listTxt' />
     </ListItem>
   </div>
 );
