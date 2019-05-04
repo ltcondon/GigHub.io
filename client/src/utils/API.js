@@ -11,11 +11,11 @@ export default {
     return axios.post('/api/jobs', jobData);
   },
 
-  getJobs: function () {
-    return axios.get('/api/jobs/saved')
-  }
+  // getJobs: function () {
+  //   return axios.get('/api/jobs/saved')
+  // },
 
-  // deleteBook: function (id) {
-  //   return axios.delete(`/api/books/saved/${id}`)
-  // }
+  getUserJobs: function (id) {
+    return axios.get(`/api/jobs/${id}`)
+  }
 };

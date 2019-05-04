@@ -10,7 +10,8 @@ const JobSchema = new Schema({
     updatedAt: {type: Date, default: Date.now},
   }],
   createdAt: {type: Date, default: Date.now},
-  hired: {type: Boolean, default: false}
+  hired: {type: Boolean, default: false},
+  userID: {type: String, required: true }
 });
 
 module.exports = mongoose.model('Job', JobSchema);
