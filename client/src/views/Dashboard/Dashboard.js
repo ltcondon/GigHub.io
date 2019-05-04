@@ -9,7 +9,7 @@ import { createBrowserHistory } from "history";
 
 // import components used by this page
 import BgPattern from '../../components/BgPattern';
-// import CompanySearch from '../../components/CompanySearch';
+import CompanySearch from '../../components/CompanySearch';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -39,7 +39,7 @@ const routes = [
   },
   {
     path: "/dashboard/companies",
-    main: () => <h1>Companies search goes here once it's updated to be a react component lol</h1>
+    main: () => <CompanySearch />
   },
   {
     path: "/dashboard/progress",
