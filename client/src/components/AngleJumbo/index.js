@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade';
 const AngleJumbo = () => (
   <div className="angled"> 
     <header>
-      <Fade cascade delay={435} duration={4250}>
+      <Fade cascade delay={435} duration={3750}>
         <h1>Welcome to the <span className="epicenter">epicenter</span> of your job search</h1>
       </Fade>
 

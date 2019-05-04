@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Fade from 'react-reveal/Fade'; 
 
 // import material-ui components used by this page
+import BgPattern from '../../components/BgPattern'
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -67,6 +68,7 @@ const styles = theme => ({
   },
   title: {
     flexGrow: 1,
+    fontWeight: 'bold',
   },
   drawerPaper: {
     position: 'relative',
@@ -136,6 +138,7 @@ class Dashboard extends React.Component {
     return (
       <div className={classes.root}>
         <CssBaseline />
+        <BgPattern />
         <AppBar
           position="absolute"
           className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
