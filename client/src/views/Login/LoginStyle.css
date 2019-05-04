@@ -108,26 +108,18 @@ third: #A767CF
 third: #C06CD6 */
 
 @media only screen and (min-width: 300px) and (max-width: 479px){ 
-    .angleJumbo {
-        font-size: 1rem;
-    }
+    
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px){
-    .angleJumbo {
-        font-size: 1rem;
-    }
+   
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px){ 
-    .angleJumbo {
-        font-size: 1rem;
-    }
+    
 }
 
 @media only screen and (min-width: 992px){
-    .angleJumbo {
-        font-size: 1rem;
-    }
+    
 }
 

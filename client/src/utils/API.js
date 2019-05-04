@@ -1,10 +1,12 @@
 import axios from 'axios';
 
+// const endpoint = "http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=177283&t.k=ffvMT8m8Fem&action=employers&userip=192.168.43.42&useragent=Mozilla/%2F4.0&callback=?";
+
 export default {
-  // getGoogleBooks: function (search) {
-  //   console.log("request sent");
-  //   return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=15`)
-  // },
+
+  searchGlassdoor: function(search) {
+    return axios.get(`http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=177283&t.k=ffvMT8m8Fem&action=employers&userip=192.168.43.42&useragent=Mozilla/%2F4.0&callback=?${search}`)
+  },
 
   saveJob: function (jobData) {
     console.log(jobData);
@@ -15,7 +17,4 @@ export default {
     return axios.get('/api/jobs/saved')
   }
 
-  // deleteBook: function (id) {
-  //   return axios.delete(`/api/books/saved/${id}`)
-  // }
 };
