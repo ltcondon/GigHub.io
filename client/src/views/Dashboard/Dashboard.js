@@ -3,6 +3,7 @@ import "./DashboardStyle.css";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fade from 'react-reveal/Fade'; 
+import { Redirect } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 
@@ -24,6 +25,7 @@ import ExitToApp from '@material-ui/icons/ExitToApp';
 import { mainListItems, secondaryListItems } from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
 import SimpleTable from '../../components/SimpleTable';
+import { ListItem } from '@material-ui/core';
 
 // This array of routes correspond to the content in the main display area contained by the nav components, which will be accessed by index position
 const routes = [
@@ -33,7 +35,7 @@ const routes = [
   },
   {
     path: "/dashboard/milestones",
-    main: () => <h2>milestones</h2>
+    main: () => <h2>My Jobs</h2>
   },
   {
     path: "/dashboard/companies",
@@ -41,7 +43,7 @@ const routes = [
   },
   {
     path: "/dashboard/progress",
-    main: () => <h2>progress</h2>
+    main: () => <h2>Analytics</h2>
   }
 ];
 
@@ -153,12 +155,43 @@ class Dashboard extends React.Component {
     this.setState({ open: true });
   };
 
+  addJob = () => {
+    this.setState({ jobClicked: true });
+  };
+
   // ...and handle closing it
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
+  
+  componentDidMount() {
+    this.setState({ id: this.props.location.state.id })
+  }
 
   render() {
+
+    // Function checks state of component, and will redirect user to the add page
+    if (this.state.jobClicked) {
+      return <Redirect to={{
+        pathname: '/add', 
+        state: {
+          id: this.state.id,
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          pictureURL: this.state.pictureURL
+        }
+      }}  
+      />
+    }
+
+    // Redirects to Log-In if no username is found
+    else if (!this.props.location.state) {
+      return <Redirect to={{
+        pathname: '/'
+      }}  
+      />
+  }
+
     const { classes } = this.props;
     console.log(`Username: ${this.props.location.state.firstName} ${this.props.location.state.lastName}`)
     return (
@@ -214,6 +247,10 @@ class Dashboard extends React.Component {
             <List>{mainListItems}</List>
             <Divider />
             <List>{secondaryListItems}</List>
+            <Divider />
+            <List>
+              <ListItem button id='milestonesBtn' className='listBtn' onClick={this.addJob}>Add a Job</ListItem>
+            </List>
           </Fade>
 
         </Drawer>
