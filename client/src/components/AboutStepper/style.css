@@ -3,3 +3,16 @@
     margin-top: 7.5%;
     background-color: #F7F4E9;
 }
+
+button {
+    outline: none !important;
+}
+
+.MuiSvgIcon-root-61 {
+    color: #FF5C62 !important;
+}
+
+.MuiStepLabel-label-48 {
+    color: #F7F4E9 !important;
+    font-size: 1.5rem !important;
+}

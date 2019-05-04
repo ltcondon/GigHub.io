@@ -26,6 +26,7 @@ svg {
 .epicenter {
     color: #FF5C62;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .subTitle {

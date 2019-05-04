@@ -43,7 +43,7 @@
 }
 
 .login-btn {
-    margin-top: 2%;
+    margin-top: 3.5%;
     background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
     background-size: 400% 400%;
       -webkit-animation: Gradient 3.75s ease infinite;
@@ -58,8 +58,8 @@
       animation: Gradient 2.75s ease infinite;
 }
 
-.MuiFab-extended-152 {
-    margin-top: 15%;
+.btn-container {
+    margin-top: 7.5%;
 }
 
 

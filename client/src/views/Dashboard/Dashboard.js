@@ -2,7 +2,7 @@ import React from 'react';
 import "./DashboardStyle.css";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
+import Fade from 'react-reveal/Fade'; 
 
 // import material-ui components used by this page
 import { withStyles } from '@material-ui/core/styles';
@@ -21,7 +21,7 @@ import ExitToApp from '@material-ui/icons/ExitToApp';
 import { mainListItems, secondaryListItems } from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
 // import SimpleLineChart from './SimpleLineChart';
-import SimpleTable from './SimpleTable';
+// import SimpleTable from './SimpleTable';
 
 const drawerWidth = 240;
 
@@ -179,13 +179,17 @@ class Dashboard extends React.Component {
               <ChevronLeftIcon />
             </IconButton>
           </div>
-          <List>{mainListItems}</List>
-          <Divider />
-          <List>{secondaryListItems}</List>
+
+          <Fade left>
+            <List>{mainListItems}</List>
+            <Divider />
+            <List>{secondaryListItems}</List>
+          </Fade>
+
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
-          <Typography variant="h4" gutterBottom component="h2">
+          {/* <Typography variant="h4" gutterBottom component="h2">
             Orders
           </Typography>
 
@@ -194,7 +198,7 @@ class Dashboard extends React.Component {
           </Typography>
           <div className={classes.tableContainer}>
             <SimpleTable />
-          </div>
+          </div> */}
         </main>
       </div>
     );
@@ -206,26 +210,3 @@ Dashboard.propTypes = {
 };
 
 export default withStyles(styles)(Dashboard);
-
-// ==========================================================================
-
-// class Dashboard extends React.Component {
-//       state = {
-//         open: true,
-//       };
-    
-
-// render() {
-//     return (
-//         <div className="container" style={{backgroundColor: "Red"}}>
-//         <IconButton onClick={this.handleDrawerClose}>
-//             <ChevronLeftIcon />
-//         </IconButton>
-//     </div>
-
-//     )
-//   }
-// }
-
-       
-// export default Dashboard;

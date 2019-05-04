@@ -1,5 +1,6 @@
 import React from 'react';
-import './style.css'
+import './style.css';
+
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -10,56 +11,57 @@ import Domain from '@material-ui/icons/Domain';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import Note from '@material-ui/icons/Note';
 
+
 // The following list items populate the side nav on the dashboard page
 export const mainListItems = (
   <div>
-    <ListItem button className='listBtn'>
+    <ListItem button id='overview' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <AccountBox />
       </ListItemIcon>
-      <ListItemText primary="Overview" />
+      <ListItemText primary='Overview' />
     </ListItem>
-    <ListItem button className='listBtn'>
+    <ListItem button id='milestones' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <PlaylistAddCheckTwoTone />
       </ListItemIcon>
-      <ListItemText primary="Milestones" />
+      <ListItemText primary='Milestones' />
     </ListItem>
-    <ListItem button className='listBtn'>
+    <ListItem button id='companySearch' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <Domain />
       </ListItemIcon>
-      <ListItemText primary="Company Search" />
+      <ListItemText primary='Company Search' />
     </ListItem>
-    <ListItem button className='listBtn'>
+    <ListItem button id='progressTracker' className='listBtn'>
       <ListItemIcon className='listIcon'>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Progress Tracker" />
+      <ListItemText primary='Progress Tracker' />
     </ListItem>
   </div>
 );
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Pinned Items</ListSubheader>
+    <ListSubheader inset>To-Do's</ListSubheader>
     <ListItem button className='listBtn'>
       <ListItemIcon className='listIcon'>
         <Note />
       </ListItemIcon>
-      <ListItemText primary="Find job" />
+      <ListItemText primary='Find job' />
     </ListItem>
     <ListItem button className='listBtn'>
       <ListItemIcon className='listIcon'>
         <Note />
       </ListItemIcon>
-      <ListItemText primary="Interview" />
+      <ListItemText primary='Interview' />
     </ListItem>
     <ListItem button className='listBtn'>
       <ListItemIcon className='listIcon'>
         <Note />
       </ListItemIcon>
-      <ListItemText primary="Land job" />
+      <ListItemText primary='Land job' />
     </ListItem>
   </div>
 );
