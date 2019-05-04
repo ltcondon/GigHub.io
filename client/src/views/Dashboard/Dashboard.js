@@ -3,10 +3,12 @@ import "./DashboardStyle.css";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fade from 'react-reveal/Fade'; 
-import {BrowserRouter as HashRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { createBrowserHistory } from "history";
 
 // import components used by this page
 import BgPattern from '../../components/BgPattern';
+// import CompanySearch from '../../components/CompanySearch';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -21,8 +23,30 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ExitToApp from '@material-ui/icons/ExitToApp';
 import { mainListItems, secondaryListItems } from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
-// import SimpleLineChart from './SimpleLineChart';
-import SimpleTable from './SimpleTable';
+import SimpleTable from '../../components/SimpleTable';
+
+// This array of routes correspond to the content in the main display area contained by the nav components, which will be accessed by index position
+const routes = [
+  {
+    path: "/dashboard/overview",
+    main: () => <SimpleTable />
+  },
+  {
+    path: "/dashboard/milestones",
+    main: () => <h2>milestones</h2>
+  },
+  {
+    path: "/dashboard/companies",
+    main: () => <h1>Companies search goes here once it's updated to be a react component lol</h1>
+  },
+  {
+    path: "/dashboard/progress",
+    main: () => <h2>progress</h2>
+  }
+];
+
+// Create history so that user can navigate back using their browser 
+const customHistory = createBrowserHistory();
 
 const drawerWidth = 200;
 
@@ -138,6 +162,7 @@ class Dashboard extends React.Component {
     const { classes } = this.props;
     console.log(`Username: ${this.props.location.state.firstName} ${this.props.location.state.lastName}`)
     return (
+    <Router history={customHistory}> 
       <div className={classes.root}>
         <CssBaseline />
         <BgPattern />
@@ -181,7 +206,7 @@ class Dashboard extends React.Component {
         >
           <div className={classes.toolbarIcon}>
             <IconButton onClick={this.handleDrawerClose}>
-              <ChevronLeftIcon />
+              <ChevronLeftIcon className={classes.chevronIcon}/>
             </IconButton>
           </div>
 
@@ -194,15 +219,17 @@ class Dashboard extends React.Component {
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
-          <HashRouter basename="/dashboard">
-            <div className='displayArea'>
-              <Switch>
-                <Route path="/table" component={SimpleTable}/>
-              </Switch>
-            </div>  
-          </HashRouter>
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              component={route.main}
+            />
+          ))}
         </main>
       </div>
+    </Router>   
     );
   }
 }
