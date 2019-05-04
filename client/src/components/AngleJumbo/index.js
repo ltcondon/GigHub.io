@@ -1,11 +1,15 @@
 import React from "react";
 import "./style.css";
 
+import Fade from 'react-reveal/Fade';
+
 // AngleJumbo component with a triangular shape for use on landing page
 const AngleJumbo = () => (
   <div className="angled"> 
     <header>
-      <h1>Welcome to the <span className="epicenter">epicenter</span> of your job search</h1>
+      <Fade cascade delay={435} duration={4250}>
+        <h1>Welcome to the <span className="epicenter">epicenter</span> of your job search</h1>
+      </Fade>
 
       <p className="subTitle font-weight-bold">GigHub is here to help you land your next gig... <br/> <span className="font-italic">so what are you waiting for?</span></p>
 

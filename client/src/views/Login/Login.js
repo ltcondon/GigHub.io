@@ -67,9 +67,6 @@ class Login extends Component {
         lastName: profile.lastName.localized.en_US,
         id: profile.id,
         pictureURL: profile.profilePicture["displayImage~"].elements[3].identifiers[0].identifier
-        // headline: profile.headline.localized[`${profile.headline.preferredLocale.language}_${profile.headline.preferredLocale.country}`],
-        // profileUrl: `https://www.linkedin.com/in/${profile.vanityName}`,
-        // summary: profile.summary.localized[`${profile.summary.preferredLocale.language}_${profile.summary.preferredLocale.country}`].rawText
       })
   }
 
@@ -118,7 +115,7 @@ class Login extends Component {
         <BgPattern />
 
         <Nav />
-        <Slide top>
+        <Slide top duration={1300}>
           <div> 
             <AngleJumbo />
           </div>
@@ -129,7 +126,7 @@ class Login extends Component {
           <ul className="navbar-nav">
            <li className="nav-item">
             <Pulse forever duration={1650}>
-             <Scrollchor to="#section-2" className="nav-link active" animate={{offset: 150, duration: 750}}>
+             <Scrollchor to="#section-2" className="nav-link active" animate={{offset: -75, duration: 700}}>
                <svg className="arrows">
                  <path d="M0 20 L20 42 L40 20"></path>
                  <path d="M0 40 L20 62 L40 40"></path>
@@ -146,7 +143,7 @@ class Login extends Component {
             <AboutStepper />
           </Fade>
 
-          <div className='mx-auto align-items-center'>
+          <div className='mx-auto align-items-center btn-container'>
             <Fab variant="extended" aria-label="Delete" onClick={this.requestProfile} color='primary' className="login-btn grow" style={style}>
               <i className='fab fa-linkedin' color='primary'/>
                 <span className='login-text text-capitalize'>

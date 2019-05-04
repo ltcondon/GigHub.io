@@ -11,7 +11,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg sticky-top landingNav">
       <Link className="navbar-brand" to="/">
         <Logo />
-          <Fade top cascade>
+          <Fade top duration={1650}>
             <span className="logoText">
               <span id="g">G</span>ig<span id="h">H</span>ub
             </span>
