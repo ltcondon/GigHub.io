@@ -14,5 +14,14 @@ button {
 
 .MuiStepLabel-label-48 {
     color: #F7F4E9 !important;
+    text-transform: uppercase !important;
     font-size: 1.5rem !important;
+}
+
+.textBody {
+    text-align: justify !important;
+    padding-top: 2.75% !important;
+    padding-bottom: 2.75% !important;
+    padding-left: 5.5% !important;
+    padding-right: 5.5% !important;
 }

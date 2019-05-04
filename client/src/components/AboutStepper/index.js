@@ -122,7 +122,7 @@ class AboutStepper extends React.Component {
               <Step key={label} style={style}>
                 <StepLabel className={classes.label}>{label}</StepLabel>
                 <StepContent style={style}>
-                  <Typography style={style}>{getStepContent(index)}</Typography>
+                  <Typography style={style} className='textBody'>{getStepContent(index)}</Typography>
                   <div className={classes.actionsContainer}>
                     <div>
                       <Button
