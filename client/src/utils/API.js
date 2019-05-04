@@ -13,8 +13,14 @@ export default {
     return axios.post('/api/jobs', jobData);
   },
 
-  getJobs: function () {
-    return axios.get('/api/jobs/saved')
+  // getJobs: function () {
+  //   return axios.get('/api/jobs/saved')
+  // },
+
+
+
+  getUserJobs: function (id) {
+    return axios.get(`/api/jobs/${id}`)
   }
 
 };

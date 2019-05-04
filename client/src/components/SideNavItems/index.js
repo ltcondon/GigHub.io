@@ -30,7 +30,7 @@ export const mainListItems = (
         <ListItemIcon className='listIcon'>
           <PlaylistAddCheckTwoTone />
         </ListItemIcon>
-        <ListItemText primary='Milestones' className='listTxt' />
+        <ListItemText primary='My Jobs' className='listTxt' />
       </ListItem>
     </Link>
 
@@ -48,7 +48,7 @@ export const mainListItems = (
         <ListItemIcon className='listIcon'>
           <BarChartIcon />
         </ListItemIcon>
-        <ListItemText primary='Progress' className='listTxt' />
+        <ListItemText primary='Analytics' className='listTxt' />
       </ListItem>
     </Link>
   </div>

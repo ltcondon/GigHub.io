@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import API from '../../utils/API'
+import { Redirect } from 'react-router-dom';
+
 
 export default class CreateApp extends Component {
     constructor(props) {
@@ -24,6 +26,12 @@ export default class CreateApp extends Component {
             createdAt: ''
         }
     }
+
+    componentDidMount() {
+        this.setState({
+            userID: this.props.location.state.id
+        });
+    };
 
     onChangeCompany(e) {
         this.setState({
@@ -51,7 +59,9 @@ export default class CreateApp extends Component {
         console.log(`Role: ${this.state.role}`);
         console.log(`Status: ${this.state.position}`);
         console.log(`Updated: ${this.state.status.updatedAt}`);
-        console.log(`Date: ${this.state.createdAt}`);
+        console.log(`Date: ${new Date()}`);
+        console.log(`UserID: ${this.props.location.state.id}`);
+
 
         const newJob = {
             company: this.state.company,
@@ -59,10 +69,11 @@ export default class CreateApp extends Component {
             status: [
                 {
                     position: this.state.position,
-                    updated: this.state.status.updatedAt
+                    updated: new Date(),
                 }
             ],
-            date: this.state.createdAt
+            date: this.state.createdAt,
+            userID: this.props.location.state.id
         };
 
         console.log(newJob);
@@ -74,7 +85,16 @@ export default class CreateApp extends Component {
         .then(res => {
             console.log(res.status, res.statusText);
             alert('Job Added!', {type: 'success'})
-          })
+            API.getUserJobs(this.props.location.state.id)
+            .then(userJobs => {
+                userJobs.data.map(userJob => {
+                    return console.log(userJob);
+
+                })
+                // console.log(userJobs.data);
+            })
+        })
+          
 
         this.setState({
             company: '',
@@ -90,6 +110,14 @@ export default class CreateApp extends Component {
 
 
     render() {
+
+        // Redirects to Log-In if no username is found
+        if (!this.props.location.state) {
+            return <Redirect to={{
+            pathname: '/'
+            }}  
+            />
+        }
         return (
             <div style={{ marginTop: 10 }}>
                 <h3>Create Job</h3>
