@@ -8,40 +8,41 @@ import Jumbotron from '../Jumbotron';
 
 const formatResults = glassdoorApiResults => {
 	const resultsArray = [];
-	// console.log(glassdoorApiResults);
-	glassdoorApiResults.map(company => {
+	
+	console.log(glassdoorApiResults);
 
-		// Formatted company object that can then be mapped to the company card component for display
-		const formattedCompany = {
-			name: company.employer.name,
-			ceo: company.employer.ceo && company.employer.ceo.name
-				? company.employer.ceo.name
-				: ['Could not find CEO'],
-			ceoPic: company.employer.ceo.image && company.employer.ceo.image.src 
-				? company.employer.ceo.image.src 
-				: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/170px-No_image_available.svg.png',	
-			overall: company.employer.overallRating,
-			opportunities: company.employer.careerOpportunitiesRating,
-			compensation: company.employer.compensationAndBenefitsRating,
-			culture: company.employer.cultureAndValuesRating,
-			totalRatings: company.employer.numberOfRatings,
-			workLife: company.employer.workLifeBalanceRating,
-			website: company.employer.website,
-			ceoRating: company.employer.ceo && company.employer.ceo.name && company.employer.ceo.numberOfRatings
-				? company.employer.ceo.pctApprove
-				: company.employer.ceo && company.employer.ceo.name
-				? "No Ceo Data"
-				: "",
-		};
+	const dataPath = glassdoorApiResults.response.employers;
 
-		resultsArray.push(formattedCompany);
-		return resultsArray;
-	});
+	// Formatted company object that can then be mapped to the company card component for display
+	const formattedCompany = {
+		name: dataPath[0].name,
+		logo: dataPath[0].squareLogo,
+		ceo: dataPath[0].ceo && dataPath[0].ceo.name
+			? dataPath[0].ceo.name
+			: ['Could not find CEO'],
+		ceoPic: dataPath[0].ceo.image && dataPath[0].ceo.image.src 
+			? dataPath[0].ceo.image.src 
+			: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/170px-No_image_available.svg.png',	
+		overall: dataPath[0].overallRating,
+		opportunities: dataPath[0].careerOpportunitiesRating,
+		compensation: dataPath[0].compensationAndBenefitsRating,
+		culture: dataPath[0].cultureAndValuesRating,
+		totalRatings: dataPath[0].numberOfRatings,
+		workLife: dataPath[0].workLifeBalanceRating,
+		website: dataPath[0].website,
+		ceoRating: dataPath[0].ceo && dataPath[0].ceo.name && dataPath[0].ceo.numberOfRatings
+			? dataPath[0].ceo.pctApprove
+			: dataPath[0].ceo && dataPath[0].ceo.name
+			? "No Ceo Data"
+			: "",
+	};
+
+	resultsArray.push(formattedCompany);
 	return resultsArray;
 };
 
 
-// Company search is a stateful component that queries the Glassdoor API to get back employer/company data
+// Company search is a stateful component that queries the Glassdoor API to get back employers/company data
 class CompanySearch extends Component {
 
   // Initial state is an empty array for holding api search results

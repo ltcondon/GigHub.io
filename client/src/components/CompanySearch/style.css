@@ -43,12 +43,21 @@
     color: black;
 }
 
-.glassdoorLogo {
-    padding-top: 2%;
+#glassdoorLogo {
+    padding-top: 3%;
+    font-size: 0.9rem;
 }
 
 #btn-submit:hover {
     background-color: #FF5C62;
+}
+
+#btn-submit:hover > .searchIcon {
+    transform: scale(1.2);
+}
+
+.searchIcon {
+    transition: transform 0.35s ease-in-out;
 }
 
 

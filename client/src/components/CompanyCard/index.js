@@ -7,10 +7,11 @@ function Card(props) {
     <div className="row mb-5">
       <div className="col-lg-12">
         {/* map over the company from the company state that was passed down to create cards for each company in the array */}
-        {props.company.map(company => (
-          <div className="card mt-4" key={company._id}>
+        {props.companies.map(company => (
+          <div className="card mt-4 company-card" key={company._id}>
             <div className="card-body">
-              <h5 className="card-title">Company: {company.name}</h5>
+              <img src={company.logo} className="company-logo" alt='company logo' />
+              <h5 className="card-title">{company.name}</h5>
               <h6 className="card-subtitle mb-2 text-muted">Overall rating: {company.overall}</h6>
               <div className="media">
                 <img src={company.ceoPic} className="align-self-center mr-3" alt="ceo headshot"/>
@@ -18,8 +19,8 @@ function Card(props) {
                   <h6 className="mt-0">CEO: {company.ceo}</h6>
                   <p>CEO Rating: {company.ceoRating}</p>
                   <ul className="ratingsList">
-                     <li>Compensation: {company.compensation}</li> 
-                     <li>Work/Life Balance: {company.workLife}</li>
+                     <li key={company.compensation}>Compensation: {company.compensation}</li> 
+                     <li key={company.workLife}>Work/Life Balance: {company.workLife}</li>
                   </ul>
                 </div>
               </div>
