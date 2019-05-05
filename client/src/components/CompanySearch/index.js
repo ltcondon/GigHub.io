@@ -81,7 +81,7 @@ class CompanySearch extends Component {
 		  </Jumbotron>
 			<form>
 			  <div className="input-group searchForm">
-				<input value={this.state.company} onChange={this.handleInputChange} id="input-search" type="text" className="form-control" placeholder="Search" />
+				<input value={this.state.company} onChange={this.handleInputChange} name="company" id="input-search" type="text" className="form-control" placeholder="Search" />
 
 				<button id="btn-submit" className="btn searchGlassdoor" type="submit" onClick={this.handleFormSubmit}>
 					<SearchIcon className="searchIcon" />
