@@ -1,11 +1,42 @@
-.glassJumbo {
-    height: 20vw;
+.jumbotron {
+    height: 250px;
+    width: 75vw;
+    color: #F2E6C6;
+    margin-bottom: 5px;
+    padding-top: 55px;
+    font-family: 'Roboto Condensed', sans-serif;
     background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
     background-size: 400% 400%;
       -webkit-animation: Gradient 4.2s ease infinite;
       -moz-animation: Gradient 4.2s ease infinite;
       animation: Gradient 4.2s ease infinite;
 }
+
+.jumbotron h1 {
+    padding: 0;
+}
+
+.searchForm {
+    width: 75vw;
+}
+
+.noResults {
+    padding-top: 5%;
+    color: #F2E6C6;
+}
+
+.subHead {
+    padding-top: 5%;
+}
+
+.searchGlassdoor {
+    color: #F2E6C6;
+}
+
+.searchGlassdoor:hover {
+    color: #FF5C62;
+}
+
 
 /* gradient animations are for the glassdoor jumbotron*/
 @-webkit-keyframes Gradient {
