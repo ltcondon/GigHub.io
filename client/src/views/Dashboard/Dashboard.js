@@ -29,6 +29,7 @@ import SimpleTable from '../../components/SimpleTable';
 import { ListItem } from '@material-ui/core';
 
 // This array of routes correspond to the content in the main display area contained by the nav components, which will be accessed by index position
+
 const routes = [
   {
     path: "/dashboard/overview",
@@ -44,7 +45,7 @@ const routes = [
   // },
   {
     path: "/dashboard/addJob",
-    main: () => <CreateApp/>
+    main: () => <CreateApp id={this.state.id}/>
   },
   {
     path: "/dashboard/progress",

@@ -28,7 +28,7 @@ export default class CreateApp extends Component {
     }
 
     componentDidMount() {
-        this.setState(...this.props);
+        this.setState({id: this.props.id});
     };
 
     onChangeCompany(e) {
@@ -118,7 +118,7 @@ export default class CreateApp extends Component {
         // }
         return (
             <div style={{ marginTop: 10 }}>
-                <h3>Create Job</h3>
+                <h3>Create Job ID={this.state.id}</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Company: </label>
