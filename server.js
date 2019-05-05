@@ -3,13 +3,17 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-var path = require('path');
+const path = require('path');
 
 mongoose.set('useCreateIndex', true);
 
-// view engine setup
+// View engine setup
 app.set('views', path.join(__dirname, 'client/src/views'));
 app.set('view engine', 'ejs');
+
+// Require and tell app to use cors to prevent blocking of requests
+// const cors = require('cors');
+// app.use(cors);
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
