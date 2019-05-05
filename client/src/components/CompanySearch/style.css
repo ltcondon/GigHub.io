@@ -1,7 +1,7 @@
 .jumbotron {
     height: 250px;
     width: 75vw;
-    color: #F2E6C6;
+    color: #F7F4E9;
     margin-bottom: 5px;
     padding-top: 55px;
     font-family: 'Roboto Condensed', sans-serif;
@@ -15,6 +15,7 @@
 .jumbotron h1 {
     padding: 0;
     font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
 }
 
 .jumbotron p {
@@ -27,7 +28,7 @@
 
 .noResults {
     padding-top: 5%;
-    color: #F2E6C6;
+    color: #F7F4E9;
     font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
 }
@@ -38,8 +39,12 @@
 }
 
 .searchGlassdoor {
-    background-color: #F2E6C6;
+    background-color: #F7F4E9;
     color: black;
+}
+
+.glassdoorLogo {
+    padding-top: 2%;
 }
 
 #btn-submit:hover {

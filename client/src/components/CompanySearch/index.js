@@ -11,7 +11,7 @@ const formatResults = glassdoorApiResults => {
 
 	glassdoorApiResults.map(company => {
 
-		// Formatted company object that can then be mapped to te company card component for display
+		// Formatted company object that can then be mapped to the company card component for display
 		const formattedCompany = {
 			name: company.employer.name,
 			ceo: company.employer.ceo && company.employer.ceo.name
@@ -95,7 +95,7 @@ class CompanySearch extends Component {
 				/>
 			) : (	
 			  <div className="mx-auto">
-                <h3 className="mx-auto text-center noResults">Enter a company name above to start seeing company info!</h3>
+                <h3 className="mx-auto text-center noResults">No results yet...</h3>
               </div>
 			)}	
 		  </div>
