@@ -72,21 +72,21 @@ class CompanySearch extends Component {
   render() {
 	return (
 		<div className="container">
-		  <div className="jumbotron glassJumbo">
+		  <Jumbotron>
 			<h1>Glassdoor Company Search</h1>
-			<p className="lead text-center">Enter the name of a company below and search the Glassdoor API to see ratings and other key datapoints</p>
+			<p className="lead text-center subHead">Enter the name of a company below and search the Glassdoor API to see ratings and other key datapoints</p>
 			<p id="glassdoorLogo" className="mx-auto text-center">Powered by <a href='https://www.glassdoor.com/index.htm'><img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' alt='Glassdoor' /></a></p>
+		  </Jumbotron>
 			<form>
-			  <div className="input-group">
+			  <div className="input-group searchForm">
 				<input value={this.state.company} onChange={this.handleInputChange} id="input-search" type="text" className="form-control" placeholder="Search" />
 
-				<button id="btn-submit" className="btn btn-success do-search" type="submit" onClick={this.handleFormSubmit}>
-					<SearchIcon />
+				<button id="btn-submit" className="btn searchGlassdoor" type="submit" onClick={this.handleFormSubmit}>
+					<SearchIcon className="searchIcon" />
 				</button>
 				
 			  </div>
 			</form>
-		  </div>
 
 		  <div id="show-results">
 			{this.state.apiJobs.length ? (
@@ -95,7 +95,7 @@ class CompanySearch extends Component {
 				/>
 			) : (	
 			  <div className="mx-auto">
-                <h3 className="mx-auto text-center">Enter a company name above to start seeing company info</h3>
+                <h3 className="mx-auto text-center noResults">Enter a company name above to start seeing company info!</h3>
               </div>
 			)}	
 		  </div>
