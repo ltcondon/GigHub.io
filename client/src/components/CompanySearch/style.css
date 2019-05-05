@@ -1,0 +1,90 @@
+.jumbotron {
+    height: 250px;
+    width: 75vw;
+    color: #F7F4E9;
+    margin-bottom: 5px;
+    padding-top: 55px;
+    font-family: 'Roboto Condensed', sans-serif;
+    background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
+    background-size: 400% 400%;
+      -webkit-animation: Gradient 4.2s ease infinite;
+      -moz-animation: Gradient 4.2s ease infinite;
+      animation: Gradient 4.2s ease infinite;
+}
+
+.jumbotron h1 {
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+}
+
+.jumbotron p {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.searchForm {
+    width: 75vw;
+}
+
+.noResults {
+    padding-top: 5%;
+    color: #F7F4E9;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+}
+
+.subHead {
+    padding-top: 5%;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.searchGlassdoor {
+    background-color: #F7F4E9;
+    color: black;
+}
+
+.glassdoorLogo {
+    padding-top: 2%;
+}
+
+#btn-submit:hover {
+    background-color: #FF5C62;
+}
+
+
+/* gradient animations are for the glassdoor jumbotron*/
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
