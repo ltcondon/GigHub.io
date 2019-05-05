@@ -3,13 +3,14 @@ import "./DashboardStyle.css";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fade from 'react-reveal/Fade'; 
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 
 // import components used by this page
 import BgPattern from '../../components/BgPattern';
-import CompanySearch from '../../components/CompanySearch';
+// import CompanySearch from '../../components/CompanySearch';
+import CreateApp from '../../components/CreateApp/CreateApp'
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -28,18 +29,23 @@ import SimpleTable from '../../components/SimpleTable';
 import { ListItem } from '@material-ui/core';
 
 // This array of routes correspond to the content in the main display area contained by the nav components, which will be accessed by index position
+
 const routes = [
   {
     path: "/dashboard/overview",
     main: () => <SimpleTable />
   },
   {
-    path: "/dashboard/milestones",
+    path: "/dashboard/myJobs",
     main: () => <h2>My Jobs</h2>
   },
+  // {
+  //   path: "/dashboard/companies",
+  //   main: () => <CompanySearch />
+  // },
   {
-    path: "/dashboard/companies",
-    main: () => <CompanySearch />
+    path: "/dashboard/addJob",
+    main: () => <CreateApp id={this.state.id}/>
   },
   {
     path: "/dashboard/progress",
@@ -249,7 +255,9 @@ class Dashboard extends React.Component {
             <List>{secondaryListItems}</List>
             <Divider />
             <List>
-              <ListItem button id='milestonesBtn' className='listBtn' onClick={this.addJob}>Add a Job</ListItem>
+              <Link to='/dashboard/addJob' style={{ textDecoration: 'none' }}>
+                <ListItem button id='milestonesBtn' className='listBtn'>Add a Job</ListItem>
+              </Link>
             </List>
           </Fade>
 
