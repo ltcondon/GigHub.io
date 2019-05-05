@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
-import API from '../../utils/API'
-import { Redirect } from 'react-router-dom';
+// import API from '../../utils/API'
+// import { Redirect } from 'react-router-dom';
 
 
 export default class CreateApp extends Component {
@@ -23,14 +23,12 @@ export default class CreateApp extends Component {
                 position: '',
                 updatedAt: ''
             }],
-            createdAt: ''
+            createdAt: '',
         }
     }
 
     componentDidMount() {
-        this.setState({
-            userID: this.props.location.state.id
-        });
+        this.setState(...this.props);
     };
 
     onChangeCompany(e) {
@@ -60,7 +58,7 @@ export default class CreateApp extends Component {
         console.log(`Status: ${this.state.position}`);
         console.log(`Updated: ${this.state.status.updatedAt}`);
         console.log(`Date: ${new Date()}`);
-        console.log(`UserID: ${this.props.location.state.id}`);
+        console.log(`UserID: ${this.state.id}`);
 
 
         const newJob = {
@@ -73,7 +71,7 @@ export default class CreateApp extends Component {
                 }
             ],
             date: this.state.createdAt,
-            userID: this.props.location.state.id
+            userID: this.state.id
         };
 
         console.log(newJob);
@@ -81,19 +79,19 @@ export default class CreateApp extends Component {
         // axios.post('http://localhost:3000/gighub/add/', newJob)
         //     .then(res => console.log(res.data));
 
-        API.saveJob(newJob)
-        .then(res => {
-            console.log(res.status, res.statusText);
-            alert('Job Added!', {type: 'success'})
-            API.getUserJobs(this.props.location.state.id)
-            .then(userJobs => {
-                userJobs.data.map(userJob => {
-                    return console.log(userJob);
+        // API.saveJob(newJob)
+        // .then(res => {
+        //     console.log(res.status, res.statusText);
+        //     alert('Job Added!', {type: 'success'})
+        //     API.getUserJobs(this.props.location.state.id)
+        //     .then(userJobs => {
+        //         userJobs.data.map(userJob => {
+        //             return console.log(userJob);
 
-                })
-                // console.log(userJobs.data);
-            })
-        })
+        //         })
+        //         // console.log(userJobs.data);
+        //     })
+        // })
           
 
         this.setState({
@@ -112,12 +110,12 @@ export default class CreateApp extends Component {
     render() {
 
         // Redirects to Log-In if no username is found
-        if (!this.props.location.state) {
-            return <Redirect to={{
-            pathname: '/'
-            }}  
-            />
-        }
+        // if (!this.props.location.state) {
+        //     return <Redirect to={{
+        //     pathname: '/'
+        //     }}  
+        //     />
+        // }
         return (
             <div style={{ marginTop: 10 }}>
                 <h3>Create Job</h3>

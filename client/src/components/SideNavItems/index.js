@@ -25,8 +25,8 @@ export const mainListItems = (
       </ListItem>
     </Link>
 
-    <Link to='/dashboard/milestones' style={{ textDecoration: 'none' }}>
-      <ListItem button id='milestonesBtn' className='listBtn'>
+    <Link to='/dashboard/myJobs' style={{ textDecoration: 'none' }}>
+      <ListItem button id='myJobsBtn' className='listBtn'>
         <ListItemIcon className='listIcon'>
           <PlaylistAddCheckTwoTone />
         </ListItemIcon>
