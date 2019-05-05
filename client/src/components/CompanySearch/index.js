@@ -13,7 +13,7 @@ const formatResults = glassdoorApiResults => {
 			ceo: company.employer.ceo && company.employer.ceo.name
 				? company.employer.ceo.name
 				: ['Could not find CEO'],
-			ceoPic = company.employer.ceo.image && company.employer.ceo.image.src 
+			ceoPic: company.employer.ceo.image && company.employer.ceo.image.src 
 				? company.employer.ceo.image.src 
 				: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/170px-No_image_available.svg.png',	
 			

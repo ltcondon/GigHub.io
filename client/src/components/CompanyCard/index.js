@@ -7,7 +7,7 @@ function Card(props) {
     <div className="row mb-5">
       <div className="col-lg-12">
         {/* map over the books from the books state that was passed down to create cards for each book in the array */}
-        {props.books.map(book => (
+        {props.books.map(company => (
           <div className="card mt-4" key={book._id ? book._id : book.googleBookId}>
             <div className="card-body">
               <h5 className="card-title">{book.title}</h5>

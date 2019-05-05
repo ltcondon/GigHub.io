@@ -5,8 +5,7 @@ router.route("/jobs")
  .get(jobController.findAll)
  .post(jobController.create);
 
-router
- .route("/jobs/:id")
- .delete(jobController.remove);
+router.route("/jobs/:id")
+ .get(jobController.findAllUserJobs);
 
 module.exports = router;
