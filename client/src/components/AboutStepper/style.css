@@ -16,9 +16,9 @@ button {
     color: #F7F4E9 !important;
     text-transform: uppercase !important;
     font-size: 1.5rem !important;
-    background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
 }
 
 .textBody {
