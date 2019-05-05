@@ -8,7 +8,7 @@ import Jumbotron from '../Jumbotron';
 
 const formatResults = glassdoorApiResults => {
 	const resultsArray = [];
-
+	// console.log(glassdoorApiResults);
 	glassdoorApiResults.map(company => {
 
 		// Formatted company object that can then be mapped to te company card component for display
@@ -61,9 +61,11 @@ class CompanySearch extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("handle form");
+    console.log(this.state.company);
     API.searchGlassdoor(this.state.company)
         .then(res => {
-            const formattedArray = formatResults(res.data.items);
+        	// console.log(res.data);
+            const formattedArray = formatResults(res.data);
             this.setState({apiJobs: formattedArray});
         })
         .catch(err => console.log(err));
