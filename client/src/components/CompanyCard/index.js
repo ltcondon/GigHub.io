@@ -13,7 +13,7 @@ function Card(props) {
               <h5 className="card-title">Company: {company.name}</h5>
               <h6 className="card-subtitle mb-2 text-muted">Overall rating: {company.overall}</h6>
               <div className="media">
-                <img src={company.ceoPic} className="align-self-center mr-3" alt="ceo picture"/>
+                <img src={company.ceoPic} className="align-self-center mr-3" alt="ceo headshot"/>
                 <div className="media-body">
                   <h6 className="mt-0">CEO: {company.ceo}</h6>
                   <p>CEO Rating: {company.ceoRating}</p>

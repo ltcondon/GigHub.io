@@ -14,6 +14,11 @@
 
 .jumbotron h1 {
     padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.jumbotron p {
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .searchForm {
@@ -23,18 +28,22 @@
 .noResults {
     padding-top: 5%;
     color: #F2E6C6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
 }
 
 .subHead {
     padding-top: 5%;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .searchGlassdoor {
-    color: #F2E6C6;
+    background-color: #F2E6C6;
+    color: black;
 }
 
-.searchGlassdoor:hover {
-    color: #FF5C62;
+#btn-submit:hover {
+    background-color: #FF5C62;
 }
 
 
