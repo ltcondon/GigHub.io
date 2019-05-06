@@ -50,3 +50,8 @@
 .site-btn:hover, .reviews-btn:hover {
   background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
 }
+
+.chart-container {
+  width: 350px;
+  height: 300px;
+}
