@@ -1,5 +1,5 @@
 .jumbotron {
-    height: 250px;
+    height: 225px !important;
     width: 75vw;
     color: #F7F4E9;
     margin-bottom: 5px;
@@ -34,7 +34,7 @@
 }
 
 .subHead {
-    padding-top: 5%;
+    padding-top: 4%;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -44,8 +44,8 @@
 }
 
 #glassdoorLogo {
-    padding-top: 3%;
-    font-size: 0.9rem;
+    padding-top: 1.5%;
+    font-size: 0.85rem;
 }
 
 #btn-submit {
