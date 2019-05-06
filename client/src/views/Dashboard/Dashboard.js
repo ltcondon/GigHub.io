@@ -23,7 +23,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ExitToApp from '@material-ui/icons/ExitToApp';
-import { mainListItems, secondaryListItems } from '../../components/SideNavItems';
+import { mainListItems, secondaryListItems, finalListItems } from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
 import SimpleTable from '../../components/SimpleTable';
 import { ListItem } from '@material-ui/core';
@@ -254,11 +254,7 @@ class Dashboard extends React.Component {
             <Divider />
             <List>{secondaryListItems}</List>
             <Divider />
-            <List>
-              <Link to='/dashboard/addJob' style={{ textDecoration: 'none' }}>
-                <ListItem button id='milestonesBtn' className='listBtn'>Add a Job</ListItem>
-              </Link>
-            </List>
+            <List>{finalListItems}</List>
           </Fade>
 
         </Drawer>
