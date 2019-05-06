@@ -5,7 +5,10 @@ import './style.css';
 
 import SearchIcon from '@material-ui/icons/Search';
 import Jumbotron from '../Jumbotron';
+import Slide from 'react-reveal/Slide';
+import Bounce from 'react-reveal/Bounce';
 
+// Format glassdoor API results and assign key value pairs 
 const formatResults = glassdoorApiResults => {
 	const resultsArray = [];
 	
@@ -17,6 +20,7 @@ const formatResults = glassdoorApiResults => {
 	const formattedCompany = {
 		name: dataPath[0].name,
 		logo: dataPath[0].squareLogo,
+		industry: dataPath[0].industry,
 		ceo: dataPath[0].ceo && dataPath[0].ceo.name
 			? dataPath[0].ceo.name
 			: ['Could not find CEO'],
@@ -24,12 +28,16 @@ const formatResults = glassdoorApiResults => {
 			? dataPath[0].ceo.image.src 
 			: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/170px-No_image_available.svg.png',	
 		overall: dataPath[0].overallRating,
+		description: dataPath[0].ratingDescription,
 		opportunities: dataPath[0].careerOpportunitiesRating,
 		compensation: dataPath[0].compensationAndBenefitsRating,
 		culture: dataPath[0].cultureAndValuesRating,
 		totalRatings: dataPath[0].numberOfRatings,
 		workLife: dataPath[0].workLifeBalanceRating,
+		recommended: dataPath[0].recommendToFriendRating,
+		reviews: dataPath[0].featuredReview.attributionURL,
 		website: dataPath[0].website,
+		topReview: dataPath[0].featuredReview.headline,
 		ceoRating: dataPath[0].ceo && dataPath[0].ceo.name && dataPath[0].ceo.numberOfRatings
 			? dataPath[0].ceo.pctApprove
 			: dataPath[0].ceo && dataPath[0].ceo.name
@@ -75,27 +83,32 @@ class CompanySearch extends Component {
   render() {
 	return (
 		<div className="container">
-		  <Jumbotron>
-			<h1>Glassdoor Company Search</h1>
-			<p className="lead text-center subHead">Enter the name of a company below and search the Glassdoor API to see ratings and other key datapoints</p>
-			<p id="glassdoorLogo" className="mx-auto text-center">Powered by <a href='https://www.glassdoor.com/index.htm'><img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' alt='Glassdoor' /></a></p>
-		  </Jumbotron>
-			<form>
-			  <div className="input-group searchForm">
-				<input value={this.state.company} onChange={this.handleInputChange} name="company" id="input-search" type="text" className="form-control" placeholder="Search" />
+		  <Slide top>
+		    <div className="top-section">
+			  <Jumbotron>
+				<h1>Company Ratings Search</h1>
+				<p className="lead text-center subHead">Enter the name of a company below and search the Glassdoor API to see ratings and other key datapoints</p>
+				<p id="glassdoorLogo" className="mx-auto text-center">Powered by <a href='https://www.glassdoor.com/index.htm'><img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' alt='Glassdoor' /></a></p>
+			  </Jumbotron>
+				<form>
+				  <div className="input-group searchForm">
+					<input value={this.state.company} onChange={this.handleInputChange} name="company" id="input-search" type="text" className="form-control" placeholder="Search" />
 
-				<button id="btn-submit" className="btn searchGlassdoor" type="submit" onClick={this.handleFormSubmit}>
-					<SearchIcon className="searchIcon" />
-				</button>
-				
-			  </div>
-			</form>
+					<button id="btn-submit" className="btn searchGlassdoor" type="submit" onClick={this.handleFormSubmit}>
+						<SearchIcon className="searchIcon" />
+					</button>
+				  </div>
+				</form>
+			</div>	
+		  </Slide>
 
 		  <div id="show-results">
 			{this.state.apiJobs.length ? (
-				<CompanyCard
-					companies={this.state.apiJobs}
-				/>
+				<Bounce bottom>
+				  <CompanyCard
+					  companies={this.state.apiJobs}
+				  />
+				</Bounce>
 			) : (	
 			  <div className="mx-auto">
                 <h3 className="mx-auto text-center noResults">No results yet...</h3>
