@@ -47,7 +47,7 @@ export default class FormDialog extends Component {
             //   }
             // }}  
             // />
-            // window.location.reload()
+            window.location.reload()
         }
     
 
