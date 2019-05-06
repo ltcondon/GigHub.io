@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-import AddJobIcon from '@material-ui/icons/AddBox'
+// import AddJobIcon from '@material-ui/icons/AddBox'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -82,15 +82,15 @@ export const secondaryListItems = (
   </div>
 );
 
-export const finalListItems = (
-  <div>
-    <Link to='/dashboard/addJob' style={{ textDecoration: 'none' }}>
-      <ListItem button id='addJobBtn' className='listBtn'>
-        <ListItemIcon className='listIcon'>
-          <AddJobIcon />
-        </ListItemIcon>
-        <ListItemText primary='Add a Job' className='listTxt' />
-      </ListItem>
-    </Link>
-  </div>
-)
+// export const finalListItems = (
+//   <div>
+//     <Link to='/dashboard/addJob' style={{ textDecoration: 'none' }}>
+//       <ListItem button id='addJobBtn' className='listBtn'>
+//         <ListItemIcon className='listIcon'>
+//           <AddJobIcon />
+//         </ListItemIcon>
+//         <ListItemText primary='Add a Job' className='listTxt' />
+//       </ListItem>
+//     </Link>
+//   </div>
+// )

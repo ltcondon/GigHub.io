@@ -32,7 +32,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAuthorized: false,
+      isAuthorized: null,
       firstName: null,
       lastName: null,
       email: null,
@@ -45,6 +45,9 @@ class Login extends Component {
   // Page will listen for post message to handle authentication...
   componentDidMount() {
     window.addEventListener('message', this.handlePostMessage);
+    // if (this.props.location.state.isAuthorized === true) {
+    //   this.setState({isAuthorized: true});
+    // }
   }
 
   // ... and pass user auth data on to the updateProfile method
@@ -101,7 +104,8 @@ class Login extends Component {
             id: this.state.id,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            pictureURL: this.state.pictureURL
+            pictureURL: this.state.pictureURL,
+            isAuthorized: this.state.isAuthorized
           }
         }}  
         />
@@ -112,7 +116,7 @@ class Login extends Component {
       <div className="Landing">
         <BgPattern />
 
-        <Nav />
+        <Nav click={this.requestProfile}/>
         <Slide top duration={1300}>
           <div> 
             <AngleJumbo className="angleJumbo"/>

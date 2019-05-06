@@ -3,7 +3,7 @@ import "./DashboardStyle.css";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fade from 'react-reveal/Fade'; 
-import { Redirect, Link } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 
@@ -23,10 +23,13 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ExitToApp from '@material-ui/icons/ExitToApp';
-import { mainListItems, secondaryListItems, finalListItems } from '../../components/SideNavItems';
+import AddJobIcon from '@material-ui/icons/AddBox'
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import { mainListItems, secondaryListItems } from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
 import SimpleTable from '../../components/SimpleTable';
-import { ListItem } from '@material-ui/core';
 
 // This array of routes correspond to the content in the main display area contained by the nav components, which will be accessed by index position
 
@@ -45,7 +48,7 @@ const routes = [
   },
   {
     path: "/dashboard/addJob",
-    main: () => <CreateApp id={this.state.id}/>
+    main: () => <CreateApp/>
   },
   {
     path: "/dashboard/progress",
@@ -164,6 +167,7 @@ class Dashboard extends React.Component {
   addJob = () => {
     this.setState({ jobClicked: true });
   };
+  
 
   // ...and handle closing it
   handleDrawerClose = () => {
@@ -171,32 +175,26 @@ class Dashboard extends React.Component {
   };
   
   componentDidMount() {
-    this.setState({ id: this.props.location.state.id })
+    // this.setState({ id: this.props.location.state.id })
+    this.setState({...this.props.location.state})
   }
 
   render() {
 
     // Function checks state of component, and will redirect user to the add page
-    if (this.state.jobClicked) {
-      return <Redirect to={{
-        pathname: '/add', 
-        state: {
-          id: this.state.id,
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          pictureURL: this.state.pictureURL
-        }
-      }}  
-      />
-    }
 
     // Redirects to Log-In if no username is found
-    else if (!this.props.location.state) {
-      return <Redirect to={{
-        pathname: '/'
-      }}  
-      />
+    // else if (!this.props.location.state) {
+    //   return <Redirect to={{
+    //     pathname: '/'
+    //   }}  
+    //   />
+  // }
+
+  if (this.state.jobClicked) {
+    return <CreateApp state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
   }
+
 
     const { classes } = this.props;
     console.log(`Username: ${this.props.location.state.firstName} ${this.props.location.state.lastName}`)
@@ -254,9 +252,15 @@ class Dashboard extends React.Component {
             <Divider />
             <List>{secondaryListItems}</List>
             <Divider />
-            <List>{finalListItems}</List>
+            <ListItem button id='addJobBtn' className='listBtn' onClick={this.addJob}>
+              <ListItemIcon className='listIcon'>
+                <AddJobIcon />
+              </ListItemIcon>
+              <ListItemText primary='Add a Job' className='listTxt' />
+            </ListItem>
           </Fade>
 
+          {/* <CreateApp clicked={this.state.jobClicked}></CreateApp> */}
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
