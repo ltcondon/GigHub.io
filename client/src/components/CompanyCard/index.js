@@ -31,13 +31,14 @@ class Card extends Component {
     companyData: []
   };
 
+  // On mount, set the state of the component to include props passed down from company search
   componentDidMount() {
-    const dataArr = [this.props.companies.compensation, this.props.companies.culture, this.props.companies.workLife, this.props.companies.opportunities, this.props.companies.recommended]
-    this.setState({ companyData: dataArr })
-    console.log(this.state.companyData);
+    const dataArr = [this.props.companies[0].compensation, this.props.companies[0].culture, this.props.companies[0].workLife, this.props.companies[0].opportunities, this.props.companies[0].recommended];
+    this.setState({ companyData: dataArr });
   };
 
   render() {
+    console.log(this.props.companies, 'Render')
 
     // Data for bar chart with display info as well as ratings data for the company that was searched
     const data = {
@@ -47,7 +48,7 @@ class Card extends Component {
           label: 'Ratings',
           backgroundColor: '#FF5C62',
           borderColor: '#FF5C62',
-          data:[3.5, 4, 5, 4.2]
+          data: this.state.companyData
         }
       ]
     };
