@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './style.css';
 import { Bar } from 'react-chartjs-2';
 
+import { Col, Row } from '../Grid/Grid';
+
 const options = {
   elements: {
     rectangle: {
@@ -17,7 +19,7 @@ const options = {
   },
   title: {
     display: true,
-    text: 'Company Ratings'
+    text: 'How people have rated this company:'
   }
 };
 
@@ -42,10 +44,10 @@ class Card extends Component {
       labels: ['Compensation', 'Culture', 'Work/Life Balance', 'Opportunities'],
       datasets: [
         {
-          label: 'Company Ratings',
+          label: 'Ratings',
           backgroundColor: '#FF5C62',
           borderColor: '#FF5C62',
-          data:[3.5, 4, 5, 3]
+          data:[3.5, 4, 5, 4.2]
         }
       ]
     };
@@ -66,25 +68,26 @@ class Card extends Component {
               <h6 className="card-subtitle mb-2 text-muted">Overall rating: {company.overall}</h6>
               <div className="media">
                 <img src={company.ceoPic} className="align-self-center mr-3" alt="ceo headshot"/>
-                <div className="media-body">
-                  <div className="info-holder">
-                    <h6 className="mt-0">CEO: {company.ceo}</h6>
+                <Row className="media-body">
+
+                  <Col size="sm-6" className="info-holder">
+                    <h6 className="mt-0">Company CEO: {company.ceo}</h6>
                     <p>CEO Rating: {company.ceoRating}</p>
                     <p>Total ratings: {company.totalRatings}</p>
                     <p>Ratings summary: {company.description}</p>
-                    <p>Percentage of employees who recommend working here: {company.recommended}</p>
+                    <p>Percentage of employees who recommend working here: {company.recommended}%</p>
                     <p className="top-review">Top review: <span className="font-italic">{company.topReview}</span></p>
-                  </div>
+                  </Col>
 
-                  <div className="chart-container">
+                  <Col size="sm-6" className="chart-container">
                     <Bar 
                       data={data} 
                       options={options}
                       width={100}
                       height={100}
                     />
-                  </div>
-                </div>
+                  </Col>
+                </Row>
               </div>
 
               <a className="btn btn-info mr-1 mt-2 reviews-btn" href={company.reviews} target="_blank" rel="noopener noreferrer">See Reviews</a>

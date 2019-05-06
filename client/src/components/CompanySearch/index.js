@@ -112,9 +112,11 @@ class CompanySearch extends Component {
 				  />
 				</Bounce>
 			) : (	
-			  <div className="mx-auto">
-            <p className="mx-auto text-center noResults">No results yet...</p>
-        </div>
+				<Bounce bottom>
+					<div className="mx-auto">
+							<p className="mx-auto text-center noResults">No results yet...</p>
+					</div>
+				</Bounce>
 			)}	
 		  </div>
 		</div>
