@@ -35,9 +35,11 @@ const formatResults = glassdoorApiResults => {
 		totalRatings: dataPath[0].numberOfRatings,
 		workLife: dataPath[0].workLifeBalanceRating,
 		recommended: dataPath[0].recommendToFriendRating,
-		reviews: dataPath[0].featuredReview.attributionURL,
+		reviews: glassdoorApiResults.response.attributionURL,
 		website: dataPath[0].website,
-		topReview: dataPath[0].featuredReview.headline,
+		topReview: dataPath[0].featuredReview && dataPath[0].featuredReview.headline
+			? dataPath[0].featuredReview.headline
+			: ['Could not find featured review'],
 		ceoRating: dataPath[0].ceo && dataPath[0].ceo.name && dataPath[0].ceo.numberOfRatings
 			? dataPath[0].ceo.pctApprove
 			: dataPath[0].ceo && dataPath[0].ceo.name
