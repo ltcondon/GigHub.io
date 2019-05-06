@@ -52,6 +52,13 @@
 }
 
 .chart-container {
-  width: 350px;
-  height: 300px;
+  float: right;
+  width: 450px;
+  height: 350px;
+}
+
+.company-name {
+  font-size: 2.4rem;
+  float: right;
+  margin-right: 80%;
 }

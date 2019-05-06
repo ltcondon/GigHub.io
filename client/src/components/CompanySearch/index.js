@@ -87,21 +87,21 @@ class CompanySearch extends Component {
 		<div className="container">
 		  <Slide top>
 		    <div className="top-section">
-			  <Jumbotron>
-				<h1>Company Ratings Search</h1>
-				<p className="lead text-center subHead">Enter the name of a company below and search the Glassdoor API to see ratings and other key datapoints</p>
-				<p id="glassdoorLogo" className="mx-auto text-center">Powered by <a href='https://www.glassdoor.com/index.htm'><img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' alt='Glassdoor' /></a></p>
-			  </Jumbotron>
-				<form>
-				  <div className="input-group searchForm">
-					<input value={this.state.company} onChange={this.handleInputChange} name="company" id="input-search" type="text" className="form-control" placeholder="Search" />
+					<Jumbotron>
+					<h1>Company Ratings Search</h1>
+					<p className="lead text-center subHead">Enter the name of a company below and search the Glassdoor API to see ratings and other key datapoints</p>
+					<p id="glassdoorLogo" className="mx-auto text-center">Powered by <a href='https://www.glassdoor.com/index.htm'><img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' alt='Glassdoor' /></a></p>
+					</Jumbotron>
+					<form>
+						<div className="input-group searchForm">
+						<input value={this.state.company} onChange={this.handleInputChange} name="company" id="input-search" type="text" className="form-control" placeholder="Search" />
 
-					<button id="btn-submit" className="btn searchGlassdoor" type="submit" onClick={this.handleFormSubmit}>
-						<SearchIcon className="searchIcon" />
-					</button>
-				  </div>
-				</form>
-			</div>	
+						<button id="btn-submit" className="btn searchGlassdoor" type="submit" onClick={this.handleFormSubmit}>
+							<SearchIcon className="searchIcon" />
+						</button>
+						</div>
+					</form>
+			  </div>	
 		  </Slide>
 
 		  <div id="show-results">
@@ -112,9 +112,11 @@ class CompanySearch extends Component {
 				  />
 				</Bounce>
 			) : (	
-			  <div className="mx-auto">
-                <h3 className="mx-auto text-center noResults">No results yet...</h3>
-              </div>
+				<Bounce bottom>
+					<div className="mx-auto">
+							<p className="mx-auto text-center noResults">No results yet...</p>
+					</div>
+				</Bounce>
 			)}	
 		  </div>
 		</div>
