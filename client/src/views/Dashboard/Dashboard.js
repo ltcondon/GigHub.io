@@ -9,7 +9,7 @@ import { createBrowserHistory } from "history";
 
 // import components used by this page
 import BgPattern from '../../components/BgPattern';
-// import CompanySearch from '../../components/CompanySearch';
+import CompanySearch from '../../components/CompanySearch';
 import CreateApp from '../../components/CreateApp/CreateApp'
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -39,10 +39,10 @@ const routes = [
     path: "/dashboard/myJobs",
     main: () => <h2>My Jobs</h2>
   },
-  // {
-  //   path: "/dashboard/companies",
-  //   main: () => <CompanySearch />
-  // },
+  {
+    path: "/dashboard/companies",
+    main: () => <CompanySearch />
+  },
   {
     path: "/dashboard/addJob",
     main: () => <CreateApp id={this.state.id}/>

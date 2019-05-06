@@ -36,3 +36,17 @@
   width: 75vw;
   background-color: #F7F4E9; 
 }
+
+.company-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.site-btn, .reviews-btn {
+  background-color: #FF5C62;
+  border: none;
+}
+
+.site-btn:hover, .reviews-btn:hover {
+  background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
+}
