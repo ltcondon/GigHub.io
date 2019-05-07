@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 
 // import components used by this page
+import AnalyticsCharts from '../../components/AnalyticsCharts';
 import BgPattern from '../../components/BgPattern';
 import CompanySearch from '../../components/CompanySearch';
 import CreateApp from '../../components/CreateApp/CreateApp'
@@ -48,11 +49,11 @@ const routes = [
   },
   {
     path: "/dashboard/addJob",
-    main: () => <CreateApp/>
+    main: () => <CreateApp />
   },
   {
     path: "/dashboard/progress",
-    main: () => <h2>Analytics</h2>
+    main: () => <AnalyticsCharts />
   }
 ];
 
