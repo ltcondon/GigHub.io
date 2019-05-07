@@ -12,8 +12,9 @@ import Bounce from 'react-reveal/Bounce';
 const formatResults = glassdoorApiResults => {
 	const resultsArray = [];
 	
-	console.log(glassdoorApiResults);
+	// console.log(glassdoorApiResults);
 
+	// Shorthand variable to get to the data points we want
 	const dataPath = glassdoorApiResults.response.employers;
 
 	// Formatted company object that can then be mapped to the company card component for display
@@ -39,7 +40,7 @@ const formatResults = glassdoorApiResults => {
 		website: dataPath[0].website,
 		topReview: dataPath[0].featuredReview && dataPath[0].featuredReview.headline
 			? dataPath[0].featuredReview.headline
-			: ['Could not find featured review'],
+			: ['No featured review found, click "see more reviews" to visit Glassdoor and read what employees have said about this company'],
 		ceoRating: dataPath[0].ceo && dataPath[0].ceo.name && dataPath[0].ceo.numberOfRatings
 			? dataPath[0].ceo.pctApprove
 			: dataPath[0].ceo && dataPath[0].ceo.name
@@ -87,11 +88,13 @@ class CompanySearch extends Component {
 		<div className="container">
 		  <Slide top>
 		    <div className="top-section">
+
 					<Jumbotron>
-					<h1>Company Ratings Search</h1>
-					<p className="lead text-center subHead">Enter the name of a company below and search the Glassdoor API to see ratings and other key datapoints</p>
-					<p id="glassdoorLogo" className="mx-auto text-center">Powered by <a href='https://www.glassdoor.com/index.htm'><img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' alt='Glassdoor' /></a></p>
+					  <h1>Company Ratings Search</h1>
+					  <p className="lead text-center subHead">Enter the name of a company below and search the Glassdoor API to see ratings and other key datapoints</p>
+					  <p id="glassdoorLogo" className="mx-auto text-center">Powered by <a href='https://www.glassdoor.com/index.htm'><img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' alt='Glassdoor' /></a></p>
 					</Jumbotron>
+
 					<form>
 						<div className="input-group searchForm">
 						<input value={this.state.company} onChange={this.handleInputChange} name="company" id="input-search" type="text" className="form-control" placeholder="Search" />
@@ -101,6 +104,7 @@ class CompanySearch extends Component {
 						</button>
 						</div>
 					</form>
+
 			  </div>	
 		  </Slide>
 
@@ -112,11 +116,9 @@ class CompanySearch extends Component {
 				  />
 				</Bounce>
 			) : (	
-				<Bounce bottom>
-					<div className="mx-auto">
-							<p className="mx-auto text-center noResults">No results yet...</p>
-					</div>
-				</Bounce>
+				<div className="mx-auto">
+					<p className="mx-auto text-center noResults">No results yet...</p>
+				</div>
 			)}	
 		  </div>
 		</div>
