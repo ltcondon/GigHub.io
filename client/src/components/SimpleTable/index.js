@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import './style.css';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -17,7 +18,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
+import Slide from 'react-reveal/Slide';
+
+// import { lighten } from '@material-ui/core/styles/colorManipulator';
 
 let counter = 0;
 function createData(company, role, status, milestone, created, updated) {
@@ -124,12 +127,16 @@ const toolbarStyles = theme => ({
   highlight:
     theme.palette.type === 'light'
       ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+          // color: theme.palette.secondary.main,
+          color: 'rgba(0,0,0,0.9)',
+          // backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+          backgroundColor: '#FF5C62',
         }
       : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark,
+          // color: theme.palette.text.primary,
+          color: 'rgba(0,0,0,0.9)',
+          // backgroundColor: theme.palette.secondary.dark,
+          backgroundColor: '#FF5C62',
         },
   spacer: {
     flex: '1 1 100%',
@@ -193,6 +200,7 @@ const styles = theme => ({
   root: {
     width: '100%',
     marginTop: theme.spacing.unit * 3,
+    backgroundColor: '#F7F4E9',
   },
   table: {
     minWidth: 1020,
@@ -218,7 +226,7 @@ class EnhancedTable extends React.Component {
       createData('Lightsource', 'Software Developer', 'In Progress', 'Applied', 'May 4th, 2019', '3 days ago')
     ],
     page: 0,
-    rowsPerPage: 5,
+    rowsPerPage: 10,
   };
 
   handleRequestSort = (event, property) => {
@@ -280,6 +288,7 @@ class EnhancedTable extends React.Component {
       <Paper className={classes.root}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <div className={classes.tableWrapper}>
+        <Slide top cascade>
           <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead
               numSelected={selected.length}
@@ -325,6 +334,7 @@ class EnhancedTable extends React.Component {
               )}
             </TableBody>
           </Table>
+          </Slide>
         </div>
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}

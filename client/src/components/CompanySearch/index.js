@@ -90,7 +90,7 @@ class CompanySearch extends Component {
 		    <div className="top-section">
 
 					<Jumbotron>
-					  <h1>Company Ratings Search</h1>
+					  <h1 className="text-uppercase">Company Ratings Search</h1>
 					  <p className="lead text-center subHead">Enter the name of a company below and search the Glassdoor API to see ratings and other key datapoints</p>
 					  <p id="glassdoorLogo" className="mx-auto text-center">Powered by <a href='https://www.glassdoor.com/index.htm'><img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' alt='Glassdoor' /></a></p>
 					</Jumbotron>
