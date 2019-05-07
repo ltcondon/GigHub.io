@@ -4,13 +4,17 @@
 
 <h1 align="center">GigHub</h1>
 
-The sheer volume of applications a person needs to send out these days through the application process (especially when applying to coding jobs!) can be really daunting, and difficult to track. There are many good applications for finding jobs listings (AngelList, Glassdoor, Indeed, etc.) and for building your network (LinkedIn), and we want out application to be a helpful middleman that pulls critical information from those applications and lets users keep track of what matters. Where have I applied to so far? How many applications have I sent out, and how frequently am I sending them? Did I send more in the last week than this week? These are all questions our app aims to help users answer, so that they have a way to visualize and organize their progress.
+The sheer volume of applications a person needs to send out these days through the application process (especially when applying to coding jobs!) can be really daunting, and difficult to keep track of. There are many good applications for finding job listings (AngelList, Glassdoor, Indeed, etc.) and for building your network (LinkedIn), and we want out application to be a helpful middleman that pulls critical information from those applications and lets users keep track of what matters to them. 
+
+Where have I applied to so far? How many applications have I sent out, and how frequently am I sending them? Did I send more in the last week than this week? These are all questions our app aims to help users answer, so that they have a way to visualize and organize their progress.
 
 GigHub lets users log in to the app with their LinkedIn account and track their job search progress. It is designed with coders in mind, so many features are catered specifically to people applying for coding jobs. User data is going to be grabbed from the linkedin API, so that after logging in all of their relevant info is already there and available within our app (we want the sign up process to be seamless and quick so users can get right to keeping track of their important job related info). Users can add jobs that they’re interested in applying for and track progress on jobs they’ve already applied for, they can also view other user’s statistics in applying for similar positions to compare their own experience.
 
 ## 🔑 How to Use the App:
 
 GigHub features a very intuitive interface and requires very little explanation for any user to jump in and get started. Currently, users do need to log in with a LinkedIn account, as that is our form of user authentication, so a LinkedIn account is a requirement to start using our app. We plan on implementing a local sign-in/sign-up somewhere down the line.
+
+Jump in and get planning!
 
 ## 📁 Deployment Instructions
 
@@ -52,7 +56,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   + [react-reveal](https://www.npmjs.com/package/react-reveal) a lightweight animation library for revealing content on scroll.
   + [react-scrollchor](https://www.npmjs.com/package/react-scrollchor) a scrollspy package designed for React with built in smooth scrolling to different elements on the page.
   + [react-chartsjs2](https://www.npmjs.com/package/react-chartjs-2) data visualization library with various chart components.
-  + [material-ui](https://www.npmjs.com/package/@material-ui/core) component library based on material design, we utilize a number of components as well as icons from this library in the app. 
+  + [material-ui](https://www.npmjs.com/package/@material-ui/core) component library based on material design, we utilize a number of components as well as icons from here in the app. 
 
 ## 🌟 Acknowledgements
 

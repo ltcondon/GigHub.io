@@ -4,6 +4,7 @@ import { Bar } from 'react-chartjs-2';
 
 import { Col, Row } from '../Grid/Grid';
 
+// Options for configuration of chart from react-chartsjs2
 const options = {
   elements: {
     rectangle: {
@@ -19,7 +20,16 @@ const options = {
   },
   title: {
     display: true,
-    text: 'How people have rated this company:'
+    text: 'How employees have rated this company:'
+  },
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        min: 0,
+        max: 5    
+      }
+    }]
   }
 };
 
@@ -66,9 +76,9 @@ class Card extends Component {
               </div>
 
               <h6 className="industry">Industry: {company.industry}</h6>
-              <h6 className="card-subtitle mb-2 text-muted">Overall rating: {company.overall}</h6>
+              <h6 className="card-subtitle mb-2 text-muted">Overall rating (out of 5): {company.overall}</h6>
               <div className="media">
-                <img src={company.ceoPic} className="align-self-center mr-3" alt="ceo headshot"/>
+                <img src={company.ceoPic} className="align-self-center ceo-headshot" alt="ceo headshot"/>
                 <Row className="media-body">
 
                   <Col size="sm-6" className="info-holder">
@@ -91,8 +101,8 @@ class Card extends Component {
                 </Row>
               </div>
 
-              <a className="btn btn-info mr-1 mt-2 reviews-btn" href={company.reviews} target="_blank" rel="noopener noreferrer">See Reviews</a>
-              <a className="btn btn-info mr-1 mt-2 site-btn" href={company.website} target="_blank" rel="noopener noreferrer">Visit Site</a>
+              <a className="btn btn-info mr-1 mt-2 reviews-btn" href={company.reviews} target="_blank" rel="noopener noreferrer">See More Reviews</a>
+              {/* <a className="btn btn-info mr-1 mt-2 site-btn" href={company.website} target="_blank" rel="noopener noreferrer">Visit Site</a> */}
             </div>
           </div>
         ))}
@@ -101,6 +111,5 @@ class Card extends Component {
     )
   }
 }
-
 
 export default Card;

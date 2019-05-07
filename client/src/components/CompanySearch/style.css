@@ -61,9 +61,8 @@
 }
 
 .searchIcon {
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.75s ease-in-out;
 }
-
 
 /* gradient animations are for the glassdoor jumbotron*/
 @-webkit-keyframes Gradient {
