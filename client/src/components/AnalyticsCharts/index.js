@@ -5,6 +5,7 @@ import { Line } from 'react-chartjs-2';
 import { Radar } from 'react-chartjs-2';
 import { Col, Row } from '../Grid/Grid';
 import Paper from '@material-ui/core/Paper';
+import Fade from 'react-reveal/Fade';
 
 // Options for configuration of line and bar charts from react-chartsjs2
 const lineOptions = {
@@ -26,6 +27,7 @@ const lineOptions = {
   }
 };
 
+// Configuration for radar chart from react-chartsjs2
 const radarOptions = {
     legend: {
         position: 'bottom'
@@ -36,6 +38,7 @@ const radarOptions = {
     },
 };
 
+// Both charts will be displayed on a stateful component that is passed user data from our database
 class AnalyticsCharts extends Component {
 
   state = {
@@ -44,6 +47,7 @@ class AnalyticsCharts extends Component {
 
   render() {
 
+    // Line and radar chart data occurs within the render function so they both have access to data stored in the state of the AnalyticsCharts component
     const lineData = {
       datasets: [
         {
@@ -63,12 +67,13 @@ class AnalyticsCharts extends Component {
           fill: true,
           backgroundColor: '#FF5C62',
           borderColor: '#FF5C62',
-          data: [15, 25, 10, 6, 4, 2, 6]
+          data: [15, 20, 10, 6, 5, 4, 8]
         }
       ]
     };
 
     return (
+    <Fade top cascade>    
     <Paper className="chart-wrapper">
       <Row>
         <Col size="sm-8 line-chart">
@@ -91,6 +96,7 @@ class AnalyticsCharts extends Component {
         </Col>
       </Row>  
     </Paper>
+    </Fade>
     )
   }
 };
