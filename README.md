@@ -4,7 +4,7 @@
 
 <h1 align="center">GigHub</h1>
 
-The sheer volume of applications a person needs to send out these days through the application process (especially when applying to coding jobs!) can be really daunting, and difficult to keep track of. There are many good applications for finding job listings (AngelList, Glassdoor, Indeed, etc.) and for building your network (LinkedIn), and we want out application to be a helpful middleman that pulls critical information from those applications and lets users keep track of what matters to them. 
+Trying to find and then apply for jobs is no easy task. The sheer volume of applications a person needs to send out these days through the application process can be really daunting, and difficult to keep track of. There are many good applications for finding job listings (AngelList, Glassdoor, Indeed, etc.) and for building your network (LinkedIn), and we want out application to be a helpful middleman that pulls critical information from those applications and lets users keep track of what matters to them. 
 
 Where have I applied to so far? How many applications have I sent out, and how frequently am I sending them? Did I send more in the last week than this week? These are all questions our app aims to help users answer, so that they have a way to visualize and organize their progress.
 
