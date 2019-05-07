@@ -37,7 +37,11 @@ import SimpleTable from '../../components/SimpleTable';
 const routes = [
   {
     path: "/dashboard/overview",
-    main: () => <SimpleTable />
+    main: () => 
+    <div>
+    <AnalyticsCharts />
+    <SimpleTable />
+    </div>
   },
   {
     path: "/dashboard/myJobs",

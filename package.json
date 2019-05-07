@@ -9,7 +9,7 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "dotenv": "^5.0.1",
     "ejs": "~2.5.7",
     "express": "^4.16.4",
+    "express-favicon": "^2.0.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
     "mongoose-seed": "^0.6.0",
@@ -39,7 +40,7 @@
     "superagent": "^3.8.2"
   },
   "engines": {
-    "node": "^8",
+    "node": "11.10.1",
     "yarn": "1.4.0"
   }
 }
