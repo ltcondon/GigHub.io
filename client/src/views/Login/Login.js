@@ -123,7 +123,7 @@ class Login extends Component {
           </div>
         </Slide> 
 
-        <Fade bottom big duration={1650}>
+        <Fade bottom big duration={1600}>
         <div className="navbar justify-content-center down-arrow">
           <ul className="navbar-nav">
            <li className="nav-item">

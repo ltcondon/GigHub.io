@@ -33,7 +33,6 @@ import Avatar from '@material-ui/core/Avatar';
 import SimpleTable from '../../components/SimpleTable';
 
 // This array of routes correspond to the content in the main display area contained by the nav components, which will be accessed by index position
-
 const routes = [
   {
     path: "/dashboard/overview",
@@ -41,7 +40,7 @@ const routes = [
   },
   {
     path: "/dashboard/myJobs",
-    main: () => <h2>My Jobs</h2>
+    main: () => <h2>My Jobs [WORK IN PROGRESS]</h2>
   },
   {
     path: "/dashboard/companies",
@@ -168,7 +167,6 @@ class Dashboard extends React.Component {
   addJob = () => {
     this.setState({ jobClicked: true });
   };
-  
 
   // ...and handle closing it
   handleDrawerClose = () => {
