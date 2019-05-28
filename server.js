@@ -30,6 +30,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Tell my app to use my routes
 app.use(routes);
+
 // Connect to the Mongo DB, and allow Heroku to connect to provisioned db
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gighub");
 
