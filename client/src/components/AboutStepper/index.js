@@ -25,6 +25,7 @@ const styles = theme => ({
       outline: 'none',
       background: '#FF5C62',
       maxHeight: '25px',
+      maxWidth: '30px',
       color: 'white',
       paddingLeft: '5%',
       paddingBottom: '1%',
@@ -36,9 +37,6 @@ const styles = theme => ({
     },
     resetContainer: {
       padding: theme.spacing.unit * 3,
-    },
-    activeStep: {
-      
     },
     label: {
       color: '#F7F4E9',
@@ -56,6 +54,10 @@ const style = {
   background: 'rgba(0,0,0,0)',
   color: '#F7F4E9',
   fontSize: '1.2rem',
+}
+
+const labelStyle = {
+  fontSize: '1.8rem',
 }
   
 // Get steps returns the the values of the steps for each tab
@@ -120,9 +122,9 @@ class AboutStepper extends React.Component {
           <Stepper style={style} activeStep={activeStep} orientation="vertical">
             {steps.map((label, index) => (
               <Step key={label} style={style}>
-                <StepLabel className={classes.label}>{label}</StepLabel>
+                <StepLabel className="stepLabel" style={labelStyle}>{label}</StepLabel>
                 <StepContent style={style}>
-                  <Typography style={style} className='textBody'>{getStepContent(index)}</Typography>
+                  <Typography style={style} className="textBody">{getStepContent(index)}</Typography>
                   <div className={classes.actionsContainer}>
                     <div>
                       <Button
