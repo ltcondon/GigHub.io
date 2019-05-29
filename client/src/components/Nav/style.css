@@ -37,6 +37,10 @@ nav.navbar.navbar-default {
     color: #FF5C62;
 }
 
+.nav-item:hover {
+    color: #FF5C62;
+}
+
 .active {
     color: #FF5C62;
 }
