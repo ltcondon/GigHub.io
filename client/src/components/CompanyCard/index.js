@@ -55,7 +55,7 @@ class Card extends Component {
       labels: ['Compensation', 'Culture', 'Work/Life Balance', 'Opportunities'],
       datasets: [
         {
-          label: 'Ratings',
+          label: 'Company Ratings',
           backgroundColor: '#FF5C62',
           borderColor: '#FF5C62',
           data: this.state.companyData
