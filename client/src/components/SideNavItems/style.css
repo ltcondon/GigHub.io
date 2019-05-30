@@ -1,18 +1,18 @@
 .listBtn:hover {
-    color: #FF5C62 !important;
+  color: #FF5C62 !important;
 }
 
 .listIcon {
-    transition: transform 0.35s ease-in-out !important;
-    color: black !important; 
+  transition: transform 0.35s ease-in-out !important;
+  color: black !important;
 }
 
 .listIcon:hover {
-    color: #FF5C62 !important;
-    transform: scale(1.25);
+  color: #FF5C62 !important;
+  transform: scale(1.25);
 }
 
 .listBtn:hover .listIcon {
-    color: #FF5C62 !important;
-    transform: scale(1.25);
+  color: #FF5C62 !important;
+  transform: scale(1.25);
 }

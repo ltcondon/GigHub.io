@@ -1,102 +1,108 @@
 .page-container {
-    position: relative;
-    min-height: 200vh;
-    min-width: 100vw;
+  position: relative;
+  min-height: 200vh;
+  min-width: 100vw;
 }
 
 .Landing {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    min-height: 200vh;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  min-height: 200vh;
 }
-  
+
 .login-text {
-    font-size: 14px;
-    padding-left: 5px;
-    transform: lowercase;
-} 
+  font-size: 14px;
+  padding-left: 5px;
+  transform: lowercase;
+}
 
 .arrows {
-	width: 60px;
-    height: 72px;
-    padding-left: 10px;
+  width: 60px;
+  height: 72px;
+  padding-left: 10px;
 }
 
 .down-arrow {
-    background-color: rgba(0,0,0,0);
-    margin-top: 9%;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 9%;
 }
 
 .arrows path {
-	stroke: #F2E6C6;
-	fill: transparent;
-	stroke-width: 1.5px;	
+  stroke: #F2E6C6;
+  fill: transparent;
+  stroke-width: 1.5px;
 }
 
-.grow { 
-    transition: transform 0.35s ease-in-out !important; 
+.grow {
+  transition: transform 0.35s ease-in-out !important;
 }
 
-.grow:hover { 
-    transform: scale(1.15); 
+.grow:hover {
+  transform: scale(1.15);
 }
 
 .login-btn {
-    margin-top: 3.5%;
-    background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
-    background-size: 400% 400%;
-      -webkit-animation: Gradient 3.75s ease infinite;
-      -moz-animation: Gradient 3.75s ease infinite;
-      animation: Gradient 3.75s ease infinite;
+  margin-top: 3.5%;
+  background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 3.75s ease infinite;
+  -moz-animation: Gradient 3.75s ease infinite;
+  animation: Gradient 3.75s ease infinite;
 }
 
 .login-btn:hover {
-    box-shadow: 0 3px 5px 2px rgba(226, 33, 243, 0.3);
-    -webkit-animation: Gradient 2.75s ease infinite;
-      -moz-animation: Gradient 2.75s ease infinite;
-      animation: Gradient 2.75s ease infinite;
+  box-shadow: 0 3px 5px 2px rgba(226, 33, 243, 0.3);
+  -webkit-animation: Gradient 2.75s ease infinite;
+  -moz-animation: Gradient 2.75s ease infinite;
+  animation: Gradient 2.75s ease infinite;
 }
 
 .btn-container {
-    margin-top: 7.5%;
+  margin-top: 7.5%;
 }
 
 
 /* gradient animations are for the linkedin login button */
 @-webkit-keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
 }
 
 @-moz-keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
 }
 
 @keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
 }
 
 
@@ -106,19 +112,10 @@ second: #6D5CC0
 third: #A767CF
 third: #C06CD6 */
 
-@media only screen and (min-width: 300px) and (max-width: 479px){ 
-    
-}
+@media only screen and (min-width: 300px) and (max-width: 479px) {}
 
-@media only screen and (min-width: 480px) and (max-width: 767px){
-   
-}
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
 
-@media only screen and (min-width: 768px) and (max-width: 991px){ 
-    
-}
+@media only screen and (min-width: 768px) and (max-width: 991px) {}
 
-@media only screen and (min-width: 992px){
-    
-}
-
+@media only screen and (min-width: 992px) {}
