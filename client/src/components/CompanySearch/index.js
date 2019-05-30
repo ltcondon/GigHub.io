@@ -85,13 +85,13 @@ class CompanySearch extends Component {
 
   render() {
 	return (
-		<div className="container">
+		<div>
 		  <Slide top>
 		    <div className="top-section">
 
 					<Jumbotron>
 					  <h1 className="text-uppercase">Company Ratings Search</h1>
-					  <p className="lead text-center subHead">Enter the name of a company below and search the Glassdoor API to see ratings and other key datapoints</p>
+					  <p className="lead text-center subHead"><i>Enter the name of a company below to see ratings from people who have worked there</i></p>
 					  <p id="glassdoorLogo" className="mx-auto text-center">Powered by <a href='https://www.glassdoor.com/index.htm'><img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' alt='Glassdoor' /></a></p>
 					</Jumbotron>
 

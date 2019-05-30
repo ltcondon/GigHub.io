@@ -7,7 +7,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import AccountBox from '@material-ui/icons/AccountBox';
-import PlaylistAddCheckTwoTone from '@material-ui/icons/PlaylistAddCheckTwoTone';
+// import PlaylistAddCheckTwoTone from '@material-ui/icons/PlaylistAddCheckTwoTone';
+import Contacts from '@material-ui/icons/AlternateEmail';
+import Work from '@material-ui/icons/WorkOutline';
 import Domain from '@material-ui/icons/Domain';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import Note from '@material-ui/icons/Note';
@@ -28,9 +30,18 @@ export const mainListItems = (
     <Link to='/dashboard/myJobs' style={{ textDecoration: 'none' }}>
       <ListItem button id='myJobsBtn' className='listBtn'>
         <ListItemIcon className='listIcon'>
-          <PlaylistAddCheckTwoTone />
+          <Work />
         </ListItemIcon>
         <ListItemText primary='My Jobs' className='listTxt' />
+      </ListItem>
+    </Link>
+
+    <Link to='/dashboard/contacts' style={{ textDecoration: 'none' }}>
+      <ListItem button id='contactsBtn' className='listBtn'>
+        <ListItemIcon className='listIcon'>
+          <Contacts />
+        </ListItemIcon>
+        <ListItemText primary='Contacts' className='listTxt' />
       </ListItem>
     </Link>
 

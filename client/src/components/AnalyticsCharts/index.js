@@ -2,39 +2,37 @@ import React, { Component } from 'react';
 import './style.css';
 
 import { Line } from 'react-chartjs-2';
-import { Radar } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import { Col, Row } from '../Grid/Grid';
 import Paper from '@material-ui/core/Paper';
 import Fade from 'react-reveal/Fade';
 
 // Options for configuration of line and bar charts from react-chartsjs2
 const lineOptions = {
-  elements: {
-  },
   responsive: true,
   maintainAspectRatio: false,
   legend: {
-      position: 'bottom'
+    position: 'bottom'
   },
   title: {
     display: true,
-    text: "Keep it up! The perfect gig could be right around the corner "
+    text: "Keep it up! That perfect gig could be right around the corner"
   },
   plugins: {
     filler: {
-        propagate: true
+      propagate: true
     }
   }
 };
 
 // Configuration for radar chart from react-chartsjs2
-const radarOptions = {
+const doughnutOptions = {
     legend: {
         position: 'bottom'
     },
     title: {
       display: true,
-      text: "Check out how far you've come"
+      text: "See where you're at in the process"
     },
 };
 
@@ -49,24 +47,24 @@ class AnalyticsCharts extends Component {
 
     // Line and radar chart data occurs within the render function so they both have access to data stored in the state of the AnalyticsCharts component
     const lineData = {
+      labels: ['', '', '', '', '', ''],
       datasets: [
         {
-          label: '# Applications over time',
+          label: '# Applications submitted since you joined GigHub',
           backgroundColor: '#FF5C62',
-          borderColor: '#FF5C62',
-          data: [6, 14, 8, 15]
+          borderColor: '#292930',
+          data: [0, 6, 16, 8, 9, 15]
         }
       ]
     }
 
-    const radarData = {
+    const doughnutData = {
       labels: ['Interested', 'Applied', 'Phone Screen', 'Code Assessment', 'On-site', 'Offer Extended', 'Not A Good Fit'],
       datasets: [
         {
           label: "Your jobs by milestone",
           fill: true,
-          backgroundColor: '#FF5C62',
-          borderColor: '#FF5C62',
+          backgroundColor: ['#FF5C62', '#FB8122', '#FCC133', '#7F3AE8', '#36A2EB', '#11AF23', '#292930' ],
           data: [15, 20, 10, 6, 5, 4, 8]
         }
       ]
@@ -86,12 +84,12 @@ class AnalyticsCharts extends Component {
           />
         </Col>
         <Col size="sm-4 radar-chart">
-          <Radar 
-            data={radarData} 
-            options={radarOptions}
+          <Doughnut 
+            data={doughnutData} 
+            options={doughnutOptions}
             width={100}
             height={100}
-            className="radar"
+            className="doughnut"
           />
         </Col>
       </Row>  

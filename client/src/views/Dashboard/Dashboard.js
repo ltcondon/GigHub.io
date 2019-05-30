@@ -10,6 +10,7 @@ import { createBrowserHistory } from "history";
 // import components used by this page
 import AnalyticsCharts from '../../components/AnalyticsCharts';
 import BgPattern from '../../components/BgPattern';
+import Contacts from '../../components/Contacts';
 import CompanySearch from '../../components/CompanySearch';
 import CreateApp from '../../components/CreateApp/CreateApp'
 import { withStyles } from '@material-ui/core/styles';
@@ -57,6 +58,10 @@ const routes = [
   {
     path: "/dashboard/progress",
     main: () => <AnalyticsCharts />
+  },
+  {
+    path: "/dashboard/contacts",
+    main: () => <Contacts />
   }
 ];
 
