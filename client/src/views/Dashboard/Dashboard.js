@@ -181,7 +181,7 @@ class Dashboard extends React.Component {
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
-  
+   
   componentDidMount() {
     // this.setState({ id: this.props.location.state.id })
     this.setState({...this.props.location.state})
@@ -250,6 +250,7 @@ class Dashboard extends React.Component {
           open={this.state.open}
         >
           <div className={classes.toolbarIcon}>
+            <img src="/img/gighub-logo.png" alt="GigHub logo" className="drawer-logo" />
             <IconButton onClick={this.handleDrawerClose}>
               <ChevronLeftIcon className={classes.chevronIcon}/>
             </IconButton>
