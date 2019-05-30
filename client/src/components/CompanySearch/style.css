@@ -1,13 +1,10 @@
 .jumbotron {
   height: 225px !important;
-  /* width: 75vw; */
   color: #F7F4E9;
-  /* color: rgba(0,0,0,0.9); */
   margin-bottom: 5px;
   padding-top: 55px;
   font-family: 'Roboto Condensed', sans-serif;
   background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
-  /* background-color: #FF5C62; */
   background-size: 400% 400%;
   -webkit-animation: Gradient 4.2s ease infinite;
   -moz-animation: Gradient 4.2s ease infinite;
@@ -23,10 +20,6 @@
 .jumbotron p {
   font-family: 'Roboto Condensed', sans-serif;
 }
-
-/* .searchForm {
-    width: 75vw;
-} */
 
 .noResults {
   padding-top: 16%;

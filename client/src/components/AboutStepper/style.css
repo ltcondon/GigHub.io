@@ -1,97 +1,96 @@
 .AboutStepper-root-1 {
-    margin: auto;
-    margin-top: 7.5%;
-    background-color: #F7F4E9;
+  margin: auto;
+  margin-top: 7.5%;
+  background-color: #F7F4E9;
 }
 
 .AboutStepper-root-1 svg {
-    color: #FF5C62 !important;
+  color: #FF5C62 !important;
 }
 
 button {
-    outline: none !important;
+  outline: none !important;
 }
 
 .stepLabel {
-    background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    font-size: 3px !important;
+  background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.stepLabel span {
+  font-size: 2rem !important;
 }
 
 .textBody {
-    text-align: justify !important;
-    padding-top: 2.75% !important;
-    padding-bottom: 2.75% !important;
-    padding-left: 5.5% !important;
-    padding-right: 5.5% !important;
+  text-align: justify !important;
+  padding-top: 2.75% !important;
+  padding-bottom: 2.75% !important;
+  padding-left: 5.5% !important;
+  padding-right: 5.5% !important;
 }
 
-@media only screen and (min-width: 200px) and (max-width: 299px){ 
-    .MuiStepLabel-label-48 {
-        font-size: 1rem !important;
-    }    
+@media only screen and (min-width: 200px) and (max-width: 299px) {
+  .MuiStepLabel-label-48 {
+    font-size: 1rem !important;
+  }
 
-    .textBody {
-        font-size: 0.85rem !important;
-    } 
+  .textBody {
+    font-size: 0.85rem !important;
+  }
 
-    .AboutStepper-root-1 {
-        padding-left: 1.5% !important;
-        padding-right: 2% !important;
-    } 
+  .AboutStepper-root-1 {
+    padding-left: 1.5% !important;
+    padding-right: 2% !important;
+  }
 }
 
-@media only screen and (min-width: 300px) and (max-width: 479px){ 
-    .MuiStepLabel-label-48 {
-        font-size: 1.1rem !important;
-    }  
+@media only screen and (min-width: 300px) and (max-width: 479px) {
+  .MuiStepLabel-label-48 {
+    font-size: 1.1rem !important;
+  }
 
-    .textBody {
-        font-size: 0.90rem !important;
-    } 
+  .textBody {
+    font-size: 0.90rem !important;
+  }
 
-    
-    .AboutStepper-root-1 {
-        padding-left: 2% !important;
-        padding-right: 3% !important;
-    } 
+
+  .AboutStepper-root-1 {
+    padding-left: 2% !important;
+    padding-right: 3% !important;
+  }
 }
 
-@media only screen and (min-width: 480px) and (max-width: 767px){
-    .MuiStepLabel-label-48 {
-        font-size: 1.25rem !important;
-    }  
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .MuiStepLabel-label-48 {
+    font-size: 1.25rem !important;
+  }
 
-    .textBody {
-        font-size: 0.95rem !important;
-    }  
+  .textBody {
+    font-size: 0.95rem !important;
+  }
 
-    .AboutStepper-root-1 {
-        padding-left: 3% !important;
-        padding-right: 4% !important;
-    } 
+  .AboutStepper-root-1 {
+    padding-left: 3% !important;
+    padding-right: 4% !important;
+  }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px){ 
-    .MuiStepLabel-label-48 {
-        font-size: 1.4rem !important;
-    }  
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .MuiStepLabel-label-48 {
+    font-size: 1.4rem !important;
+  }
 
-    .textBody {
-        font-size: 1.1rem !important;
-    }   
-    
-    .AboutStepper-root-1 {
-        padding-left: 5% !important;
-        padding-right: 6% !important;
-    }    
+  .textBody {
+    font-size: 1.1rem !important;
+  }
+
+  .AboutStepper-root-1 {
+    padding-left: 5% !important;
+    padding-right: 6% !important;
+  }
 }
 
-@media only screen and (min-width: 992px){
-    
-}
+@media only screen and (min-width: 992px) {}
 
-@media only screen and (min-width: 993px) and (max-width: 1140px) {
-    
-}
+@media only screen and (min-width: 993px) and (max-width: 1140px) {}

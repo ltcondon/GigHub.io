@@ -60,12 +60,12 @@ const labelStyle = {
   fontSize: '1.8rem',
 }
   
-// Get steps returns the the values of the steps for each tab
+// Get steps returns the the values of the steps for each tab to display as a label
 function getSteps() {
   return [`< 𝙏𝙧𝙖𝙘𝙠 𝙖𝙣𝙙 𝙪𝙥𝙙𝙖𝙩𝙚 𝙮𝙤𝙪𝙧 𝙢𝙞𝙡𝙚𝙨𝙩𝙤𝙣𝙚𝙨 >`, `< 𝘼𝙡𝙡 𝙩𝙝𝙚 𝙚𝙨𝙨𝙚𝙣𝙩𝙞𝙖𝙡 𝙞𝙣𝙛𝙤 𝙞𝙣 𝙤𝙣𝙚 𝙥𝙡𝙖𝙘𝙚 >`, `< 𝙂𝙞𝙜𝙃𝙪𝙗'𝙨 𝙜𝙤𝙩 𝙮𝙤𝙪 𝙘𝙤𝙫𝙚𝙧𝙚𝙙! >`];
 }
   
-// Switch case for determining which content to display based on step indice 
+// Switch case for determining which content to display based on step index 
 function getStepContent(step) {
   switch (step) {
     case 0:
