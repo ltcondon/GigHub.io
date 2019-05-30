@@ -16,7 +16,7 @@ const lineOptions = {
   },
   title: {
     display: true,
-    text: "Keep it up! That perfect gig could be right around the corner "
+    text: "Keep it up! That perfect gig could be right around the corner"
   },
   plugins: {
     filler: {
@@ -32,7 +32,7 @@ const doughnutOptions = {
     },
     title: {
       display: true,
-      text: "See how far you've gotten"
+      text: "See where you're at in the process"
     },
 };
 

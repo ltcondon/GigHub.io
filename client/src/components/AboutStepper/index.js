@@ -24,8 +24,8 @@ const styles = theme => ({
       textTransform: 'lowercase',
       outline: 'none',
       background: '#FF5C62',
-      maxHeight: '25px',
-      maxWidth: '30px',
+      maxHeight: '29px',
+      maxWidth: '26px',
       color: 'white',
       paddingLeft: '5%',
       paddingBottom: '1%',
@@ -72,7 +72,7 @@ function getStepContent(step) {
       return `The job search can get overwhelming fast. How many applications have I sent out? Which companies have called me back? Do I have interviews coming up? We've got the tools you need to keep track of all this and more.`;
 
       case 1:
-      return `GigHub tracks and visualizes the progression of your job search from start to finish. See what people are saying about the work environment at the companies you've applied to, and track statistics for your application process!`;
+      return `GigHub tracks and visualizes the progression of your job search from start to finish. See what people are saying about the work environment, culture, and salary competitiveness at the companies you've applied to, and track statistics for your own application process! Add and update contacts to keep track of your network, and make sure it never stops growing.`;
 
       case 2:
         return `Knowing where you're at is as important as knowing where you're going. Sometimes that last-minute email after a phone-screen is enough to signal that you're really interested in working somewhere, and with how many applications you'll be sending out, it isn't always easy to remember where you're at in the process. Don't stress, and don't miss another opportunity. Login with your LinkedIn account below to get started.`;
