@@ -40,12 +40,11 @@ const routes = [
     main: () => 
     <div>
     <AnalyticsCharts />
-    <SimpleTable />
     </div>
   },
   {
     path: "/dashboard/myJobs",
-    main: () => <h2>My Jobs [WORK IN PROGRESS]</h2>
+    main: () => <SimpleTable />
   },
   {
     path: "/dashboard/companies",
