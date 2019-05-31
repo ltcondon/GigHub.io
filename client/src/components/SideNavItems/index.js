@@ -1,11 +1,12 @@
 import React from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import AddJobIcon from '@material-ui/icons/AddBox'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import Divider from '@material-ui/core/Divider';
 import AccountBox from '@material-ui/icons/AccountBox';
 // import PlaylistAddCheckTwoTone from '@material-ui/icons/PlaylistAddCheckTwoTone';
 import Contacts from '@material-ui/icons/AlternateEmail';
@@ -15,83 +16,115 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import Note from '@material-ui/icons/Note';
 
 
-// The following list items populate the side nav on the dashboard page and link to the components to be displayed in the main content area of the dashboard
-export const mainListItems = (
-  <div>
-    <Link to='/dashboard/overview' style={{ textDecoration: 'none' }}>
-      <ListItem button id='overviewBtn' className='listBtn'>
-        <ListItemIcon className='listIcon'>
-          <AccountBox />
-        </ListItemIcon>
-        <ListItemText primary='Overview' className='listTxt' />
-      </ListItem>
-    </Link>
+class SideNavItems extends React.Component {
 
-    <Link to='/dashboard/myJobs' style={{ textDecoration: 'none' }}>
-      <ListItem button id='myJobsBtn' className='listBtn'>
-        <ListItemIcon className='listIcon'>
-          <Work />
-        </ListItemIcon>
-        <ListItemText primary='My Jobs' className='listTxt' />
-      </ListItem>
-    </Link>
+ render() {
 
-    <Link to='/dashboard/contacts' style={{ textDecoration: 'none' }}>
-      <ListItem button id='contactsBtn' className='listBtn'>
-        <ListItemIcon className='listIcon'>
-          <Contacts />
-        </ListItemIcon>
-        <ListItemText primary='Contacts' className='listTxt' />
-      </ListItem>
-    </Link>
+  return (
 
-    <Link to='/dashboard/companies' style={{ textDecoration: 'none' }}>
-      <ListItem button id='companiesBtn' className='listBtn'>
-        <ListItemIcon className='listIcon'>
-          <Domain />
-        </ListItemIcon>
-        <ListItemText primary='Companies' className='listTxt' />
-      </ListItem>
-    </Link>
+    <div>
+      {/* <Link to='/dashboard/overview' style={{ textDecoration: 'none' }}> */}
+        <ListItem button id='overviewBtn' className='listBtn' onClick={this.props.click} name='overview'>
+          <ListItemIcon className='listIcon'>
+            <AccountBox />
+          </ListItemIcon>
+          <ListItemText primary='Overview' className='listTxt' />
+        </ListItem>
+      {/* </Link> */}
 
-    <Link to='/dashboard/progress' style={{ textDecoration: 'none' }}>
-      <ListItem button id='progressBtn' className='listBtn'>
-        <ListItemIcon className='listIcon'>
-          <BarChartIcon />
-        </ListItemIcon>
-        <ListItemText primary='Analytics' className='listTxt' />
-      </ListItem>
-    </Link>
-  </div>
-);
+      {/* <Link to='/dashboard/myJobs' style={{ textDecoration: 'none' }}> */}
+        <ListItem button id='myJobsBtn' className='listBtn' onClick={this.props.click} name='myJobs'>
+          <ListItemIcon className='listIcon'>
+            <Work />
+          </ListItemIcon>
+          <ListItemText primary='My Jobs' className='listTxt' />
+        </ListItem>
+      {/* </Link> */}
 
+      {/* <Link to='/dashboard/contacts' style={{ textDecoration: 'none' }}> */}
+        <ListItem button id='contactsBtn' className='listBtn' onClick={this.props.click} name='contacts'>
+          <ListItemIcon className='listIcon'>
+            <Contacts />
+          </ListItemIcon>
+          <ListItemText primary='Contacts' className='listTxt' />
+        </ListItem>
+      {/* </Link> */}
+
+      {/* <Link to='/dashboard/companies' style={{ textDecoration: 'none' }}> */}
+        <ListItem button id='companiesBtn' className='listBtn' onClick={this.props.click} name='companies'>
+          <ListItemIcon className='listIcon'>
+            <Domain />
+          </ListItemIcon>
+          <ListItemText primary='Companies' className='listTxt' />
+        </ListItem>
+      {/* </Link> */}
+
+      {/* <Link to='/dashboard/progress' style={{ textDecoration: 'none' }}> */}
+        <ListItem button id='progressBtn' className='listBtn' onClick={this.props.click} name='analytics'>
+          <ListItemIcon className='listIcon'>
+            <BarChartIcon />
+          </ListItemIcon>
+          <ListItemText primary='Analytics' className='listTxt' />
+        </ListItem>
+      {/* </Link> */}
+
+      <Divider />
+
+      {/* Secondary list items are currently a stand-in for a to-do's/notes sections on the side nav */}
+
+      <ListSubheader inset>To-Do's</ListSubheader>
+
+        <ListItem button className='listBtn'>
+          <ListItemIcon className='listIcon'>
+            <Note />
+          </ListItemIcon>
+          <ListItemText primary='Find job' />
+        </ListItem>
+
+        <ListItem button className='listBtn'>
+          <ListItemIcon className='listIcon'>
+            <Note />
+          </ListItemIcon>
+          <ListItemText primary='Interview' />
+        </ListItem>
+
+        <ListItem button className='listBtn'>
+          <ListItemIcon className='listIcon'>
+            <Note />
+          </ListItemIcon>
+          <ListItemText primary='Land job' />
+        </ListItem>
+    </div>
+
+    );
+  }
+}
 // Secondary list items are currently a stand-in for a to-do's/notes sections on the side nav
-export const secondaryListItems = (
-  <div>
-    <ListSubheader inset>To-Do's</ListSubheader>
+//   <div>
+//     <ListSubheader inset>To-Do's</ListSubheader>
 
-    <ListItem button className='listBtn'>
-      <ListItemIcon className='listIcon'>
-        <Note />
-      </ListItemIcon>
-      <ListItemText primary='Find job' />
-    </ListItem>
+//     <ListItem button className='listBtn'>
+//       <ListItemIcon className='listIcon'>
+//         <Note />
+//       </ListItemIcon>
+//       <ListItemText primary='Find job' />
+//     </ListItem>
 
-    <ListItem button className='listBtn'>
-      <ListItemIcon className='listIcon'>
-        <Note />
-      </ListItemIcon>
-      <ListItemText primary='Interview' />
-    </ListItem>
+//     <ListItem button className='listBtn'>
+//       <ListItemIcon className='listIcon'>
+//         <Note />
+//       </ListItemIcon>
+//       <ListItemText primary='Interview' />
+//     </ListItem>
 
-    <ListItem button className='listBtn'>
-      <ListItemIcon className='listIcon'>
-        <Note />
-      </ListItemIcon>
-      <ListItemText primary='Land job' />
-    </ListItem>
-  </div>
-);
+//     <ListItem button className='listBtn'>
+//       <ListItemIcon className='listIcon'>
+//         <Note />
+//       </ListItemIcon>
+//       <ListItemText primary='Land job' />
+//     </ListItem>
+//   </div>
+// );
 
 // export const finalListItems = (
 //   <div>
@@ -105,3 +138,5 @@ export const secondaryListItems = (
 //     </Link>
 //   </div>
 // )
+
+export default SideNavItems;
