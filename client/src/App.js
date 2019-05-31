@@ -21,6 +21,9 @@ const App = () => (
         <Route exact path="/login" component={Login}/>
         <Route exact path="/dashboard/overview" component={Dashboard} classes="dashboard"/>
         <Route exact path="/dashboard/myjobs" component={Dashboard} classes="dashboard"/>
+        <Route exact path="/dashboard/contacts" component={Dashboard} classes="dashboard"/>
+        <Route exact path="/dashboard/companies" component={Dashboard} classes="dashboard"/>
+        <Route exact path="/dashboard/analytics" component={Dashboard} classes="dashboard"/>
         <Route path="/add" component={CreateApp} />
       </Switch>
     </div>

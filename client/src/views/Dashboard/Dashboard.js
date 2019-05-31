@@ -18,7 +18,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
+// import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -29,7 +29,7 @@ import AddJobIcon from '@material-ui/icons/AddBox'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { mainListItems, secondaryListItems } from '../../components/SideNavItems';
+import SideNavItems from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
 import SimpleTable from '../../components/SimpleTable';
 
@@ -165,25 +165,81 @@ class Dashboard extends React.Component {
   // Initial state is set to open, and will be set to closed when the sidenav is collapsed
   state = {
     open: true,
+    page: 'overview'
   };
+
+  // Grab and store user ID info from Login page
+  componentDidMount() {
+    this.setState({...this.props.location.state})
+  }
 
   // Handle opening side navigation bar...
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
 
-  addJob = () => {
-    this.setState({ jobClicked: true });
-  };
-
   // ...and handle closing it
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
-   
-  componentDidMount() {
-    // this.setState({ id: this.props.location.state.id })
-    this.setState({...this.props.location.state})
+
+  addJob = () => {
+    this.setState({ jobClicked: true });
+  };
+
+  handleJob = () => {
+    if (this.state.jobClicked) {
+      return <CreateApp state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+    }
+  }
+
+  handleNav = (e) => {
+    const page = e.target.name
+
+    this.setState({
+      page: page
+    })
+
+    console.log(page);
+  }
+
+  displayContent = () => {
+    let navPage = this.state.page
+
+   switch(navPage) {
+     case ('overview'):
+     return (
+       <div>
+         <AnalyticsCharts />
+         <SimpleTable />
+       </div>
+     )
+     case('contacts'):
+     return (
+       <Contacts />
+     )
+     case('myJobs'):
+     return (
+       <SimpleTable />
+     )
+     case('analytics'):
+     return (
+       <AnalyticsCharts />
+
+     )
+     case('companies'):
+     return (
+       <CompanySearch/>
+     )
+     default:
+     return (
+       <div>
+         <AnalyticsCharts />
+         <SimpleTable />
+       </div>
+     )
+   }
+
   }
 
   render() {
@@ -198,56 +254,44 @@ class Dashboard extends React.Component {
     //   />
   // }
 
-  if (this.state.jobClicked) {
-    return <CreateApp state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
-  }
+  // if (this.state.jobClicked) {
+  //   return <CreateApp state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+  // }
 
 
     const { classes } = this.props;
-    console.log(`Username: ${this.props.location.state.firstName} ${this.props.location.state.lastName}`)
+    console.log(`Username: ${this.state.firstName} ${this.state.lastName}`)
+
     return (
     <Router history={customHistory}> 
       <div className={classes.root}>
+
         <CssBaseline />
         <BgPattern />
-        <AppBar
-          position='absolute'
-          className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
-        >
+
+        <AppBar position='absolute' className={classNames(classes.appBar, this.state.open && classes.appBarShift)}>
+
           <Toolbar disableGutters={!this.state.open} className={classes.toolbar}>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerOpen}
-              className={classNames(
-                classes.menuButton,
-                this.state.open && classes.menuButtonHidden,
-              )}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Avatar alt="avatar picture" src={this.props.location.state.pictureURL} className={classes.avatar}/>
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              className={classes.title}
-            >
-              Welcome back, <span className="userName">{this.props.location.state.firstName} {this.props.location.state.lastName}!</span>
-            </Typography>
-                <a className="logoutBtn" href="/">
-                  <ExitToApp />
-                </a>
-          </Toolbar>
+        
+          <IconButton color="inherit" aria-label="Open drawer" onClick={this.handleDrawerOpen} className={classNames(classes.menuButton, this.state.open && classes.menuButtonHidden)}>
+            <MenuIcon />
+          </IconButton>
+        
+          <Avatar alt="avatar picture" src={this.state.pictureURL} className={classes.avatar}/>
+        
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+            Welcome back, <span className="userName">{this.state.firstName} {this.state.lastName}!</span>
+          </Typography>
+            
+          <a className="logoutBtn" href="/">
+            <ExitToApp />
+          </a>
+
+        </Toolbar>
+
         </AppBar>
-        <Drawer
-          variant="permanent"
-          classes={{
-            paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
-          }}
-          open={this.state.open}
-        >
+
+        <Drawer variant="permanent" classes={{paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),}} open={this.state.open}>
           <div className={classes.toolbarIcon}>
             <img src="/img/gighub-logo.png" alt="GigHub logo" className="drawer-logo" />
             <IconButton onClick={this.handleDrawerClose}>
@@ -256,10 +300,9 @@ class Dashboard extends React.Component {
           </div>
 
           <Fade left>
-            <List>{mainListItems}</List>
+            <SideNavItems click={this.handleNav} />
             <Divider />
-            <List>{secondaryListItems}</List>
-            <Divider />
+
             <ListItem button id='addJobBtn' className='listBtn' onClick={this.addJob}>
               <ListItemIcon className='listIcon'>
                 <AddJobIcon />
@@ -281,6 +324,7 @@ class Dashboard extends React.Component {
               />
             ))}
         </main>
+        {this.handleJob()}
       </div>
     </Router>   
     );
