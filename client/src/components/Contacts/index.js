@@ -22,12 +22,15 @@ class Contacts extends Component {
     phone:'',
     relationship: '',
     createdAt: ''
+    // apiContacts: []
   };
 
+  // Grab state passed down from contact route from dashboard
   componentDidMount () {
     this.setState({...this.props.state})
   }
   
+  // Event handlers for opening and closing modal dialog
   handleClickOpen = () => {
     this.setState({ open: true });
   };
@@ -35,12 +38,8 @@ class Contacts extends Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-  
-  addContact = () => {
-    alert("Contact Added!")
-    // window.location.reload()
-  };
 
+  // Helper functions for keeping track of the state of form inputs, which can then be sent to the db
   onChangeName = (e) => {
     this.setState({
       fullName: e.target.value
@@ -77,6 +76,18 @@ class Contacts extends Component {
     });
   }
 
+  // Hit the get API route for all contacts associated with current user's unique ID
+  getContacts = () => {
+    API.getUserContacts(this.state.id)
+        .then(userContacts => {
+          if (!userContacts.length) {
+            return (<div>No contacts yet</div>)
+          } else {
+            return (userContacts.data.map(userContact => {return (<h1>{userContact}</h1>)}))
+          }
+        })
+  }
+
   addContact = (e) => {
     e.preventDefault();
 
@@ -92,15 +103,8 @@ class Contacts extends Component {
 
     API.saveContact(newContact)
       .then(res => {
-        console.log(res.status, res.statusText);
+        // console.log(res.status, res.statusText);
         alert('Contact Added!', {type: 'success'})
-        API.getUserContacts(this.state.id)
-        .then(userContacts => {
-            userContacts.data.map(userContact => {
-              return console.log(userContact);
-            })
-            window.location.reload()
-        })
       })
   }
 
@@ -113,7 +117,7 @@ class Contacts extends Component {
             <button className="add-contact btn grow center" onClick={this.handleClickOpen}><AddContactIcon className="align-middle"/> Add Contact</button>
 
             <section className="contacts-list">
-
+            {this.getContacts()}
             </section>
           </div>
 
@@ -123,7 +127,7 @@ class Contacts extends Component {
             onSubmit={this.addContact}
             aria-labelledby="form-dialog-title"
           >
-            <DialogTitle id="form-dialog-title">Enter all the essential details below, then click "Add Contact" once you're finished</DialogTitle>
+            <DialogTitle id="form-dialog-title">Enter all the essentials below, then click "Add Contact" once you're finished</DialogTitle>
             <DialogContent>
               <DialogContentText></DialogContentText>
               <TextField
