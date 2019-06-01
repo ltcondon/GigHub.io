@@ -99,7 +99,7 @@ class Login extends Component {
     // Function checks state of component, and will redirect user to their dashboard if LinkedIn auth is successful and simultaneously pass down user info as props to the dashboard page
     if (this.state.isAuthorized) {
         return <Redirect to={{
-          pathname: '/dashboard', 
+          pathname: '/dashboard/overview', 
           state: {
             id: this.state.id,
             firstName: this.state.firstName,
