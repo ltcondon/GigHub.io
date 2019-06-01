@@ -16,3 +16,13 @@
   color: #FF5C62 !important;
   transform: scale(1.25);
 }
+
+.active .listIcon {
+  color: #FF5C62 !important;
+  transform: scale(1.25);
+}
+
+.active .listBtn .listIcon {
+  color: #FF5C62 !important;
+  transform: scale(1.25);
+}

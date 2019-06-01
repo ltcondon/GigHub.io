@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import AddJobIcon from '@material-ui/icons/AddBox'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -23,7 +23,7 @@ render() {
  return (
 
    <div>
-     <Link to='/overview' style={{ textDecoration: 'none' }}>
+     <NavLink to='/overview' style={{ textDecoration: 'none' }}>
        <div id='overviewBtnDiv' onClick={this.props.click} name='overview'>
        <ListItem button id='overviewBtn' className='listBtn' onClick={this.props.click} name='overview'>
          <ListItemIcon className='listIcon'>
@@ -32,43 +32,43 @@ render() {
          <ListItemText primary='Overview' className='listTxt' />
        </ListItem>
        </div>
-     </Link>
+     </NavLink>
 
-     <Link to='/myJobs' style={{ textDecoration: 'none' }}>
+     <NavLink to='/myJobs' style={{ textDecoration: 'none' }}>
        <ListItem button id='myJobsBtn' className='listBtn' onClick={this.props.click} name='myJobs'>
          <ListItemIcon className='listIcon'>
            <Work />
          </ListItemIcon>
          <ListItemText primary='My Jobs' className='listTxt' />
        </ListItem>
-     </Link>
+     </NavLink>
 
-     <Link to='/contacts' style={{ textDecoration: 'none' }}>
+     <NavLink to='/contacts' style={{ textDecoration: 'none' }}>
        <ListItem button id='contactsBtn' className='listBtn' onClick={this.props.click} name='contacts'>
          <ListItemIcon className='listIcon'>
            <Contacts />
          </ListItemIcon>
          <ListItemText primary='Contacts' className='listTxt' />
        </ListItem>
-     </Link>
+     </NavLink>
 
-     <Link to='/companies' style={{ textDecoration: 'none' }}>
+     <NavLink to='/companies' style={{ textDecoration: 'none' }}>
        <ListItem button id='companiesBtn' className='listBtn' onClick={this.props.click} name='companies'>
          <ListItemIcon className='listIcon'>
            <Domain />
          </ListItemIcon>
          <ListItemText primary='Companies' className='listTxt' />
        </ListItem>
-     </Link>
+     </NavLink>
 
-     <Link to='/analytics' style={{ textDecoration: 'none' }}>
+     <NavLink to='/analytics' style={{ textDecoration: 'none' }}>
        <ListItem button id='progressBtn' className='listBtn' onClick={this.props.click} name='analytics'>
          <ListItemIcon className='listIcon'>
            <BarChartIcon />
          </ListItemIcon>
          <ListItemText primary='Analytics' className='listTxt' />
        </ListItem>
-     </Link>
+     </NavLink>
 
      <Divider />
 
