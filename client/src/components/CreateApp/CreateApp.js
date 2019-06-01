@@ -9,6 +9,10 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import AddJobIcon from '@material-ui/icons/AddBox'
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 
 
 export default class FormDialog extends Component {
@@ -21,9 +25,9 @@ export default class FormDialog extends Component {
       createdAt: ''
     };
 
-    componentDidMount () {
-      this.setState({...this.props.state})
-    }
+    // componentWillMount () {
+    //   this.setState({...this.props.state})
+    // }
   
     handleClickOpen = () => {
       this.setState({ open: true });
@@ -72,14 +76,14 @@ export default class FormDialog extends Component {
         console.log(`Status: ${this.state.status}`);
         console.log(`Milestone: ${this.state.milestone}`);
         console.log(`Date: ${new Date()}`);
-        console.log(`UserID: ${this.state.id}`);
+        console.log(`UserID: ${this.props.state.id}`);
 
         const newJob = {
             company: this.state.company,
             role: this.state.role,
             status: this.state.status,
             milestone: this.state.milestone,
-            userID: this.state.id
+            userID: this.props.state.id
         };
 
         // console.log(newJob);
@@ -88,13 +92,13 @@ export default class FormDialog extends Component {
         .then(res => {
             console.log(res.status, res.statusText);
             alert('Job Added!', {type: 'success'})
-            API.getUserJobs(this.state.id)
+            API.getUserJobs(this.props.state.id)
             .then(userJobs => {
                 userJobs.data.map(userJob => {
                     return console.log(userJob);
 
                 })
-                window.location.reload()
+                this.handleClose();
             })
         })
     }
@@ -107,6 +111,13 @@ export default class FormDialog extends Component {
     
       return (
         <div>
+          <ListItem button id='addJobBtn' className='listBtn' onClick={this.handleClickOpen}>
+            <ListItemIcon className='listIcon'>
+                <AddJobIcon />
+            </ListItemIcon>
+            <ListItemText primary='Add a Job' className='listTxt' />
+          </ListItem>
+
           <Dialog
             open={this.state.open}
             onClose={this.handleClose}
@@ -115,7 +126,7 @@ export default class FormDialog extends Component {
           >
             <DialogTitle id="form-dialog-title">Add Job Details</DialogTitle>
             <DialogContent>
-              <DialogContentText>Congrats <span className="userName">{this.state.firstName}!</span> Way to take initiative! The first step can often be the hardest, but we're here to help. Provide some details below.</DialogContentText>
+              <DialogContentText>Congrats <span className="userName">{this.props.state.firstName}!</span> Way to take initiative! The first step can often be the hardest, but we're here to help. Provide some details below.</DialogContentText>
               <TextField
                 autoFocus
                 margin="dense"
