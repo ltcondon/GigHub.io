@@ -229,11 +229,11 @@ class Dashboard extends React.Component {
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
             <Switch>
-              <Route path="/overview" component={AnalyticsCharts}/>
-              <Route path="/myJobs" component={SimpleTable}/>
-              <Route path="/contacts" component={Contacts}/>
-              <Route path="/companies" component={CompanySearch}/>
-              <Route path="/analytics" component={AnalyticsCharts}/>
+              <Route path="/overview" render={(props) => <AnalyticsCharts {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
+              <Route path="/myJobs" render={(props) => <SimpleTable {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
+              <Route path="/contacts" render={(props) => <Contacts {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
+              <Route path="/companies" render={(props) => <CompanySearch {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
+              <Route path="/analytics" render={(props) => <AnalyticsCharts {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
             </Switch>
         </main>
       </div>
