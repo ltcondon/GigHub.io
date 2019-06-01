@@ -4,7 +4,6 @@ import "react-s-alert/dist/s-alert-css-effects/slide.css";
 
 import React from "react";
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import history from './utils/history';
 
 import Login from './views/Login/Login';
 import Dashboard from './views/Dashboard/Dashboard';
@@ -19,12 +18,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Login}/>
         <Route path="/login" component={Login}/>
-        <Route path="/dashboard" component={Dashboard} classes="dashboard"/>
-        {/* <Route exact path="/dashboard/myjobs" component={Dashboard} classes="dashboard"/>
-        <Route exact path="/dashboard/contacts" component={Dashboard} classes="dashboard"/>
-        <Route exact path="/dashboard/companies" component={Dashboard} classes="dashboard"/>
-        <Route exact path="/dashboard/analytics" component={Dashboard} classes="dashboard"/>
-        <Route path="/add" component={CreateApp} /> */}
+        <Route path="/dashboard/overview" component={Dashboard} classes="dashboard"/>
       </Switch>
     </div>
   </HashRouter>
