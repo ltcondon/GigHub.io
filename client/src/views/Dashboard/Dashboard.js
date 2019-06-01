@@ -11,7 +11,7 @@ import UserOverview from '../../components/UserOverview';
 import BgPattern from '../../components/BgPattern';
 import Contacts from '../../components/Contacts';
 import CompanySearch from '../../components/CompanySearch';
-import CreateApp from '../../components/CreateApp/CreateApp'
+// import CreateApp from '../../components/CreateApp/CreateApp'
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -30,7 +30,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import SideNavItems from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
-import SimpleTable from '../../components/SimpleTable';
+// import SimpleTable from '../../components/SimpleTable';
+import MyJobs from '../../components/MyJobs';
 
 const drawerWidth = 200;
 
@@ -151,11 +152,11 @@ class Dashboard extends React.Component {
     this.setState({ jobClicked: true });
   };
 
-  handleJob = () => {
-    if (this.state.jobClicked) {
-      return <CreateApp state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
-    }
-  }
+  // handleJob = () => {
+  //   if (this.state.jobClicked) {
+  //     return <CreateApp state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+  //   }
+  // }
 
   render() {
 
@@ -231,7 +232,7 @@ class Dashboard extends React.Component {
           <div className={classes.appBarSpacer} />
             <Switch>
               <Route path="/overview" render={(props) => <UserOverview {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
-              <Route path="/myJobs" render={(props) => <SimpleTable {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
+              <Route path="/myJobs" render={(props) => <MyJobs {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
               <Route path="/contacts" render={(props) => <Contacts {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
               <Route path="/companies" render={(props) => <CompanySearch {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
               <Route path="/analytics" render={(props) => <AnalyticsCharts {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>

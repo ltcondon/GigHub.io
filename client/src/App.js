@@ -7,7 +7,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import Login from './views/Login/Login';
 import Dashboard from './views/Dashboard/Dashboard';
-import CreateApp from "./components/CreateApp/CreateApp";
+// import CreateApp from "./components/CreateApp/CreateApp";
 
 // Create history so that user can navigate back using their browser 
 
