@@ -45,9 +45,7 @@ class Login extends Component {
   // Page will listen for post message to handle authentication...
   componentDidMount() {
     window.addEventListener('message', this.handlePostMessage);
-    // if (this.props.location.state.isAuthorized === true) {
-    //   this.setState({isAuthorized: true});
-    // }
+
   }
 
   // ... and pass user auth data on to the updateProfile method

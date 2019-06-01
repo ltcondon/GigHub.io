@@ -12,13 +12,11 @@ import UserOverview from '../../components/UserOverview';
 import BgPattern from '../../components/BgPattern';
 import Contacts from '../../components/Contacts';
 import CompanySearch from '../../components/CompanySearch';
-// import CreateApp from '../../components/CreateApp/CreateApp'
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-// import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -31,7 +29,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import SideNavItems from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
-// import SimpleTable from '../../components/SimpleTable';
 import MyJobs from '../../components/MyJobs';
 
 const drawerWidth = 200;
@@ -153,15 +150,7 @@ class Dashboard extends React.Component {
     this.setState({ jobClicked: true });
   };
 
-  // handleJob = () => {
-  //   if (this.state.jobClicked) {
-  //     return <CreateApp state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
-  //   }
-  // }
-
   render() {
-
-    // Function checks state of component, and will redirect user to the add page
 
     // Redirects to Log-In if no username is found
     if (!this.props.location.state) {
@@ -171,13 +160,7 @@ class Dashboard extends React.Component {
       />
     }
 
-  // if (this.state.jobClicked) {
-  //   return <CreateApp state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
-  // }
-
-
     const { classes } = this.props;
-    console.log(`Username: ${this.state.firstName} ${this.state.lastName}`)
 
     return (
     <HashRouter> 
@@ -217,7 +200,7 @@ class Dashboard extends React.Component {
           </div>
 
           <Fade left>
-            <SideNavItems click={this.handleNav} />
+            <SideNavItems/>
             <Divider />
 
             <ListItem button id='addJobBtn' className='listBtn' onClick={this.addJob}>
