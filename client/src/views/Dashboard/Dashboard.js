@@ -7,6 +7,7 @@ import { BrowserRouter as HashRouter, Route, Switch } from 'react-router-dom';
 
 // import components used by this page
 import AnalyticsCharts from '../../components/AnalyticsCharts';
+import UserOverview from '../../components/UserOverview';
 import BgPattern from '../../components/BgPattern';
 import Contacts from '../../components/Contacts';
 import CompanySearch from '../../components/CompanySearch';
@@ -229,7 +230,7 @@ class Dashboard extends React.Component {
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
             <Switch>
-              <Route path="/overview" render={(props) => <AnalyticsCharts {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
+              <Route path="/overview" render={(props) => <UserOverview {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
               <Route path="/myJobs" render={(props) => <SimpleTable {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
               <Route path="/contacts" render={(props) => <Contacts {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
               <Route path="/companies" render={(props) => <CompanySearch {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
