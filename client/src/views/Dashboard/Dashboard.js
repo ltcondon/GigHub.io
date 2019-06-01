@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fade from 'react-reveal/Fade'; 
 import { BrowserRouter as HashRouter, Route, Switch } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 // import components used by this page
 import AnalyticsCharts from '../../components/AnalyticsCharts';
@@ -163,12 +164,12 @@ class Dashboard extends React.Component {
     // Function checks state of component, and will redirect user to the add page
 
     // Redirects to Log-In if no username is found
-    // else if (!this.props.location.state) {
-    //   return <Redirect to={{
-    //     pathname: '/'
-    //   }}  
-    //   />
-  // }
+    if (!this.props.location.state) {
+      return <Redirect to={{
+        pathname: '/'
+      }}  
+      />
+    }
 
   // if (this.state.jobClicked) {
   //   return <CreateApp state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
@@ -231,6 +232,7 @@ class Dashboard extends React.Component {
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
             <Switch>
+              <Route path="/dashboard/overview" render={(props) => <UserOverview {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
               <Route path="/overview" render={(props) => <UserOverview {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
               <Route path="/myJobs" render={(props) => <MyJobs {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
               <Route path="/contacts" render={(props) => <Contacts {...props} state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>}/>
