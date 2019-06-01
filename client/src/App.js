@@ -3,7 +3,7 @@ import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
 
 import React from "react";
-import { Router, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import history from './utils/history';
 
 import Login from './views/Login/Login';
@@ -14,17 +14,20 @@ import CreateApp from "./components/CreateApp/CreateApp";
 
 
 const App = () => (
-  <Router history={history}>
+  <HashRouter>
     <div className="mainBody">
       <Switch>
         <Route exact path="/" component={Login}/>
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/dashboard/overview" component={Dashboard} classes="dashboard"/>
-        <Route exact path="/dashboard/myjobs" component={Dashboard} classes="dashboard"/>
-        <Route path="/add" component={CreateApp} />
+        <Route path="/login" component={Login}/>
+        <Route path="/dashboard" component={Dashboard} classes="dashboard"/>
+        {/* <Route exact path="/dashboard/myjobs" component={Dashboard} classes="dashboard"/>
+        <Route exact path="/dashboard/contacts" component={Dashboard} classes="dashboard"/>
+        <Route exact path="/dashboard/companies" component={Dashboard} classes="dashboard"/>
+        <Route exact path="/dashboard/analytics" component={Dashboard} classes="dashboard"/>
+        <Route path="/add" component={CreateApp} /> */}
       </Switch>
     </div>
-  </Router>
+  </HashRouter>
 );
 
 export default App;
