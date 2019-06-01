@@ -24,12 +24,14 @@ class SideNavItems extends React.Component {
 
     <div>
       {/* <Link to='/dashboard/overview' style={{ textDecoration: 'none' }}> */}
+        <div id='overviewBtnDiv' onClick={this.props.click} name='overview'>
         <ListItem button id='overviewBtn' className='listBtn' onClick={this.props.click} name='overview'>
           <ListItemIcon className='listIcon'>
             <AccountBox />
           </ListItemIcon>
           <ListItemText primary='Overview' className='listTxt' />
         </ListItem>
+        </div>
       {/* </Link> */}
 
       {/* <Link to='/dashboard/myJobs' style={{ textDecoration: 'none' }}> */}

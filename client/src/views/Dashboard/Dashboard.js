@@ -196,9 +196,9 @@ class Dashboard extends React.Component {
   handleNav = (e) => {
     const page = e.target.name
 
-    this.setState({
-      page: page
-    })
+    // this.setState({
+    //   page: page
+    // })
 
     console.log(page);
   }
