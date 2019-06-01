@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import SimpleTable from '../SimpleTable/index';
 import CreateApp from '../CreateApp/CreateApp';
-// import AddJobIcon from '@material-ui/icons/AddBox'
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-// import ListItemText from '@material-ui/core/ListItemText';
-
-
 
 export default class MyJobs extends Component {
 
@@ -16,6 +10,8 @@ export default class MyJobs extends Component {
         this.setState({...this.props.state})
     }
 
+    // TO-DO: Maybe take out the mount method above and rewrite CreateApp props as props.state rather than .state
+    
     render() {
         return (
             <div>
