@@ -15,9 +15,16 @@ export default {
   //   return axios.get('/api/jobs/saved')
   // },
 
-
-
   getUserJobs: function (id) {
     return axios.get(`/api/jobs/${id}`)
+  },
+
+  saveContact: function (contactData) {
+    console.log(contactData);
+    return axios.post('/api/contacts', contactData);
+  },
+
+  getUserContacts: function (id) {
+    return axios.get(`/api/contacts/${id}`);
   }
 };

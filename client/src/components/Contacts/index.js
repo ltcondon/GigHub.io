@@ -10,18 +10,17 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import AddContactIcon from '@material-ui/icons/AddBox';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import AddContactIcon from '@material-ui/icons/PlaylistAdd';
 
-export default class Contacts extends Component {
+class Contacts extends Component {
   state = {
     open: false,
+    fullName: '',
     company: '',
-    role: '',
-    status: '',
-    milestone: '',
+    email: '',
+    linkedin: '',
+    phone:'',
+    relationship: '',
     createdAt: ''
   };
 
@@ -37,10 +36,16 @@ export default class Contacts extends Component {
     this.setState({ open: false });
   };
   
-  addApp = () => {
+  addContact = () => {
     alert("Contact Added!")
     // window.location.reload()
   };
+
+  onChangeName = (e) => {
+    this.setState({
+      fullName: e.target.value
+    });
+  }
 
   onChangeCompany = (e) => {
     this.setState({
@@ -48,21 +53,27 @@ export default class Contacts extends Component {
     });
   }
 
-  onChangeRole = (e) => {
+  onChangeEmail = (e) => {
     this.setState({
-      role: e.target.value
+      email: e.target.value
     });
   }
 
-  onChangeStatus = (e) => {
+  onChangeLinkedin = (e) => {
     this.setState({
-      status: e.target.value
+      linkedin: e.target.value
     });
   }
 
-  onChangeMilestone = (e) => {
+  onChangePhone = (e) => {
     this.setState({
-      milestone: e.target.value
+      phone: e.target.value
+    });
+  }
+
+  onChangeRelationship = (e) => {
+    this.setState({
+      relationship: e.target.value
     });
   }
 
@@ -70,10 +81,12 @@ export default class Contacts extends Component {
     e.preventDefault();
 
     const newContact = {
+      fullName: this.state.fullName,
       company: this.state.company,
-      role: this.state.role,
-      status: this.state.status,
-      milestone: this.state.milestone,
+      email: this.state.email,
+      linkedin: this.state.linkedin,
+      phone: this.state.phone,
+      relationship: this.state.relationship,
       userID: this.state.id
     };
 
@@ -89,38 +102,50 @@ export default class Contacts extends Component {
             window.location.reload()
         })
       })
-    }
+  }
 
     render() {
 
       return (
         <div>
-          <div className="container">
-            <p>Missed connections can mean missed opportunities—keep track of your contacts here so you won't miss another!</p>
-            <ListItem button id='addJobBtn' className='listBtn' onClick={this.addContact}>
-              <ListItemIcon className='listIcon'>
-                <AddContactIcon />
-              </ListItemIcon>
-              <ListItemText primary='Add Contact' className='listTxt' />
-            </ListItem>
+          <div className="container card contacts-section">
+            <p className="header-text">Missed connections can mean missed opportunities—keep track of your contacts here so you won't miss another!</p>
+            <button className="add-contact btn grow center" onClick={this.handleClickOpen}><AddContactIcon className="align-middle"/> Add Contact</button>
+
+            <section className="contacts-list">
+
+            </section>
           </div>
 
           <Dialog
             open={this.state.open}
             onClose={this.handleClose}
-            onSubmit={this.addApp}
+            onSubmit={this.addContact}
             aria-labelledby="form-dialog-title"
           >
-            <DialogTitle id="form-dialog-title">Contact Details</DialogTitle>
+            <DialogTitle id="form-dialog-title">Enter all the essential details below, then click "Add Contact" once you're finished</DialogTitle>
             <DialogContent>
-              <DialogContentText>Missed connections can mean missed opportunities, track your contacts here so you won'</DialogContentText>
+              <DialogContentText></DialogContentText>
               <TextField
                 autoFocus
                 margin="dense"
-                id="company"
-                label="Company"
+                id="contact-name"
+                label="Full Name"
                 type="text"
-                placeholder="Facebook"
+                placeholder="John Doe"
+                onChange={this.onChangeName}
+                fullWidth
+              />
+            </DialogContent>
+            <DialogContent className="float-right">
+              <DialogContentText></DialogContentText>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="contact-company"
+                label="Company/Job Title"
+                type="text"
+                placeholder="Google"
                 onChange={this.onChangeCompany}
                 fullWidth
               />
@@ -130,11 +155,11 @@ export default class Contacts extends Component {
               <TextField
                 autoFocus
                 margin="dense"
-                id="role"
-                label="Role"
+                id="contact-email"
+                label="Email"
                 type="text"
-                placeholder="Software Engineer"
-                onChange={this.onChangeRole}
+                placeholder="janedoe@gmail.com"
+                onChange={this.onChangeEmail}
                 fullWidth
               />
             </DialogContent>
@@ -143,11 +168,11 @@ export default class Contacts extends Component {
               <TextField
                 autoFocus
                 margin="dense"
-                id="status"
-                label="Status"
+                id="contact-linkedin"
+                label="LinkedIn"
                 type="text"
-                placeholder="In Progress"
-                onChange={this.onChangeStatus}
+                placeholder="LinkedIn profile URL"
+                onChange={this.onChangeLinkedin}                
                 fullWidth
               />
             </DialogContent>
@@ -156,11 +181,24 @@ export default class Contacts extends Component {
               <TextField
                 autoFocus
                 margin="dense"
-                id="milestone"
-                label="Milestone"
+                id="contact-phone"
+                label="Phone Number"
                 type="text"
-                placeholder="Applied"
-                onChange={this.onChangeMilestone}                
+                placeholder="867-5309"
+                onChange={this.onChangePhone}                
+                fullWidth
+              />
+            </DialogContent>
+            <DialogContent>
+              <DialogContentText></DialogContentText>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="contact-relationship"
+                label="How did you meet this person?"
+                type="text"
+                placeholder="Met at a conference on..."
+                onChange={this.onChangeRelationship}                
                 fullWidth
               />
             </DialogContent>
@@ -177,3 +215,5 @@ export default class Contacts extends Component {
       );
     }
 }
+
+export default Contacts;
