@@ -56,8 +56,8 @@
   transform: scale(1.3);
 }
 
-.searchIcon {
-  transition: transform 1s ease-in-out;
+#btn-submit .searchIcon {
+  transition: transform 0.45s ease-in-out;
 }
 
 /* gradient animations are for the glassdoor jumbotron*/
