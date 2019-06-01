@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import AddJobIcon from '@material-ui/icons/AddBox'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -18,86 +18,88 @@ import Note from '@material-ui/icons/Note';
 
 class SideNavItems extends React.Component {
 
- render() {
+render() {
 
-  return (
+ return (
 
-    <div>
-      <Link to='/overview' style={{ textDecoration: 'none' }}>
-        <ListItem button id='overviewBtn' className='listBtn' onClick={this.props.click} name='overview'>
-          <ListItemIcon className='listIcon'>
-            <AccountBox />
-          </ListItemIcon>
-          <ListItemText primary='Overview' className='listTxt' />
-        </ListItem>
-      </Link>
+   <div>
+     {/* <Link to='/dashboard/overview' style={{ textDecoration: 'none' }}> */}
+       <div id='overviewBtnDiv' onClick={this.props.click} name='overview'>
+       <ListItem button id='overviewBtn' className='listBtn' onClick={this.props.click} name='overview'>
+         <ListItemIcon className='listIcon'>
+           <AccountBox />
+         </ListItemIcon>
+         <ListItemText primary='Overview' className='listTxt' />
+       </ListItem>
+       </div>
+     {/* </Link> */}
 
-      <Link to='/myJobs' style={{ textDecoration: 'none' }}>
-        <ListItem button id='myJobsBtn' className='listBtn' onClick={this.props.click} name='myJobs'>
-          <ListItemIcon className='listIcon'>
-            <Work />
-          </ListItemIcon>
-          <ListItemText primary='My Jobs' className='listTxt' />
-        </ListItem>
-      </Link>
+     {/* <Link to='/dashboard/myJobs' style={{ textDecoration: 'none' }}> */}
+       <ListItem button id='myJobsBtn' className='listBtn' onClick={this.props.click} name='myJobs'>
+         <ListItemIcon className='listIcon'>
+           <Work />
+         </ListItemIcon>
+         <ListItemText primary='My Jobs' className='listTxt' />
+       </ListItem>
+     {/* </Link> */}
 
-      <Link to='/contacts' style={{ textDecoration: 'none' }}>
-        <ListItem button id='contactsBtn' className='listBtn' onClick={this.props.click} name='contacts'>
-          <ListItemIcon className='listIcon'>
-            <Contacts />
-          </ListItemIcon>
-          <ListItemText primary='Contacts' className='listTxt' />
-        </ListItem>
-      </Link>
+     {/* <Link to='/dashboard/contacts' style={{ textDecoration: 'none' }}> */}
+       <ListItem button id='contactsBtn' className='listBtn' onClick={this.props.click} name='contacts'>
+         <ListItemIcon className='listIcon'>
+           <Contacts />
+         </ListItemIcon>
+         <ListItemText primary='Contacts' className='listTxt' />
+       </ListItem>
+     {/* </Link> */}
 
-      <Link to='/companies' style={{ textDecoration: 'none' }}>
-        <ListItem button id='companiesBtn' className='listBtn' onClick={this.props.click} name='companies'>
-          <ListItemIcon className='listIcon'>
-            <Domain />
-          </ListItemIcon>
-          <ListItemText primary='Companies' className='listTxt' />
-        </ListItem>
-      </Link>
+     {/* <Link to='/dashboard/companies' style={{ textDecoration: 'none' }}> */}
+       <ListItem button id='companiesBtn' className='listBtn' onClick={this.props.click} name='companies'>
+         <ListItemIcon className='listIcon'>
+           <Domain />
+         </ListItemIcon>
+         <ListItemText primary='Companies' className='listTxt' />
+       </ListItem>
+     {/* </Link> */}
 
-      <Link to='/analytics' style={{ textDecoration: 'none' }}>
-        <ListItem button id='progressBtn' className='listBtn' onClick={this.props.click} name='analytics'>
-          <ListItemIcon className='listIcon'>
-            <BarChartIcon />
-          </ListItemIcon>
-          <ListItemText primary='Analytics' className='listTxt' />
-        </ListItem>
-      </Link>
+     {/* <Link to='/dashboard/progress' style={{ textDecoration: 'none' }}> */}
+       <ListItem button id='progressBtn' className='listBtn' onClick={this.props.click} name='analytics'>
+         <ListItemIcon className='listIcon'>
+           <BarChartIcon />
+         </ListItemIcon>
+         <ListItemText primary='Analytics' className='listTxt' />
+       </ListItem>
+     {/* </Link> */}
 
-      <Divider />
+     <Divider />
 
-      {/* Secondary list items are currently a stand-in for a to-do's/notes sections on the side nav */}
+     {/* Secondary list items are currently a stand-in for a to-do's/notes sections on the side nav */}
 
-      <ListSubheader inset>To-Do's</ListSubheader>
+     <ListSubheader inset>To-Do's</ListSubheader>
 
-        <ListItem button className='listBtn'>
-          <ListItemIcon className='listIcon'>
-            <Note />
-          </ListItemIcon>
-          <ListItemText primary='Find job' />
-        </ListItem>
+       <ListItem button className='listBtn'>
+         <ListItemIcon className='listIcon'>
+           <Note />
+         </ListItemIcon>
+         <ListItemText primary='Find job' />
+       </ListItem>
 
-        <ListItem button className='listBtn'>
-          <ListItemIcon className='listIcon'>
-            <Note />
-          </ListItemIcon>
-          <ListItemText primary='Interview' />
-        </ListItem>
+       <ListItem button className='listBtn'>
+         <ListItemIcon className='listIcon'>
+           <Note />
+         </ListItemIcon>
+         <ListItemText primary='Interview' />
+       </ListItem>
 
-        <ListItem button className='listBtn'>
-          <ListItemIcon className='listIcon'>
-            <Note />
-          </ListItemIcon>
-          <ListItemText primary='Land job' />
-        </ListItem>
-    </div>
+       <ListItem button className='listBtn'>
+         <ListItemIcon className='listIcon'>
+           <Note />
+         </ListItemIcon>
+         <ListItemText primary='Land job' />
+       </ListItem>
+   </div>
 
-    );
-  }
+   );
+ }
 }
 // Secondary list items are currently a stand-in for a to-do's/notes sections on the side nav
 //   <div>
