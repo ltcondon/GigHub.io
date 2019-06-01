@@ -3,9 +3,7 @@ import "./DashboardStyle.css";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fade from 'react-reveal/Fade'; 
-// import { Redirect } from 'react-router-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { createBrowserHistory } from "history";
+import { BrowserRouter as HashRouter, Route, Switch } from 'react-router-dom';
 
 // import components used by this page
 import AnalyticsCharts from '../../components/AnalyticsCharts';
@@ -32,40 +30,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import SideNavItems from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
 import SimpleTable from '../../components/SimpleTable';
-
-// This array of routes correspond to the content in the main display area contained by the nav components, which will be accessed by index position
-const routes = [
-  {
-    path: "/dashboard/overview",
-    main: () => 
-    <div>
-    <AnalyticsCharts />
-    </div>
-  },
-  {
-    path: "/dashboard/myJobs",
-    main: () => <SimpleTable />
-  },
-  {
-    path: "/dashboard/companies",
-    main: () => <CompanySearch />
-  },
-  {
-    path: "/dashboard/addJob",
-    main: () => <CreateApp />
-  },
-  {
-    path: "/dashboard/progress",
-    main: () => <AnalyticsCharts />
-  },
-  {
-    path: "/dashboard/contacts",
-    main: () => <Contacts />
-  }
-];
-
-// Create history so that user can navigate back using their browser 
-const customHistory = createBrowserHistory();
 
 const drawerWidth = 200;
 
@@ -165,7 +129,6 @@ class Dashboard extends React.Component {
   // Initial state is set to open, and will be set to closed when the sidenav is collapsed
   state = {
     open: true,
-    page: 'overview'
   };
 
   // Grab and store user ID info from Login page
@@ -193,55 +156,6 @@ class Dashboard extends React.Component {
     }
   }
 
-  handleNav = (e) => {
-    const page = e.target.name
-
-    this.setState({
-      page: page
-    })
-
-    console.log(page);
-  }
-
-  displayContent = () => {
-    let navPage = this.state.page
-
-   switch(navPage) {
-     case ('overview'):
-     return (
-       <div>
-         <AnalyticsCharts />
-         <SimpleTable />
-       </div>
-     )
-     case('contacts'):
-     return (
-       <Contacts />
-     )
-     case('myJobs'):
-     return (
-       <SimpleTable />
-     )
-     case('analytics'):
-     return (
-       <AnalyticsCharts />
-
-     )
-     case('companies'):
-     return (
-       <CompanySearch/>
-     )
-     default:
-     return (
-       <div>
-         <AnalyticsCharts />
-         <SimpleTable />
-       </div>
-     )
-   }
-
-  }
-
   render() {
 
     // Function checks state of component, and will redirect user to the add page
@@ -263,7 +177,7 @@ class Dashboard extends React.Component {
     console.log(`Username: ${this.state.firstName} ${this.state.lastName}`)
 
     return (
-    <Router history={customHistory}> 
+    <HashRouter> 
       <div className={classes.root}>
 
         <CssBaseline />
@@ -311,22 +225,19 @@ class Dashboard extends React.Component {
             </ListItem>
           </Fade>
 
-          {/* <CreateApp clicked={this.state.jobClicked}></CreateApp> */}
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.main}
-              />
-            ))}
+            <Switch>
+              <Route path="/overview" component={AnalyticsCharts}/>
+              <Route path="/myJobs" component={SimpleTable}/>
+              <Route path="/contacts" component={Contacts}/>
+              <Route path="/companies" component={CompanySearch}/>
+              <Route path="/analytics" component={AnalyticsCharts}/>
+            </Switch>
         </main>
-        {this.handleJob()}
       </div>
-    </Router>   
+    </HashRouter>   
     );
   }
 }

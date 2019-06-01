@@ -100,8 +100,8 @@ export default class Contacts extends Component {
             <ListItem button id='addJobBtn' className='listBtn' onClick={this.addContact}>
               <ListItemIcon className='listIcon'>
                 <AddContactIcon />
-            </ListItemIcon>
-            <ListItemText primary='Add Contact' className='listTxt' />
+              </ListItemIcon>
+              <ListItemText primary='Add Contact' className='listTxt' />
             </ListItem>
           </div>
 

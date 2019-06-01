@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import AddJobIcon from '@material-ui/icons/AddBox'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -23,50 +23,50 @@ class SideNavItems extends React.Component {
   return (
 
     <div>
-      {/* <Link to='/dashboard/overview' style={{ textDecoration: 'none' }}> */}
+      <Link to='/overview' style={{ textDecoration: 'none' }}>
         <ListItem button id='overviewBtn' className='listBtn' onClick={this.props.click} name='overview'>
           <ListItemIcon className='listIcon'>
             <AccountBox />
           </ListItemIcon>
           <ListItemText primary='Overview' className='listTxt' />
         </ListItem>
-      {/* </Link> */}
+      </Link>
 
-      {/* <Link to='/dashboard/myJobs' style={{ textDecoration: 'none' }}> */}
+      <Link to='/myJobs' style={{ textDecoration: 'none' }}>
         <ListItem button id='myJobsBtn' className='listBtn' onClick={this.props.click} name='myJobs'>
           <ListItemIcon className='listIcon'>
             <Work />
           </ListItemIcon>
           <ListItemText primary='My Jobs' className='listTxt' />
         </ListItem>
-      {/* </Link> */}
+      </Link>
 
-      {/* <Link to='/dashboard/contacts' style={{ textDecoration: 'none' }}> */}
+      <Link to='/contacts' style={{ textDecoration: 'none' }}>
         <ListItem button id='contactsBtn' className='listBtn' onClick={this.props.click} name='contacts'>
           <ListItemIcon className='listIcon'>
             <Contacts />
           </ListItemIcon>
           <ListItemText primary='Contacts' className='listTxt' />
         </ListItem>
-      {/* </Link> */}
+      </Link>
 
-      {/* <Link to='/dashboard/companies' style={{ textDecoration: 'none' }}> */}
+      <Link to='/companies' style={{ textDecoration: 'none' }}>
         <ListItem button id='companiesBtn' className='listBtn' onClick={this.props.click} name='companies'>
           <ListItemIcon className='listIcon'>
             <Domain />
           </ListItemIcon>
           <ListItemText primary='Companies' className='listTxt' />
         </ListItem>
-      {/* </Link> */}
+      </Link>
 
-      {/* <Link to='/dashboard/progress' style={{ textDecoration: 'none' }}> */}
+      <Link to='/analytics' style={{ textDecoration: 'none' }}>
         <ListItem button id='progressBtn' className='listBtn' onClick={this.props.click} name='analytics'>
           <ListItemIcon className='listIcon'>
             <BarChartIcon />
           </ListItemIcon>
           <ListItemText primary='Analytics' className='listTxt' />
         </ListItem>
-      {/* </Link> */}
+      </Link>
 
       <Divider />
 
