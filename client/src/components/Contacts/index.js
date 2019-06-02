@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./style.css";
 // import axios from 'axios';
-import API from '../../utils/API'
+import API from "../../utils/API";
 // import { Redirect } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -10,7 +10,11 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import AddContactIcon from '@material-ui/icons/PlaylistAdd';
+import AddContactIcon from "@material-ui/icons/PlaylistAdd";
+import Refresh from "@material-ui/icons/Refresh";
+import { Col, Row } from "../Grid/Grid";
+import Paper from "@material-ui/core/Paper";
+import Slide from 'react-reveal/Slide';
 
 class Contacts extends Component {
   state = {
@@ -21,14 +25,20 @@ class Contacts extends Component {
     linkedin: '',
     phone:'',
     relationship: '',
-    createdAt: ''
-    // apiContacts: []
+    createdAt: '',
+    apiContacts: [],
+    network: ''
   };
 
   // Grab state passed down from contact route from dashboard
   componentDidMount () {
-    this.setState({...this.props.state})
-  }
+    this.setState({...this.props.state});
+  };
+
+  // Grab user contacts from db when component updates
+  // componentDidUpdate () {
+  //   this.getContacts();
+  // };
   
   // Event handlers for opening and closing modal dialog
   handleClickOpen = () => {
@@ -76,18 +86,19 @@ class Contacts extends Component {
     });
   }
 
-  // Hit the get API route for all contacts associated with current user's unique ID
+  // Hit the get API route for all contacts associated with current user's unique ID, and update network number to reflect number of contacts
   getContacts = () => {
     API.getUserContacts(this.state.id)
-        .then(userContacts => {
-          if (!userContacts.length) {
-            return (<div>No contacts yet</div>)
-          } else {
-            return (userContacts.data.map(userContact => {return (<h1>{userContact}</h1>)}))
-          }
-        })
-  }
+        .then(res => {
+          // console.log(res);
+          this.setState({apiContacts : res.data});
+          // console.log(this.state.apiContacts);
+          this.setState({network : res.data.length});
+          console.log(this.state.network);
+        });   
+  };
 
+  // Event handler for form submission, gathers form inputs and sends to db
   addContact = (e) => {
     e.preventDefault();
 
@@ -104,7 +115,6 @@ class Contacts extends Component {
     API.saveContact(newContact)
       .then(res => {
         // console.log(res.status, res.statusText);
-        alert('Contact Added!', {type: 'success'})
       })
   }
 
@@ -112,14 +122,44 @@ class Contacts extends Component {
 
       return (
         <div>
-          <div className="container card contacts-section">
-            <p className="header-text">Missed connections can mean missed opportunities—keep track of your contacts here so you won't miss another!</p>
-            <button className="add-contact btn grow center" onClick={this.handleClickOpen}><AddContactIcon className="align-middle"/> Add Contact</button>
+          <Slide top>
+          <Paper className="contacts-section">
+            <Row>
+              <Col size="sm-6" className="info-area">
+                <div className="image-container">
+                  <img src="./img/business-affiliate-network.svg" alt="Network Visual" className="network-image" />
+                </div>
+                <div className="text-container">
+                  <p className="header-text">Missed connections can mean missed opportunities—use GigHub to track of all of your contacts' essential information and <span className="red-bold">keep your network growing</span></p>
+                </div>
+                <button className="add-contact btn grow center" onClick={this.handleClickOpen}><AddContactIcon className="align-middle"/>Add Contact</button>
 
-            <section className="contacts-list">
-            {this.getContacts()}
-            </section>
-          </div>
+                <button className="refresh-db btn grow center" onClick={this.getContacts}><Refresh className="align-middle refresh-icon" /></button>
+              </Col>
+              
+              <Col size="sm-6">
+                <div className="network-box card mx-auto">
+                  <p className="network-header">People in your network:</p>
+                  <p className="center align-middle network-counter mx-auto">{this.state.network}</p> 
+                </div>
+              </Col>
+            </Row>
+
+            <Row className="contacts-display">
+              <section className="contacts-list">
+                {this.state.apiContacts.length ? (
+                  this.state.apiContacts.map(contact => (
+                    <p>{contact.fullName}|{contact.company}|{contact.email}|{contact.linkedin}|{contact.phone}|{contact.relationship}</p>
+                  ))
+                ) : (	
+                  <div className="mx-auto">
+                    <p className="mx-auto text-center">No contacts to display yet!</p>
+                  </div>
+                )}	
+              </section>
+            </Row>
+          </Paper>
+          </Slide>
 
           <Dialog
             open={this.state.open}

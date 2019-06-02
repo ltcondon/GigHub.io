@@ -72,8 +72,8 @@ class CompanySearch extends Component {
   // Handler for form submission that triggers API call
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("handle form");
-    console.log(this.state.company);
+    // console.log("handle form");
+    // console.log(this.state.company);
     API.searchGlassdoor(this.state.company)
         .then(res => {
         	// console.log(res.data);
