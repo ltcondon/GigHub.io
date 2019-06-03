@@ -28,6 +28,6 @@ export default {
   },
 
   deleteContact: function (contactId) {
-    return axios.delete(`/api/contacts/${contactId}`);
+    return axios.delete(`/api/contacts/delete/${contactId}`);
   }
 };

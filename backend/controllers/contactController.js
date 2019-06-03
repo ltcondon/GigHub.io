@@ -25,5 +25,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
 
     // res.send("LOL") 
+  },
+
+  deleteUserContact: function(req, res) {
+    db.Contact
+    .findByIdAndDelete({ _id: req.params.id })
+    .catch(err => res.status(422).json(err));
   }
 };

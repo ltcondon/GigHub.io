@@ -16,4 +16,7 @@ router.route("/contacts")
 router.route("/contacts/:id")
  .get(contactController.findAllUserContacts); 
 
+router.route("/contacts/delete/:id") 
+  .delete(contactController.deleteUserContact);
+
 module.exports = router;
