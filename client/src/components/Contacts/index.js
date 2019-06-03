@@ -126,12 +126,12 @@ class Contacts extends Component {
           <Slide top>
           <Paper className="contacts-section">
             <Row>
-              <Col size="sm-6" className="info-area">
+              <Col size="sm-8" className="info-area">
                 <div className="image-container">
                   <img src="./img/business-affiliate-network.svg" alt="Network Visual" className="network-image" />
                 </div>
                 <div className="text-container">
-                  <p className="header-text">Missed connections can mean missed opportunities—use GigHub to track all of your contacts' essential information and <span className="red-bold">keep growing your network</span></p>
+                  <p className="header-text">Missed connections can mean missed opportunities—use GigHub to track all of your contacts' essential information and <span className="red-bold">keep growing your network!</span></p>
                 </div>
                 <button className="add-contact btn grow center" onClick={this.handleClickOpen}><AddContactIcon className="align-middle"/>Add Contact</button>
 
@@ -140,7 +140,7 @@ class Contacts extends Component {
                 </Tooltip>
               </Col>
               
-              <Col size="sm-6">
+              <Col size="sm-4">
                 <div className="network-box card mx-auto">
                   <p className="network-header">People in your network:</p>
                   <p className="center align-middle network-counter mx-auto">{this.state.network}</p> 
