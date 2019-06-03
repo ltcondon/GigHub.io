@@ -18,15 +18,10 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ExitToApp from '@material-ui/icons/ExitToApp';
-import AddJobIcon from '@material-ui/icons/AddBox'
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import SideNavItems from '../../components/SideNavItems';
 import Avatar from '@material-ui/core/Avatar';
 import MyJobs from '../../components/MyJobs';
@@ -201,14 +196,6 @@ class Dashboard extends React.Component {
 
           <Fade left>
             <SideNavItems/>
-            <Divider />
-
-            <ListItem button id='addJobBtn' className='listBtn' onClick={this.addJob}>
-              <ListItemIcon className='listIcon'>
-                <AddJobIcon />
-              </ListItemIcon>
-              <ListItemText primary='Add a Job' className='listTxt' />
-            </ListItem>
           </Fade>
 
         </Drawer>
