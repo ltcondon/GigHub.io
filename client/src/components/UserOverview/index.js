@@ -29,8 +29,6 @@ class UserOverview extends React.Component {
   // const interviewRate;
 
   state = {
-    activeJobs: [],
-    responseRate: '',
     interviewRate:''
   }
 
@@ -39,27 +37,46 @@ class UserOverview extends React.Component {
     this.getUserInfo();
   };
 
+  componentDidUpdate (prevProps) {
+    if (this.props.state.id !== prevProps.state.id) {
+      this.setState({...this.props.state});
+      this.getUserInfo();
+    }
+  }
+
   getUserInfo = () => {
-    API.getUserJobs(this.state.id)
+    API.getUserJobs(this.props.state.id)
         .then(res => {
           let responses = 0;
           let responseRate = 0;
+          let interviews = 0;
+          let interviewRate = 0;
 
           res.data.map(userJob => {
             
             if (userJob.status === "In Progress" && userJob.milestone !== "Applied") {
+
+              if (userJob.milestone !== "Interested" && userJob.milestone !== "Not A Good Fit") {
+                interviews++
+              }
+
               responses++;
-              responseRate = (responses / res.data.length)
-              console.log("Responses: " + responses);
-              console.log("Response rate: " + responseRate);
+              responseRate = (responses / res.data.length) * 100
+              interviewRate = (interviews / responses) * 100
+
+              console.log(
+              "Interviews: " + interviews + '\n' +
+              "Responses: " + responses + '\n')
             }
             return responseRate;
 
         })
-
+          console.log(res.data.length)
+          console.log(this.state.id)
           this.setState({
             activeJobs : res.data,
-            responseRate : responseRate
+            responseRate: responseRate.toFixed(1),
+            interviewRate: interviewRate.toFixed(1)
           });
 
         });   
@@ -68,26 +85,27 @@ class UserOverview extends React.Component {
   render() {
 
     const { classes } = this.props;
-
+ 
     return (
       <div className={classes.root}>
         <Grid container spacing={8}>
           <Grid item xs>
             <Paper className={classes.paper}>
               <h4>Active Jobs</h4>
-              <h2>{this.state.activeJobs.length}</h2>
+              { this.state && this.state.activeJobs &&
+                <h2>{this.state.activeJobs.length}</h2>}
             </Paper>
           </Grid>
           <Grid item xs>
             <Paper className={classes.paper}>
               <h4>Response Rate</h4>
-              <h2>{this.state.responseRate}</h2>
+              <h2>{this.state.responseRate}%</h2>
             </Paper>
           </Grid> 
           <Grid item xs>
             <Paper className={classes.paper}>
               <h4>Interview Rate</h4>
-              {/* <h2>{interviewRate}</h2> */}
+              <h2>{this.state.interviewRate}%</h2>
             </Paper>
           </Grid>
         </Grid>
