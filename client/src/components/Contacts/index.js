@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./style.css";
-// import axios from 'axios';
 import API from "../../utils/API";
 // import { Redirect } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
@@ -15,6 +14,7 @@ import Refresh from "@material-ui/icons/Refresh";
 import { Col, Row } from "../Grid/Grid";
 import Paper from "@material-ui/core/Paper";
 import Slide from 'react-reveal/Slide';
+import Tooltip from '@material-ui/core/Tooltip';
 
 class Contacts extends Component {
   state = {
@@ -101,6 +101,7 @@ class Contacts extends Component {
   // Event handler for form submission, gathers form inputs and sends to db
   addContact = (e) => {
     e.preventDefault();
+    this.handleClose();
 
     const newContact = {
       fullName: this.state.fullName,
@@ -130,11 +131,13 @@ class Contacts extends Component {
                   <img src="./img/business-affiliate-network.svg" alt="Network Visual" className="network-image" />
                 </div>
                 <div className="text-container">
-                  <p className="header-text">Missed connections can mean missed opportunities—use GigHub to track of all of your contacts' essential information and <span className="red-bold">keep your network growing</span></p>
+                  <p className="header-text">Missed connections can mean missed opportunities—use GigHub to track all of your contacts' essential information and <span className="red-bold">keep growing your network</span></p>
                 </div>
                 <button className="add-contact btn grow center" onClick={this.handleClickOpen}><AddContactIcon className="align-middle"/>Add Contact</button>
 
-                <button className="refresh-db btn grow center" onClick={this.getContacts}><Refresh className="align-middle refresh-icon" /></button>
+                <Tooltip title="Refresh" placement="right-end">
+                  <button className="refresh-db btn grow center" onClick={this.getContacts}><Refresh className="align-middle refresh-icon" /></button>
+                </Tooltip>
               </Col>
               
               <Col size="sm-6">
@@ -146,17 +149,35 @@ class Contacts extends Component {
             </Row>
 
             <Row className="contacts-display">
-              <section className="contacts-list">
-                {this.state.apiContacts.length ? (
-                  this.state.apiContacts.map(contact => (
-                    <p>{contact.fullName}|{contact.company}|{contact.email}|{contact.linkedin}|{contact.phone}|{contact.relationship}</p>
-                  ))
-                ) : (	
-                  <div className="mx-auto">
-                    <p className="mx-auto text-center">No contacts to display yet!</p>
-                  </div>
-                )}	
-              </section>
+              <Col size="sm-12">
+                <Paper className="contacts-list">
+                  <table className="table table-striped table-dark table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">LinkedIn</th>
+                        <th scope="col">Phone #</th>
+                        <th scope="col">Relationship</th>
+                      </tr>
+                    </thead>
+
+                    <tbody className="contacts-table">
+                      {this.state.apiContacts.map((contact, index) => (
+                        <tr key={index}>
+                          <td>{contact.fullName}</td>
+                          <td>{contact.company}</td>
+                          <td>{contact.email}</td>
+                          <td>{contact.linkedin}</td>
+                          <td>{contact.phone}</td>
+                          <td>{contact.relationship}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>	
+                </Paper>
+              </Col>
             </Row>
           </Paper>
           </Slide>
