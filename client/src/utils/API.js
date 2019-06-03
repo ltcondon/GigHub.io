@@ -25,5 +25,9 @@ export default {
 
   getUserContacts: function (id) {
     return axios.get(`/api/contacts/${id}`);
+  },
+
+  deleteContact: function (contactId) {
+    return axios.delete(`/api/contacts/${contactId}`);
   }
 };

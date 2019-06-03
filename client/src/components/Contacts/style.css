@@ -102,3 +102,9 @@
 .refresh-db .refresh-icon {
   transition: transform 0.45s ease-in-out;
 }
+
+.delete-contact {
+  color: #FF5C62;
+  background-color: #2D2D2D;
+  max-height: 32px;
+}

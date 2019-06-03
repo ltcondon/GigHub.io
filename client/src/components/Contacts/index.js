@@ -88,7 +88,14 @@ class Contacts extends Component {
     this.setState({
       relationship: e.target.value
     });
-  }
+  };
+
+  // Event handler for removing a contact from the db with associated API call
+  deleteContact = (contactId) => {
+    API.deleteContact(contactId).then(res => {
+      console.log(res.status, "Contact Deleted");
+    })
+  };
 
   // Hit the get API route for all contacts associated with current user's unique ID, and update network number to reflect number of contacts
   getContacts = () => {
@@ -164,6 +171,7 @@ class Contacts extends Component {
                         <th scope="col">LinkedIn</th>
                         <th scope="col">Phone #</th>
                         <th scope="col">Relationship</th>
+                        <th scope="col"></th>
                       </tr>
                     </thead>
 
@@ -176,6 +184,7 @@ class Contacts extends Component {
                           <td>{contact.linkedin}</td>
                           <td>{contact.phone}</td>
                           <td>{contact.relationship}</td>
+                          <td><button className="delete-contact btn" onClick={this.deleteContact(this._id)}>X</button></td>
                         </tr>
                       ))}
                     </tbody>
