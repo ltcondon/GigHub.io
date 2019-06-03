@@ -91,10 +91,13 @@ class Contacts extends Component {
   };
 
   // Event handler for removing a contact from the db with associated API call
-  deleteContact = (contactId) => {
+  deleteContact = (e) => {
+    const contactId = e.target.id;
+    console.log(contactId);
     API.deleteContact(contactId).then(res => {
       console.log(res.status, "Contact Deleted");
-    })
+    });
+    this.getContacts();
   };
 
   // Hit the get API route for all contacts associated with current user's unique ID, and update network number to reflect number of contacts
@@ -127,7 +130,9 @@ class Contacts extends Component {
     API.saveContact(newContact)
       .then(res => {
         // console.log(res.status, res.statusText);
-      })
+    })
+
+    this.getContacts();
   }
 
     render() {
@@ -184,7 +189,7 @@ class Contacts extends Component {
                           <td>{contact.linkedin}</td>
                           <td>{contact.phone}</td>
                           <td>{contact.relationship}</td>
-                          <td><button className="delete-contact btn" onClick={this.deleteContact(this._id)}>X</button></td>
+                          <td><button className="delete-contact btn" id={contact._id} onClick={this.deleteContact}>X</button></td>
                         </tr>
                       ))}
                     </tbody>
