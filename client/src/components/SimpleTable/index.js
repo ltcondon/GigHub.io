@@ -19,7 +19,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import Slide from 'react-reveal/Slide';
-// import API from '../../utils/API'
+import API from '../../utils/API';
 
 // import { lighten } from '@material-ui/core/styles/colorManipulator';
 
@@ -216,18 +216,36 @@ class EnhancedTable extends React.Component {
     order: 'asc',
     orderBy: 'calories',
     selected: [],
-    data: [
-      createData('Facebook', 'Software Developer', 'In Progress', 'Applied', 'April 19th, 2019', '3 days ago'),
-      createData('Google', 'Front-End Developer', 'In Progress', 'Phone Screen', 'April 6th, 2019', '1 day ago'),
-      createData('Spotify', 'Front-End Developer', 'In Progress', 'Phone Screen', 'April 11th, 2019', '1 week ago'),
-      createData('Amazon', 'Web Developer', 'In Progress', 'Applied', 'April 15th, 2019', '3 days ago'),
-      createData('Trilogy Education', 'Software Engineer I', 'In Progress', 'Code Assessment', 'May 1st, 2019', '6 days ago'),
-      createData('Adobe', 'Junior Web Developer', 'In Progress', 'Applied', 'April 29th, 2019', '2 days ago'),
-      createData('Kevala Analytics', 'Software Engineer', 'In Progress', 'On-site Interview', 'April 2nd, 2019', '1 week ago'),
-      createData('Lightsource', 'Software Developer', 'In Progress', 'Applied', 'May 4th, 2019', '3 days ago')
-    ],
+    data: [],
     page: 0,
     rowsPerPage: 10,
+  };
+
+  componentDidMount () {
+    this.setState({...this.props.state});
+    this.getUserJobs();
+  };
+
+  // Grab user contacts from db when component updates if userID has been passed down to this components' state
+  componentDidUpdate (prevProps) {
+    if (this.props.state.id !== prevProps.state.id) {
+      this.setState({...this.props.state});
+      this.getUserJobs();
+    }
+  };
+
+  // Grab all jobs with passed in user ID form db
+  getUserJobs = () => {
+    API.getUserJobs(this.props.state.id)
+        .then(res => {
+          // console.log(res);
+          const jobData = [];
+          for (let i=0; i < res.data.length; i++) {
+            jobData.push(createData(res.data[i].company, res.data[i].role, res.data[i].status, res.data[i].milestone, res.data[i].createdAt, '1 minute ago'));
+          };
+
+          this.setState({ data: jobData});
+        }); 
   };
 
   handleRequestSort = (event, property) => {

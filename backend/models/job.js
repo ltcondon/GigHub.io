@@ -8,6 +8,7 @@ const JobSchema = new Schema({
   status: {type: String, default: 'In Progress' },
   milestone: {type: String, default: 'Applied'},
   createdAt: {type: Date, default: Date.now},
+  updatedAt: {type: Date, default: Date.now},
   hired: {type: Boolean, default: false},
   userID: {type: String, required: true }
 });
