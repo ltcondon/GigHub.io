@@ -3,7 +3,7 @@ import "./DashboardStyle.css";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fade from 'react-reveal/Fade'; 
-import { BrowserRouter as HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
 // import components used by this page
@@ -163,7 +163,7 @@ class Dashboard extends React.Component {
     const { classes } = this.props;
 
     return (
-    <HashRouter> 
+    <Router> 
       <div className={classes.root}>
 
         <CssBaseline />
@@ -224,7 +224,7 @@ class Dashboard extends React.Component {
             </Switch>
         </main>
       </div>
-    </HashRouter>   
+    </Router>   
     );
   }
 }
