@@ -149,7 +149,7 @@ class Contacts extends Component {
                 <div className="text-container">
                   <p className="header-text">Missed connections can mean missed opportunities—use GigHub to track all of your contacts' essential information and <span className="red-bold">keep growing your network!</span></p>
                 </div>
-                <button className="add-contact btn grow center" onClick={this.handleClickOpen}><AddContactIcon className="align-middle"/>Add Contact</button>
+                <button className="add-contact btn grow center" onClick={this.handleClickOpen}><AddContactIcon className="align-middle"/> Add Contact</button>
 
                 <Tooltip title="Refresh" placement="right-end">
                   <button className="refresh-db btn grow center" onClick={this.getContacts}><Refresh className="align-middle refresh-icon" /></button>

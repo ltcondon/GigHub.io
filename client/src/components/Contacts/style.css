@@ -4,6 +4,7 @@
   margin-right: 2%;
   margin-top: 3%;
   background-color: #FF5C62;
+  font-family: 'Roboto', sans-serif;
 }
   
 .add-contact:hover {
@@ -106,5 +107,4 @@
 .delete-contact {
   color: #FF5C62;
   background-color: #2D2D2D;
-  max-height: 32px;
 }
