@@ -1,6 +1,8 @@
 .add-contact {
-  margin-top: 3.5%;
   max-width: 140px;
+  margin-left: 35%;
+  margin-right: 2%;
+  margin-top: 3%;
   background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
   background-size: 400% 400%;
   -webkit-animation: Gradient 3.75s ease infinite;
@@ -15,6 +17,80 @@
   animation: Gradient 2.75s ease infinite;
 }
 
+.info-area {
+  padding-top: 1%;
+  padding-left: 1%;
+}
+
 .contacts-section {
-  background-color: #F7F4E9;
+  width: 100% !important;
+  background-color: #F7F4E9 !important;
+}
+
+.network-box {
+  width: 175px;
+  height: 150px;
+  margin-top: 2%;
+  background: linear-gradient(43deg, #3552b2, #6d5cc0, #a767cf, #c06cd6);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 3.75s ease infinite;
+  -moz-animation: Gradient 3.75s ease infinite;
+  animation: Gradient 3.75s ease infinite;
+}
+
+.network-header {
+  padding: 5%;
+  text-align: center;
+  color: #F7F4E9;
+}
+
+.header-text {
+  padding-top: 3.5%;
+  font-size: 1.25rem;
+}
+
+.image-container {
+  float: left;
+  margin: 4.5%;
+  margin-right: 6%;
+}
+
+.text-container {
+  min-width: 845px;
+}
+
+.network-counter {
+  color: #F7F4E9;
+  font-size: 42px;
+}
+
+.red-bold {
+  color: #FF5C62;
+  font-weight: bold;
+}
+
+.network-image {
+  height: 85px;
+  width: auto;
+}
+
+.contacts-list {
+  padding: 2%;
+}
+
+.refresh-db {
+  background-color: #FF5C62;
+  margin-top: 3%;
+}
+
+.refresh-db:hover {
+  background-color: #FF5C62;
+}
+
+.refresh-db:hover> .refresh-icon {
+  transform: scale(1.3);
+}
+
+.refresh-db .refresh-icon {
+  transition: transform 0.45s ease-in-out;
 }

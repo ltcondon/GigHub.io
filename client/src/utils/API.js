@@ -20,7 +20,6 @@ export default {
   },
 
   saveContact: function (contactData) {
-    console.log(contactData);
     return axios.post('/api/contacts', contactData);
   },
 
