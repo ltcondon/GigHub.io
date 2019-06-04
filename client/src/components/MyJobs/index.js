@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SimpleTable from '../SimpleTable/index';
+import EnhancedTable from '../EnhancedTable/index';
 import CreateApp from '../CreateApp/CreateApp';
 
 export default class MyJobs extends Component {
@@ -16,7 +16,7 @@ export default class MyJobs extends Component {
         return (
             <div>
                 <CreateApp state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
-                <SimpleTable state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+                <EnhancedTable state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
             </div>
         )
     }

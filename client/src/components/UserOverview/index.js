@@ -5,7 +5,6 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 import AnalyticsCharts from '../AnalyticsCharts/index';
-import SimpleTable from '../SimpleTable/index';
 
 import API from '../../utils/API'
 
@@ -19,7 +18,7 @@ const styles = theme => ({
     textAlign: 'center',
     background: '#F7F4E9',
     border: '2px',
-    margin: '8%',
+    margin: '5%',
     borderColor: '#FF5C62',
     boxShadow: '0px 2px 5px 2px #FF5C62'
   },
@@ -120,7 +119,6 @@ class UserOverview extends React.Component {
         </Grid>
 
         {/* <Grid container> */}
-          <SimpleTable state={{title: "Recent Applications", length: 3, id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
             <AnalyticsCharts state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
           {/* </Grid> */}
       </div>
