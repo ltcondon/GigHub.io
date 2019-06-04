@@ -1,16 +1,78 @@
-#addJobBtn {
-  max-width: 140px;
-  background-color: #FF5C62;
-  font-family: 'Roboto', sans-serif;
-}
-
-#addJobBtn:hover {
-  box-shadow: 0 1px 2px 1px #FF5C62;
-  -webkit-animation: Gradient 2.75s ease infinite;
-  -moz-animation: Gradient 2.75s ease infinite;
-  animation: Gradient 2.75s ease infinite;
-}
 
 .milestone-dialog svg {
     margin-left: 95%;
+}
+
+.myjobs-section {
+    width: 100% !important;
+    height: 212px;
+    background-color: #F7F4E9 !important;
+}
+
+.myjobs-header {
+  padding: 5%;
+  text-align: center;
+  color: #F7F4E9;
+}
+
+.myjobs-box {
+    width: 175px;
+    height: 150px;
+    margin-top: 8%;
+    background: #2D2D2D;
+    border: 2px;
+    border-color: #FF5C62;
+    box-shadow: 0px 2px 5px 2px #FF5C62;
+}
+
+.add-job {
+    max-width: 140px;
+    margin-left: 25%;
+    margin-right: 2%;
+    margin-top: 3%;
+    background-color: #FF5C62;
+    font-family: 'Roboto', sans-serif;
+}
+    
+.add-job:hover {
+    box-shadow: 0 1px 2px 1px #FF5C62;
+    -webkit-animation: Gradient 2.75s ease infinite;
+    -moz-animation: Gradient 2.75s ease infinite;
+    animation: Gradient 2.75s ease infinite;
+}
+  
+.myjobs-counter {
+    color: #FF5C62;
+    font-size: 54px;
+    margin-top: -15px;
+}
+
+.myjobs-image {
+  height: 85px;
+  width: auto;
+}
+
+.red-bold {
+    color: #FF5C62;
+    font-weight: bold;
+}
+
+.refresh-db {
+    background-color: #FF5C62;
+    margin-top: 3%;
+}
+
+.refresh-db:hover {
+    box-shadow: 0 1px 2px 1px #FF5C62;
+    -webkit-animation: Gradient 2.75s ease infinite;
+    -moz-animation: Gradient 2.75s ease infinite;
+    animation: Gradient 2.75s ease infinite;
+}
+
+.refresh-db:hover>.refresh-icon {
+    transform: scale(1.3);
+}
+
+.refresh-db .refresh-icon {
+    transition: transform 0.45s ease-in-out;
 }

@@ -16,6 +16,7 @@ import Paper from "@material-ui/core/Paper";
 import Slide from 'react-reveal/Slide';
 import Tooltip from '@material-ui/core/Tooltip';
 import DialogSlide from '@material-ui/core/Slide';
+import Fade from 'react-reveal/Fade';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <DialogSlide direction="up" ref={ref} {...props} />;
@@ -144,8 +145,8 @@ class Contacts extends Component {
 
       return (
         <div>
-          <Slide top>
-          <Paper className="contacts-section">
+          <Slide top duration={675}>
+          <Paper className="contacts-section-header">
             <Row>
               <Col size="sm-8" className="info-area">
                 <div className="image-container">
@@ -169,6 +170,11 @@ class Contacts extends Component {
               </Col>
             </Row>
 
+          </Paper>
+          </Slide>
+
+          <Fade bottom duration={650}>
+          <Paper className="contacts-section">
             <Row className="contacts-display">
               <Col size="sm-12">
                 <Paper className="contacts-list">
@@ -203,7 +209,7 @@ class Contacts extends Component {
               </Col>
             </Row>
           </Paper>
-          </Slide>
+          </Fade>
 
           <Dialog
             open={this.state.open}

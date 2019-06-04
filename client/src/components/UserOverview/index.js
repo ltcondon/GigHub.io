@@ -19,6 +19,7 @@ const styles = theme => ({
     background: '#F7F4E9',
     border: '2px',
     margin: '5%',
+    minHeight: '121.6px',
     borderColor: '#FF5C62',
     boxShadow: '0px 2px 5px 2px #FF5C62'
   },

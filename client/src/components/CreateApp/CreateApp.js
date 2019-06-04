@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
 import "./style.css";
-// import { Redirect } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -10,15 +9,21 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import AddJobIcon from '@material-ui/icons/AddBox'
-import Slide from '@material-ui/core/Slide';
+import DialogSlide from '@material-ui/core/Slide';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
+import { Col, Row } from "../Grid/Grid";
+import Paper from "@material-ui/core/Paper";
+import Refresh from "@material-ui/icons/Refresh";
+import Tooltip from '@material-ui/core/Tooltip';
+import Slide from 'react-reveal/Slide';
+
 
 // Defines the transition path for the modal dialog so that it slides from bottom of screen
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <DialogSlide direction="up" ref={ref} {...props} />;
 });
 
 export default class FormDialog extends Component {
@@ -27,15 +32,32 @@ export default class FormDialog extends Component {
       company: '',
       role: '',
       location: '',
-      // status: '',
+      numjobs: '',
       milestone: '',
       createdAt: ''
     };
 
-    // componentWillMount () {
-    //   this.setState({...this.props.state})
-    // }
-  
+    // Grab state passed down from contact route from dashboard
+    componentDidMount () {
+      this.setState({...this.props.state});
+      API.getUserJobs(this.props.state.id)
+          .then(userJobs => {
+            this.setState({numjobs : userJobs.data.length});
+      })
+    };
+
+    // Grab user contacts from db when component updates if userID has been passed down to this components' state
+    componentDidUpdate (prevProps) {
+      if (this.props.state.id !== prevProps.state.id) {
+        this.setState({...this.props.state});
+        API.getUserJobs(this.props.state.id)
+            .then(userJobs => {
+              this.setState({numjobs : userJobs.data.length});
+        })
+      }
+    };
+
+    
     handleClickOpen = () => {
       this.setState({ open: true });
     };
@@ -47,6 +69,13 @@ export default class FormDialog extends Component {
     addApp = () => {
         alert("Job Added!")
         // window.location.reload()
+    }
+
+    getUserJobs = () => {
+      API.getUserJobs(this.props.state.id)
+          .then(userJobs => {
+            this.setState({numjobs : userJobs.data.length});
+      })
     }
 
     onChangeCompany = (e) => {
@@ -102,6 +131,7 @@ export default class FormDialog extends Component {
                 // userJobs.data.map(userJob => {
                 //     return console.log(userJob);
                 // })
+                this.setState({numjobs : userJobs.data.length});
                 this.handleClose();
             })
         })
@@ -115,8 +145,32 @@ export default class FormDialog extends Component {
     
       return (
         <div>
-          <button id="addJobBtn" className="btn grow center" onClick={this.handleClickOpen}><AddJobIcon className="align-middle"/> Add Job</button>
+          <Slide top duration={500}>
+          <Paper className="myjobs-section">
+            <Row>
+              <Col size="sm-8" className="info-area">
+                <div className="image-container">
+                  <img src="./img/rjsc8FTu9hLF8GhSY7HyhdNP1.png" alt="User Jobs Visual" className="myjobs-image" />
+                </div>
+                <div className="text-container">
+                  <p className="header-text">All the essential information, all in one place. You're already well on your way to finding that <span className="red-bold">perfect gig</span></p>
+                </div>
+                <button id="addJobBtn" className="btn grow center add-job" onClick={this.handleClickOpen}><AddJobIcon className="align-middle"/> Add Job</button>
 
+                <Tooltip title="Refresh" placement="right-end">
+                  <button className="refresh-db btn grow center" onClick={this.getUserJobs}><Refresh className="align-middle refresh-icon" /></button>
+                </Tooltip>
+              </Col>
+              
+              <Col size="sm-4">
+                <div className="myjobs-box card mx-auto">
+                  <p className="myjobs-header">Active jobs:</p>
+                  <p className="center align-middle myjobs-counter mx-auto">{this.state.numjobs}</p> 
+                </div>
+              </Col>
+            </Row>
+          </Paper>
+          </Slide>
 
           <Dialog
             open={this.state.open}
@@ -165,19 +219,6 @@ export default class FormDialog extends Component {
                 fullWidth
               />
             </DialogContent>
-            {/* <DialogContent>
-              <DialogContentText></DialogContentText>
-              <TextField
-                autoFocus
-                margin="dense"
-                id="status"
-                label="Status"
-                type="text"
-                placeholder="In Progress"
-                onChange={this.onChangeStatus}
-                fullWidth
-              />
-            </DialogContent> */}
             <DialogContent className="milestone-dialog">
               <DialogContentText></DialogContentText>
               <InputLabel htmlFor="milestone-input">Milestone</InputLabel>
