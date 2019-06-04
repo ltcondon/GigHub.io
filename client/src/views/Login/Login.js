@@ -73,7 +73,7 @@ class Login extends Component {
 
   // Open a sign-in window, which lets users enter sign-in info and then queries the LinkedIn API to get back an authorization token
   requestProfile = () => {
-    var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=866hm18efvcg9c&scope=r_liteprofile%20r_emailaddress%20w_member_social&redirect_uri=https://gighub-io.herokuapp.com/callback`
+    var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=866hm18efvcg9c&scope=r_liteprofile%20r_emailaddress%20w_member_social&redirect_uri=https://gighub-io.herokuapp.com/client/build/callback`
 
     var width = 450,
       height = 730,
