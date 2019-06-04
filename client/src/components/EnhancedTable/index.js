@@ -56,7 +56,7 @@ function getSorting(order, orderBy) {
 const rows = [
   { id: "company", numeric: false, disablePadding: true, label: "Company" },
   { id: "role", numeric: true, disablePadding: false, label: "Role" },
-  { id: "status", numeric: true, disablePadding: false, label: "Status" },
+  { id: "location", numeric: true, disablePadding: false, label: "Location" },
   { id: "milestone", numeric: true, disablePadding: false, label: "Milestone" },
   { id: "created", numeric: true, disablePadding: false, label: "Created" },
   { id: "updated", numeric: true, disablePadding: false, label: "Updated" }
@@ -174,7 +174,7 @@ let EnhancedTableToolbar = props => {
       <div className={classes.actions}>
         {numSelected > 0 ? (
           <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
+            <IconButton aria-label="Delete" onClick={this.}>
               <DeleteIcon />
             </IconButton>
           </Tooltip>
@@ -241,11 +241,19 @@ class EnhancedTable extends React.Component {
 
           const jobData = [];
           for (let i=0; i < res.data.length; i++) {
-            jobData.push(createData(res.data[i].company, res.data[i].role, res.data[i].status, res.data[i].milestone, res.data[i].createdAt, '1 minute ago'));
+            jobData.push(createData(res.data[i].company, res.data[i].role, res.data[i].location, res.data[i].milestone, res.data[i].createdAt, '1 minute ago'));
           };
 
           this.setState({ data: jobData});
         }); 
+  };
+
+  // Set status of a job to archived, so it will no longer appear in the table but can still be used for analytics purposes
+  archiveUserJob = () => {
+    API.archiveJob(this.props.selected)
+      .then(res => {
+        this.getUserJobs();
+      });
   };
 
   handleRequestSort = (event, property) => {
