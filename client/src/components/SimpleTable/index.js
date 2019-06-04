@@ -226,7 +226,7 @@ class EnhancedTable extends React.Component {
     this.getUserJobs();
   };
 
-  // Grab user contacts from db when component updates if userID has been passed down to this components' state
+  // Grab user jobs from db when component updates if userID has been passed down to this components' state
   componentDidUpdate (prevProps) {
     if (this.props.state.id !== prevProps.state.id) {
       this.setState({...this.props.state});

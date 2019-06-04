@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-import API from '../../utils/API'
+import API from '../../utils/API';
+import "./style.css";
 // import { Redirect } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -10,10 +10,16 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import AddJobIcon from '@material-ui/icons/AddBox'
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import Slide from '@material-ui/core/Slide';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import MenuItem from '@material-ui/core/MenuItem';
 
+// Defines the transition path for the modal dialog so that it slides from bottom of screen
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default class FormDialog extends Component {
     state = {
@@ -61,22 +67,15 @@ export default class FormDialog extends Component {
         });
     }
 
-    onChangeMilestone = (e) => {
-        this.setState({
-            milestone: e.target.value
-        });
+    onChangeMilestone = name => (e) => {
+        // this.setState({
+        //     milestone: e.target.value
+        // });
+        this.setState({ ...this.state, [name]: e.target.value });
     }
 
     publish = (e) => {
         e.preventDefault();
-
-        console.log(`Job App Created`);
-        console.log(`Company: ${this.state.company}`);
-        console.log(`Role: ${this.state.role}`);
-        console.log(`Status: ${this.state.status}`);
-        console.log(`Milestone: ${this.state.milestone}`);
-        console.log(`Date: ${new Date()}`);
-        console.log(`UserID: ${this.props.state.id}`);
 
         const newJob = {
             company: this.state.company,
@@ -111,15 +110,12 @@ export default class FormDialog extends Component {
     
       return (
         <div>
-          <ListItem button id='addJobBtn' className='listBtn' onClick={this.handleClickOpen}>
-            <ListItemIcon className='listIcon'>
-                <AddJobIcon />
-            </ListItemIcon>
-            <ListItemText primary='Add a Job' className='listTxt' />
-          </ListItem>
+          <button id="addJobBtn" className="btn grow center" onClick={this.handleClickOpen}><AddJobIcon className="align-middle"/> Add Job</button>
+
 
           <Dialog
             open={this.state.open}
+            TransitionComponent={Transition}
             onClose={this.handleClose}
             onSubmit={this.addApp}
             aria-labelledby="form-dialog-title"
@@ -164,18 +160,28 @@ export default class FormDialog extends Component {
                 fullWidth
               />
             </DialogContent>
-            <DialogContent>
+            <DialogContent className="milestone-dialog">
               <DialogContentText></DialogContentText>
-              <TextField
+              <InputLabel htmlFor="milestone-input">Milestone</InputLabel>
+              <Select
                 autoFocus
-                margin="dense"
+                value={this.state.milestone}
+                // margin="dense"
                 id="milestone"
                 label="Milestone"
                 type="text"
                 placeholder="Applied"
-                onChange={this.onChangeMilestone}                
+                onChange={this.onChangeMilestone("milestone")}
+                input={<Input id="milestone-input" />}
                 fullWidth
-              />
+              >
+                <MenuItem value={"Interested"}>Interested</MenuItem>
+                <MenuItem value={"Applied"}>Applied</MenuItem>
+                <MenuItem value={"Code Assessment"}>Code Assessment</MenuItem>
+                <MenuItem value={"On-Site"}>On-Site</MenuItem>
+                <MenuItem value={"Offer Extended"}>Offer Extended</MenuItem>
+                <MenuItem value={"Not A Good Fit"}>Not A Good Fit</MenuItem>
+              </Select>
             </DialogContent>
             <DialogActions>
               <Button onClick={this.handleClose} color="primary">
