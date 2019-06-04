@@ -71,7 +71,7 @@ class Login extends Component {
 
   // Open a sign-in window, which lets users enter sign-in info and then queries the LinkedIn API to get back an authorization token
   requestProfile = () => {
-    var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.REACT_APP_CLIENT_ID}&scope=r_liteprofile%20r_emailaddress%20w_member_social&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`
+    var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=866hm18efvcg9c&scope=r_liteprofile%20r_emailaddress%20w_member_social&redirect_uri=http://localhost:3001/callback`
 
     var width = 450,
       height = 730,
