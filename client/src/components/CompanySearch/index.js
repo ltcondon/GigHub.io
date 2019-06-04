@@ -86,7 +86,7 @@ class CompanySearch extends Component {
   render() {
 	return (
 		<div>
-		  <Slide top>
+		  <Slide top duration={675}>
 		    <div className="top-section">
 
 					<Jumbotron>

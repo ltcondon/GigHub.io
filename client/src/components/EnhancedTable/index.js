@@ -219,6 +219,7 @@ class EnhancedTable extends React.Component {
     data: [],
     page: 0,
     rowsPerPage: 10,
+    numjobs: '',
   };
 
   componentDidMount () {
@@ -245,6 +246,7 @@ class EnhancedTable extends React.Component {
           };
 
           this.setState({ data: jobData});
+          this.setState({ numjobs : res.data.length });
         }); 
   };
 
@@ -313,7 +315,7 @@ class EnhancedTable extends React.Component {
 
     return (
       <Paper className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length}/>
         <div className={classes.tableWrapper}>
         <Slide top cascade>
           <Table className={classes.table} id="enhanced-table" aria-labelledby="tableTitle">
