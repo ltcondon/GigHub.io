@@ -26,7 +26,8 @@ export default class FormDialog extends Component {
       open: false,
       company: '',
       role: '',
-      status: '',
+      location: '',
+      // status: '',
       milestone: '',
       createdAt: ''
     };
@@ -46,25 +47,30 @@ export default class FormDialog extends Component {
     addApp = () => {
         alert("Job Added!")
         // window.location.reload()
-
     }
 
     onChangeCompany = (e) => {
-        this.setState({
-            company: e.target.value
-        });
+      this.setState({
+        company: e.target.value
+      });
     }
 
     onChangeRole = (e) => {
-        this.setState({
-            role: e.target.value
-        });
+      this.setState({
+        role: e.target.value
+      });
+    }
+
+    onChangeLocation = (e) => {
+      this.setState({
+        location: e.target.value
+      });
     }
 
     onChangeStatus = (e) => {
-        this.setState({
-            status: e.target.value
-        });
+      this.setState({
+        status: e.target.value
+      });
     }
 
     onChangeMilestone = name => (e) => {
@@ -80,7 +86,7 @@ export default class FormDialog extends Component {
         const newJob = {
             company: this.state.company,
             role: this.state.role,
-            status: this.state.status,
+            location: this.state.location,
             milestone: this.state.milestone,
             userID: this.props.state.id
         };
@@ -89,14 +95,13 @@ export default class FormDialog extends Component {
 
         API.saveJob(newJob)
         .then(res => {
-            console.log(res.status, res.statusText);
+            // console.log(res.status, res.statusText);
             alert('Job Added!', {type: 'success'})
             API.getUserJobs(this.props.state.id)
             .then(userJobs => {
-                userJobs.data.map(userJob => {
-                    return console.log(userJob);
-
-                })
+                // userJobs.data.map(userJob => {
+                //     return console.log(userJob);
+                // })
                 this.handleClose();
             })
         })
@@ -152,6 +157,19 @@ export default class FormDialog extends Component {
               <TextField
                 autoFocus
                 margin="dense"
+                id="location"
+                label="Location"
+                type="text"
+                placeholder="San Francisco"
+                onChange={this.onChangeLocation}
+                fullWidth
+              />
+            </DialogContent>
+            {/* <DialogContent>
+              <DialogContentText></DialogContentText>
+              <TextField
+                autoFocus
+                margin="dense"
                 id="status"
                 label="Status"
                 type="text"
@@ -159,14 +177,13 @@ export default class FormDialog extends Component {
                 onChange={this.onChangeStatus}
                 fullWidth
               />
-            </DialogContent>
+            </DialogContent> */}
             <DialogContent className="milestone-dialog">
               <DialogContentText></DialogContentText>
               <InputLabel htmlFor="milestone-input">Milestone</InputLabel>
               <Select
                 autoFocus
                 value={this.state.milestone}
-                // margin="dense"
                 id="milestone"
                 label="Milestone"
                 type="text"

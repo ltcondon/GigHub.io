@@ -19,44 +19,44 @@ class SideNavItems extends React.Component {
 render() {
 
  return (
-
    <div>
-     <NavLink to='/overview' style={{ textDecoration: 'none' }}>
-       <ListItem button id='overviewBtn' className='listBtn' name='overview'>
-         <ListItemIcon className='listIcon'>
-           <BarChartIcon />
-         </ListItemIcon>
-         <ListItemText primary='Dashboard' className='listTxt' />
-       </ListItem>
-     </NavLink>
+     <div className="sidenav-contents">
+      <NavLink to='/overview' style={{ textDecoration: 'none' }}>
+        <ListItem button id='overviewBtn' className='listBtn' name='overview'>
+          <ListItemIcon className='listIcon'>
+            <BarChartIcon />
+          </ListItemIcon>
+          <ListItemText primary='Dashboard' className='listTxt' />
+        </ListItem>
+      </NavLink>
 
-     <NavLink to='/myJobs' style={{ textDecoration: 'none' }}>
-       <ListItem button id='myJobsBtn' className='listBtn' name='myJobs'>
-         <ListItemIcon className='listIcon'>
-           <Work />
-         </ListItemIcon>
-         <ListItemText primary='My Jobs' className='listTxt' />
-       </ListItem>
-     </NavLink>
+      <NavLink to='/myJobs' style={{ textDecoration: 'none' }}>
+        <ListItem button id='myJobsBtn' className='listBtn' name='myJobs'>
+          <ListItemIcon className='listIcon'>
+            <Work />
+          </ListItemIcon>
+          <ListItemText primary='My Jobs' className='listTxt' />
+        </ListItem>
+      </NavLink>
 
-     <NavLink to='/contacts' style={{ textDecoration: 'none' }}>
-       <ListItem button id='contactsBtn' className='listBtn'name='contacts'>
-         <ListItemIcon className='listIcon'>
-           <AccountBox />
-         </ListItemIcon>
-         <ListItemText primary='Contacts' className='listTxt' />
-       </ListItem>
-     </NavLink>
+      <NavLink to='/contacts' style={{ textDecoration: 'none' }}>
+        <ListItem button id='contactsBtn' className='listBtn'name='contacts'>
+          <ListItemIcon className='listIcon'>
+            <AccountBox />
+          </ListItemIcon>
+          <ListItemText primary='Contacts' className='listTxt' />
+        </ListItem>
+      </NavLink>
 
-     <NavLink to='/companies' style={{ textDecoration: 'none' }}>
-       <ListItem button id='companiesBtn' className='listBtn' name='companies'>
-         <ListItemIcon className='listIcon'>
-           <Domain />
-         </ListItemIcon>
-         <ListItemText primary='Companies' className='listTxt' />
-       </ListItem>
-     </NavLink>
-
+      <NavLink to='/companies' style={{ textDecoration: 'none' }}>
+        <ListItem button id='companiesBtn' className='listBtn' name='companies'>
+          <ListItemIcon className='listIcon'>
+            <Domain />
+          </ListItemIcon>
+          <ListItemText primary='Companies' className='listTxt' />
+        </ListItem>
+      </NavLink>
+     </div>
      {/* <NavLink to='/analytics' style={{ textDecoration: 'none' }}>
        <ListItem button id='progressBtn' className='listBtn' name='analytics'>
          <ListItemIcon className='listIcon'>

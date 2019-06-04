@@ -19,6 +19,14 @@ export default {
     return axios.get(`/api/jobs/${id}`)
   },
 
+  getActiveJobs: function (id) {
+    return axios.get(`/api/activejobs/${id}`)
+  },
+
+  archiveJob: function (jobId) {
+    return axios.put(`/api/jobs/archive/${jobId}`);
+  },
+
   saveContact: function (contactData) {
     return axios.post('/api/contacts', contactData);
   },

@@ -9,6 +9,12 @@ router.route("/jobs")
 router.route("/jobs/:id")
  .get(jobController.findAllUserJobs);
 
+router.route("/activejobs/:id") 
+  .get(jobController.findAllActiveJobs);
+
+router.route("/api/jobs/archive/:id") 
+  .post(jobController.archiveUserJob);
+
 router.route("/contacts")
  .get(contactController.findAll)
  .post(contactController.create);

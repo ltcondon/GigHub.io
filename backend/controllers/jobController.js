@@ -10,12 +10,14 @@ module.exports = {
     //   .catch(err => res.status(422).json(err));
     res.send("LOL");
   },
+
   create: function(req, res) {
     db.Job
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   findAllUserJobs: function(req, res) {
     db.Job
       .find({ userID: req.params.id })
@@ -23,5 +25,20 @@ module.exports = {
       .catch(err => res.status(422).json(err));
 
     // res.send("LOL") 
+  },
+
+  findAllActiveJobs: function(req, res) {
+    db.Job
+      .find({ userID: req.params.id } && { status: "In Progress"})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+
+    // res.send("LOL") 
+  },
+
+  archiveUserJob: function(req, res) {
+    db.Job
+    .findOneAndUpdate({ _id: req.params.id })
+    .catch(err => res.status(422).json(err));
   }
 };

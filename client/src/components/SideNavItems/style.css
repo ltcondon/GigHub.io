@@ -26,3 +26,8 @@
   color: #FF5C62 !important;
   transform: scale(1.25);
 }
+
+.sidenav-contents {
+  padding-top: 5%;
+  padding-bottom: 15%;
+}
