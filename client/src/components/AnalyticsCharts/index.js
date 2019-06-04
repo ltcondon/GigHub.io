@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
+import API from '../../utils/API';
+
 
 import { Line } from 'react-chartjs-2';
 import { Doughnut } from 'react-chartjs-2';
