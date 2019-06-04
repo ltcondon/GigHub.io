@@ -53,7 +53,7 @@ class UserOverview extends React.Component {
   }
 
   getUserInfo = () => {
-    API.getUserJobs(this.props.state.id)
+    API.getActiveJobs(this.props.state.id)
         .then(res => {
           let responses = 0;
           let responseRate = 0;
@@ -62,7 +62,7 @@ class UserOverview extends React.Component {
 
           res.data.map(userJob => {
             
-            if (userJob.status === "In Progress" && userJob.milestone !== "Applied") {
+            if (userJob.milestone !== "Applied") {
 
               if (userJob.milestone !== "Interested" && userJob.milestone !== "Not A Good Fit") {
                 interviews++
