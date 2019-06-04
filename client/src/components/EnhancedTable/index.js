@@ -236,7 +236,7 @@ class EnhancedTable extends React.Component {
 
   // Grab all jobs with passed in user ID form db
   getUserJobs = () => {
-    API.getUserJobs(this.props.state.id)
+    API.getActiveJobs(this.props.state.id)
         .then(res => {
 
           const jobData = [];
