@@ -40,9 +40,9 @@ router.get("/", function(req, res, next) {
 function requestAccessToken(code,state) {
   return request.post('https://www.linkedin.com/oauth/v2/accessToken')
     .send('grant_type=authorization_code')
-    .send(`redirect_uri=https://gighub-io.herokuapp.com/client/build/callback`)
-    .send(`client_id=866hm18efvcg9c`)
-    .send(`client_secret=58ooZDkb21m4dlou`)
+    .send(`redirect_uri=https://gighub-io.herokuapp.com/callback`)
+    .send(`client_id=7845x4f4bdc30m`)
+    .send(`client_secret=oA9WHipzKzzImtNy`)
     .send(`code=${code}`)
     .send(`state=${state}`)
 }
