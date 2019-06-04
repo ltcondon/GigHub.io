@@ -200,7 +200,7 @@ EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 4,
     backgroundColor: '#F7F4E9',
   },
   table: {
@@ -238,7 +238,7 @@ class EnhancedTable extends React.Component {
   getUserJobs = () => {
     API.getUserJobs(this.props.state.id)
         .then(res => {
-          // console.log(res);
+
           const jobData = [];
           for (let i=0; i < res.data.length; i++) {
             jobData.push(createData(res.data[i].company, res.data[i].role, res.data[i].status, res.data[i].milestone, res.data[i].createdAt, '1 minute ago'));
@@ -315,10 +315,11 @@ class EnhancedTable extends React.Component {
               orderBy={orderBy}
               onSelectAllClick={this.handleSelectAllClick}
               onRequestSort={this.handleRequestSort}
-              rowCount={data.length}
+              rowCount={this.props.state.length || data.length}
             />
             <TableBody>
               {stableSort(data, getSorting(order, orderBy))
+                .slice(0, (this.props.state.length || data.length))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map(n => {
                   const isSelected = this.isSelected(n.id);
@@ -356,9 +357,9 @@ class EnhancedTable extends React.Component {
           </Slide>
         </div>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[5, 10]}
           component="div"
-          count={data.length}
+          count={this.props.state.length || data.length}
           rowsPerPage={rowsPerPage}
           page={page}
           backIconButtonProps={{

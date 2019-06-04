@@ -4,6 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
+import AnalyticsCharts from '../AnalyticsCharts/index';
+import SimpleTable from '../SimpleTable/index';
+
 import API from '../../utils/API'
 
 
@@ -115,6 +118,11 @@ class UserOverview extends React.Component {
             </Paper>
           </Grid>
         </Grid>
+
+        {/* <Grid container> */}
+          <SimpleTable state={{title: "Recent Applications", length: 3, id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+            <AnalyticsCharts state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+          {/* </Grid> */}
       </div>
     );
   }
