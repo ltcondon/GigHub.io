@@ -55,7 +55,7 @@ class Navbar extends Component {
 
   // Open a sign-in window, which lets users enter sign-in info and then queries the LinkedIn API to get back an authorization token
   requestProfile = () => {
-    var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.REACT_APP_CLIENT_ID}&scope=r_liteprofile%20r_emailaddress%20w_member_social&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`
+    var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=7845x4f4bdc30m&scope=r_liteprofile%20r_emailaddress%20w_member_social&redirect_uri=https://gighub-io.herokuapp.com/callback`
 
     var width = 450,
       height = 730,
@@ -75,7 +75,7 @@ class Navbar extends Component {
         left
     );
   };
-
+  
   render() {
 
     // Function checks state of component, and will redirect user to their dashboard if LinkedIn auth is successful and simultaneously pass down user info as props to the dashboard page
