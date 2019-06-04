@@ -4,6 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
+import AnalyticsCharts from '../AnalyticsCharts/index';
+import SimpleTable from '../SimpleTable/index';
+
 import API from '../../utils/API'
 
 
@@ -14,7 +17,16 @@ const styles = theme => ({
   paper: {
     padding: '20px',
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    background: '#F7F4E9',
+    border: '2px',
+    margin: '8%',
+    borderColor: '#FF5C62',
+    boxShadow: '0px 2px 5px 2px #FF5C62'
+  },
+  title: {
+    color: '#FF5C62',
+    fontWeight: 'bold',
+    fontSize: '54px',
   },
   data: {
     padding: '20px',
@@ -24,10 +36,7 @@ const styles = theme => ({
 });
 
 class UserOverview extends React.Component {
-  // const activeApps;
-  // const responseRate;
-  // const interviewRate;
-
+  
   state = {
     interviewRate:''
   }
@@ -88,31 +97,32 @@ class UserOverview extends React.Component {
  
     return (
       <div className={classes.root}>
-        <Grid container spacing={8}>
+        <Grid container spacing={4}>
           <Grid item xs>
             <Paper className={classes.paper}>
               <h4>Active Jobs</h4>
               { this.state && this.state.activeJobs &&
-                <h2>{this.state.activeJobs.length}</h2>}
+                <h2 className={classes.title}>{this.state.activeJobs.length}</h2>}
             </Paper>
           </Grid>
           <Grid item xs>
             <Paper className={classes.paper}>
               <h4>Response Rate</h4>
-              <h2>{this.state.responseRate}%</h2>
+              <h2 className={classes.title}>{this.state.responseRate}%</h2>
             </Paper>
           </Grid> 
           <Grid item xs>
             <Paper className={classes.paper}>
               <h4>Interview Rate</h4>
-              <h2>{this.state.interviewRate}%</h2>
+              <h2 className={classes.title}>{this.state.interviewRate}%</h2>
             </Paper>
           </Grid>
         </Grid>
 
-        <Grid container spacing={8}>
-        
-        </Grid>
+        {/* <Grid container> */}
+          <SimpleTable state={{title: "Recent Applications", length: 3, id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+            <AnalyticsCharts state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+          {/* </Grid> */}
       </div>
     );
   }

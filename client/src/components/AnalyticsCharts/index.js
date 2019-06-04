@@ -5,7 +5,7 @@ import { Line } from 'react-chartjs-2';
 import { Doughnut } from 'react-chartjs-2';
 import { Col, Row } from '../Grid/Grid';
 import Paper from '@material-ui/core/Paper';
-import Fade from 'react-reveal/Fade';
+// import Fade from 'react-reveal/Fade';
 
 // Options for configuration of line and bar charts from react-chartsjs2
 const lineOptions = {
@@ -71,7 +71,7 @@ class AnalyticsCharts extends Component {
     };
 
     return (
-    <Fade top cascade>    
+    // <Fade top cascade>    
     <Paper className="chart-wrapper">
       <Row>
         <Col size="sm-8 line-chart">
@@ -94,7 +94,7 @@ class AnalyticsCharts extends Component {
         </Col>
       </Row>  
     </Paper>
-    </Fade>
+    // </Fade>
     )
   }
 };
