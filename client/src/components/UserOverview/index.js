@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Fade from 'react-reveal/Fade';
 
 import AnalyticsCharts from '../AnalyticsCharts/index';
-
 import API from '../../utils/API'
 
 
@@ -98,29 +98,36 @@ class UserOverview extends React.Component {
       <div className={classes.root}>
         <Grid container spacing={4}>
           <Grid item xs>
+          <Fade left duration={500}>  
             <Paper className={classes.paper}>
               <h4>Active Jobs</h4>
               { this.state && this.state.activeJobs &&
                 <h2 className={classes.title}>{this.state.activeJobs.length}</h2>}
             </Paper>
+          </Fade>
           </Grid>
+
           <Grid item xs>
+            <Fade top duration={500}>  
             <Paper className={classes.paper}>
               <h4>Response Rate</h4>
               <h2 className={classes.title}>{this.state.responseRate}%</h2>
             </Paper>
+            </Fade>
+
           </Grid> 
           <Grid item xs>
+            <Fade right duration={500}>  
             <Paper className={classes.paper}>
               <h4>Interview Rate</h4>
               <h2 className={classes.title}>{this.state.interviewRate}%</h2>
             </Paper>
+            </Fade>
           </Grid>
         </Grid>
 
-        {/* <Grid container> */}
-            <AnalyticsCharts state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
-          {/* </Grid> */}
+        <AnalyticsCharts state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+      
       </div>
     );
   }

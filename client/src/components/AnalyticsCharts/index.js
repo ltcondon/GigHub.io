@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './style.css';
+import API from '../../utils/API';
+
 
 import { Line } from 'react-chartjs-2';
 import { Doughnut } from 'react-chartjs-2';
 import { Col, Row } from '../Grid/Grid';
 import Paper from '@material-ui/core/Paper';
-// import Fade from 'react-reveal/Fade';
+import Fade from 'react-reveal/Fade';
 
 // Options for configuration of line and bar charts from react-chartsjs2
 const lineOptions = {
@@ -43,6 +45,33 @@ class AnalyticsCharts extends Component {
       userData: []
   };
 
+  // Grab state passed down from contact route from dashboard
+  componentDidMount () {
+    this.setState({...this.props.state});
+    this.getUserData();
+  };
+
+  // Grab user contacts from db when component updates if userID has been passed down to this components' state
+  componentDidUpdate (prevProps) {
+    if (this.props.state.id !== prevProps.state.id) {
+      this.setState({...this.props.state});
+      this.getUserData();
+    }
+  };
+
+  getUserData = () => {
+    API.getActiveJobs(this.props.state.id)
+        .then(res => {
+
+          const jobData = [];
+          for (let i=0; i < res.data.length; i++) {
+            jobData.push(res.data[i]);
+          };
+
+          this.setState({ userData: jobData});
+        }); 
+  };
+
   render() {
 
     // Line and radar chart data occurs within the render function so they both have access to data stored in the state of the AnalyticsCharts component
@@ -50,7 +79,7 @@ class AnalyticsCharts extends Component {
       labels: ['', '', '', '', '', ''],
       datasets: [
         {
-          label: '# Applications submitted since you joined GigHub',
+          label: 'Activity by Week',
           backgroundColor: '#FF5C62',
           borderColor: '#292930',
           data: [0, 6, 16, 8, 9, 15]
@@ -62,7 +91,7 @@ class AnalyticsCharts extends Component {
       labels: ['Interested', 'Applied', 'Phone Screen', 'Code Assessment', 'On-site', 'Offer Extended', 'Not A Good Fit'],
       datasets: [
         {
-          label: "Your jobs by milestone",
+          label: "Active Jobs (by milestone)",
           fill: true,
           backgroundColor: ['#FF5C62', '#FB8122', '#FCC133', '#7F3AE8', '#36A2EB', '#11AF23', '#292930' ],
           data: [15, 20, 10, 6, 5, 4, 8]
@@ -71,7 +100,7 @@ class AnalyticsCharts extends Component {
     };
 
     return (
-    // <Fade top cascade>    
+    <Fade bottom cascade duration={500}>    
     <Paper className="chart-wrapper">
       <Row>
         <Col size="sm-8 line-chart">
@@ -94,7 +123,7 @@ class AnalyticsCharts extends Component {
         </Col>
       </Row>  
     </Paper>
-    // </Fade>
+    </Fade>
     )
   }
 };
