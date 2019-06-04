@@ -1,1 +1,0 @@
-// Any seeds for our Mongo database go here
