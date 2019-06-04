@@ -21,7 +21,7 @@ render() {
  return (
    <div>
      <div className="sidenav-contents">
-      <NavLink to='/overview' style={{ textDecoration: 'none' }}>
+      <NavLink to='/dashboard' style={{ textDecoration: 'none' }}>
         <ListItem button id='overviewBtn' className='listBtn' name='overview'>
           <ListItemIcon className='listIcon'>
             <BarChartIcon />
