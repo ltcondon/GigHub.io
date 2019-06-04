@@ -174,7 +174,7 @@ let EnhancedTableToolbar = props => {
       <div className={classes.actions}>
         {numSelected > 0 ? (
           <Tooltip title="Delete">
-            <IconButton aria-label="Delete" onClick={this.}>
+            <IconButton aria-label="Delete" onClick={this.archiveUserJob}>
               <DeleteIcon />
             </IconButton>
           </Tooltip>
@@ -232,6 +232,7 @@ class EnhancedTable extends React.Component {
       this.setState({...this.props.state});
       this.getUserJobs();
     }
+    console.log(this.state.selected);
   };
 
   // Grab all jobs with passed in user ID form db
