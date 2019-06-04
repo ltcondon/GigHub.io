@@ -1,0 +1,16 @@
+#addJobBtn {
+  max-width: 140px;
+  background-color: #FF5C62;
+  font-family: 'Roboto', sans-serif;
+}
+
+#addJobBtn:hover {
+  box-shadow: 0 1px 2px 1px #FF5C62;
+  -webkit-animation: Gradient 2.75s ease infinite;
+  -moz-animation: Gradient 2.75s ease infinite;
+  animation: Gradient 2.75s ease infinite;
+}
+
+.milestone-dialog svg {
+    margin-left: 95%;
+}

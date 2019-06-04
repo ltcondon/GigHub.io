@@ -15,6 +15,11 @@ import { Col, Row } from "../Grid/Grid";
 import Paper from "@material-ui/core/Paper";
 import Slide from 'react-reveal/Slide';
 import Tooltip from '@material-ui/core/Tooltip';
+import DialogSlide from '@material-ui/core/Slide';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <DialogSlide direction="up" ref={ref} {...props} />;
+});
 
 class Contacts extends Component {
   state = {
@@ -189,7 +194,7 @@ class Contacts extends Component {
                           <td>{contact.linkedin}</td>
                           <td>{contact.phone}</td>
                           <td>{contact.relationship}</td>
-                          <td><button className="delete-contact btn" id={contact._id} onClick={this.deleteContact}>X</button></td>
+                          <td><button className="delete-contact btn" id={contact._id} onClick={ (e) => { if (window.confirm('Delete this contact?')) this.deleteContact(e) }}>X</button></td>
                         </tr>
                       ))}
                     </tbody>
@@ -202,6 +207,7 @@ class Contacts extends Component {
 
           <Dialog
             open={this.state.open}
+            TransitionComponent={Transition}
             onClose={this.handleClose}
             onSubmit={this.addContact}
             aria-labelledby="form-dialog-title"
