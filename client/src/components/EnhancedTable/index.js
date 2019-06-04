@@ -345,6 +345,7 @@ class EnhancedTable extends React.Component {
                     >
                       <TableCell padding="checkbox">
                         <Checkbox checked={isSelected} />
+                        {/* <button className="archive-job btn" id={n._id} onClick={ (e) => { if (window.confirm('Delete this job?')) this.archiveUserJob(e) }}>X</button> */}
                       </TableCell>
                       <TableCell component="th" scope="row" padding="none">
                         {n.company}

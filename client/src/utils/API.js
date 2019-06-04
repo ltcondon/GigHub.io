@@ -23,7 +23,7 @@ export default {
     return axios.get(`/api/activejobs/${id}`)
   },
 
-  archiveJob: function (jobId) {
+  archiveUserJob: function (jobId) {
     return axios.put(`/api/jobs/archive/${jobId}`);
   },
 
