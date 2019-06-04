@@ -7,3 +7,11 @@
   border: rgba(0, 0, 0, 0.85) !important;
   border-width: 2px !important;
 }
+
+#enhanced-table svg {
+  color: #FF5C62;
+}
+
+.paginator svg {
+  margin-left: 55%;
+}

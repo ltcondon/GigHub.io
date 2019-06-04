@@ -24,9 +24,9 @@ import API from '../../utils/API';
 // import { lighten } from '@material-ui/core/styles/colorManipulator';
 
 let counter = 0;
-function createData(company, role, status, milestone, created, updated) {
+function createData(company, role, location, milestone, created, updated) {
   counter += 1;
-  return { id: counter, company, role, status, milestone, created, updated };
+  return { id: counter, company, role, location, milestone, created, updated };
 }
 
 function desc(a, b, orderBy) {
@@ -232,7 +232,6 @@ class EnhancedTable extends React.Component {
       this.setState({...this.props.state});
       this.getUserJobs();
     }
-    console.log(this.state.selected);
   };
 
   // Grab all jobs with passed in user ID form db
@@ -317,7 +316,7 @@ class EnhancedTable extends React.Component {
         <EnhancedTableToolbar numSelected={selected.length} />
         <div className={classes.tableWrapper}>
         <Slide top cascade>
-          <Table className={classes.table} aria-labelledby="tableTitle">
+          <Table className={classes.table} id="enhanced-table" aria-labelledby="tableTitle">
             <EnhancedTableHead
               numSelected={selected.length}
               order={order}
@@ -349,7 +348,7 @@ class EnhancedTable extends React.Component {
                         {n.company}
                       </TableCell>
                       <TableCell align="right">{n.role}</TableCell>
-                      <TableCell align="right">{n.status}</TableCell>
+                      <TableCell align="right">{n.location}</TableCell>
                       <TableCell align="right">{n.milestone}</TableCell>
                       <TableCell align="right">{n.created}</TableCell>
                       <TableCell align="right">{n.updated}</TableCell>
