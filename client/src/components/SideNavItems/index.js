@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Divider from '@material-ui/core/Divider';
 import AccountBox from '@material-ui/icons/AccountBox';
-import Contacts from '@material-ui/icons/AlternateEmail';
+// import Contacts from '@material-ui/icons/AlternateEmail';
 import Work from '@material-ui/icons/WorkOutline';
 import Domain from '@material-ui/icons/Domain';
 import BarChartIcon from '@material-ui/icons/BarChart';
@@ -24,9 +24,9 @@ render() {
      <NavLink to='/overview' style={{ textDecoration: 'none' }}>
        <ListItem button id='overviewBtn' className='listBtn' name='overview'>
          <ListItemIcon className='listIcon'>
-           <AccountBox />
+           <BarChartIcon />
          </ListItemIcon>
-         <ListItemText primary='Overview' className='listTxt' />
+         <ListItemText primary='Dashboard' className='listTxt' />
        </ListItem>
      </NavLink>
 
@@ -42,7 +42,7 @@ render() {
      <NavLink to='/contacts' style={{ textDecoration: 'none' }}>
        <ListItem button id='contactsBtn' className='listBtn'name='contacts'>
          <ListItemIcon className='listIcon'>
-           <Contacts />
+           <AccountBox />
          </ListItemIcon>
          <ListItemText primary='Contacts' className='listTxt' />
        </ListItem>
@@ -57,14 +57,14 @@ render() {
        </ListItem>
      </NavLink>
 
-     <NavLink to='/analytics' style={{ textDecoration: 'none' }}>
+     {/* <NavLink to='/analytics' style={{ textDecoration: 'none' }}>
        <ListItem button id='progressBtn' className='listBtn' name='analytics'>
          <ListItemIcon className='listIcon'>
            <BarChartIcon />
          </ListItemIcon>
          <ListItemText primary='Analytics' className='listTxt' />
        </ListItem>
-     </NavLink>
+     </NavLink> */}
 
      <Divider />
 
