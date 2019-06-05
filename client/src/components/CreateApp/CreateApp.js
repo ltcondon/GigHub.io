@@ -72,7 +72,7 @@ export default class FormDialog extends Component {
     }
 
     getUserJobs = () => {
-      API.getUserJobs(this.props.state.id)
+      API.getActiveJobs(this.props.state.id)
           .then(userJobs => {
             this.setState({numjobs : userJobs.data.length});
       })
