@@ -195,7 +195,7 @@ class Dashboard extends React.Component {
           </div>
 
           <Fade left>
-            <SideNavItems/>
+            <SideNavItems state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
           </Fade>
 
         </Drawer>

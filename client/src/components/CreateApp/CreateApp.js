@@ -153,7 +153,7 @@ export default class FormDialog extends Component {
                   <img src="./img/rjsc8FTu9hLF8GhSY7HyhdNP1.png" alt="User Jobs Visual" className="myjobs-image" />
                 </div>
                 <div className="text-container">
-                  <p className="header-text">All the essential information, all in one place. You're already well on your way to finding that <span className="red-bold">perfect gig</span></p>
+                  <p className="header-text">All the essential information, all in one place. You're already well on your way to finding that <span className="red-bold">perfect gig!</span></p>
                 </div>
                 <button id="addJobBtn" className="btn grow center add-job" onClick={this.handleClickOpen}><AddJobIcon className="align-middle"/> Add Job</button>
 
