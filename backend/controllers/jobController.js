@@ -38,7 +38,7 @@ module.exports = {
 
   archiveUserJob: function(req, res) {
     db.Job
-    .findOneAndUpdate({ _id: req.params.id })
+    .findOneAndUpdate({ _id: req.params.id}, { status: "Archived" })
     .catch(err => res.status(422).json(err));
   }
 };
