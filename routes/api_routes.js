@@ -7,13 +7,11 @@ router.route("/jobs")
  .post(jobController.create);
 
 router.route("/jobs/:id")
- .get(jobController.findAllUserJobs);
+ .get(jobController.findAllUserJobs)
+ .delete(jobController.deleteUserJob);
 
 router.route("/activejobs/:id") 
   .get(jobController.findAllActiveJobs);
-
-router.route("/api/jobs/archive/:id") 
-  .post(jobController.archiveUserJob);
 
 router.route("/contacts")
  .get(contactController.findAll)

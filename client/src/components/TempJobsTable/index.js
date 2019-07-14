@@ -15,7 +15,8 @@ class JobsTable extends Component {
     apiJobs: []
   };
   
-  componentDidMount () {
+   // Grab state passed down from contact route from dashboard and get user jobs from db on page load
+   componentDidMount () {
     this.setState({...this.props.state});
     this.getUserJobs();
   };

@@ -23,8 +23,8 @@ export default {
     return axios.get(`/api/activejobs/${id}`)
   },
 
-  archiveUserJob: function (jobId) {
-    return axios.put(`/api/jobs/archive/${jobId}`);
+  deleteJob: function (id) {
+    return axios.delete(`/api/jobs/${id}`);
   },
 
   saveContact: function (contactData) {

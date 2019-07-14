@@ -36,9 +36,9 @@ module.exports = {
     // res.send("LOL") 
   },
 
-  archiveUserJob: function(req, res) {
+  deleteUserJob: function(req, res) {
     db.Job
-    .findOneAndUpdate({ _id: req.params.id}, { status: "Archived" })
+    .findByIdAndDelete({ _id: req.params.id })
     .catch(err => res.status(422).json(err));
   }
 };
