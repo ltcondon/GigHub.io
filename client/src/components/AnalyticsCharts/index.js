@@ -60,7 +60,7 @@ class AnalyticsCharts extends Component {
   };
 
   getUserData = () => {
-    API.getActiveJobs(this.props.state.id)
+    API.getUserJobs(this.props.state.id)
         .then(res => {
 
           const jobData = [];

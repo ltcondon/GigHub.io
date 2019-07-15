@@ -54,7 +54,7 @@ class UserOverview extends React.Component {
   }
 
   getUserInfo = () => {
-    API.getActiveJobs(this.props.state.id)
+    API.getUserJobs(this.props.state.id)
         .then(res => {
           let responses = 0;
           let responseRate = 0;

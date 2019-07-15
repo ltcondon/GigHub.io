@@ -13,6 +13,7 @@ export default class MyJobs extends Component {
     }
     
     render() {
+        console.log("My Jobs ID: " + this.state.id)
         return (
             <div>
                 <Jobs state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>

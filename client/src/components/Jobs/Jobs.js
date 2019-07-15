@@ -102,7 +102,8 @@ class MyJobs extends Component {
 
   // Hit the get API route for all contacts associated with current user's unique ID, and update network number to reflect number of contacts
   getUserJobs = () => {
-    API.getActiveJobs(this.props.state.id)
+    console.log("this state id: " + this.state.id);
+    API.getUserJobs(this.props.state.id)
         .then(userJobs => {
           this.setState({apiJobs : userJobs.data});
           // this.setState({numjobs : userJobs.data.length});
@@ -124,7 +125,7 @@ class MyJobs extends Component {
 
     API.saveJob(newJob)
       .then(res => {
-        // console.log(res.status, res.statusText);
+        console.log(res.status, res.statusText);
     })
 
     this.getUserJobs();
@@ -183,12 +184,12 @@ class MyJobs extends Component {
                     <tbody className="contacts-table">
                       {this.state.apiJobs.map((job, index) => (
                         <tr key={index}>
-                          <td contenteditable='true' name='company' onChange={this.editDetails} id={job._id}>{job.company}</td>
-                          <td contenteditable='true' name='role' onChange={this.editDetails} id={job._id}>{job.role}</td>
-                          <td contenteditable='true' name='location' onChange={this.editDetails} id={job._id}>{job.location}</td>
-                          <td contenteditable='true' name='milestone' onChange={this.editDetails} id={job._id}>{job.milestone}</td>
-                          <td contenteditable='false' id={job._id}>{job.createdAt}</td>
-                          <td contenteditable='false' id={job._id}>{job.updatedAt}</td>
+                          <td name='company' onChange={this.editDetails} id={job._id}>{job.company}</td>
+                          <td name='role' onChange={this.editDetails} id={job._id}>{job.role}</td>
+                          <td name='location' onChange={this.editDetails} id={job._id}>{job.location}</td>
+                          <td name='milestone' onChange={this.editDetails} id={job._id}>{job.milestone}</td>
+                          <td id={job._id}>{job.createdAt}</td>
+                          <td id={job._id}>{job.updatedAt}</td>
                           <td><button className="delete-contact btn" id={job._id} onClick={ (e) => { if (window.confirm('Delete this job?')) this.deleteJob(e) }}>X</button></td>
                         </tr>
                       ))}

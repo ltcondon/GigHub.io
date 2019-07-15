@@ -11,20 +11,12 @@ export default {
     return axios.post('/api/jobs', jobData);
   },
 
-  // getJobs: function () {
-  //   return axios.get('/api/jobs/saved')
-  // },
-
   getUserJobs: function (id) {
     return axios.get(`/api/jobs/${id}`)
   },
 
-  getActiveJobs: function (id) {
-    return axios.get(`/api/activejobs/${id}`)
-  },
-
   deleteJob: function (id) {
-    return axios.delete(`/api/jobs/${id}`);
+    return axios.delete(`/api/jobs/delete/${id}`);
   },
 
   saveContact: function (contactData) {
