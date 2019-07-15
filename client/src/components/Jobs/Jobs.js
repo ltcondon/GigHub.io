@@ -183,12 +183,12 @@ class MyJobs extends Component {
                     <tbody className="contacts-table">
                       {this.state.apiJobs.map((job, index) => (
                         <tr key={index}>
-                          <td>{job.company}</td>
-                          <td>{job.role}</td>
-                          <td>{job.location}</td>
-                          <td>{job.milestone}</td>
-                          <td>{job.createdAt}</td>
-                          <td>{job.updatedAt}</td>
+                          <td contenteditable='true' name='company' onChange={this.editDetails} id={job._id}>{job.company}</td>
+                          <td contenteditable='true' name='role' onChange={this.editDetails} id={job._id}>{job.role}</td>
+                          <td contenteditable='true' name='location' onChange={this.editDetails} id={job._id}>{job.location}</td>
+                          <td contenteditable='true' name='milestone' onChange={this.editDetails} id={job._id}>{job.milestone}</td>
+                          <td contenteditable='false' id={job._id}>{job.createdAt}</td>
+                          <td contenteditable='false' id={job._id}>{job.updatedAt}</td>
                           <td><button className="delete-contact btn" id={job._id} onClick={ (e) => { if (window.confirm('Delete this job?')) this.deleteJob(e) }}>X</button></td>
                         </tr>
                       ))}
