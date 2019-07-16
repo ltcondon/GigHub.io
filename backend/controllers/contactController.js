@@ -27,6 +27,12 @@ module.exports = {
     // res.send("LOL") 
   },
 
+  updateUserContact: function(req, res) {
+    db.Contact
+      .findOneAndUpdate({_id: req.params.id }, {$set: req.body})
+      .catch(err => res.status(422).json(err));
+  },
+
   deleteUserContact: function(req, res) {
     db.Contact
     .findByIdAndDelete({ _id: req.params.id })

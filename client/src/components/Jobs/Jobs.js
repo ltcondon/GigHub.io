@@ -21,6 +21,8 @@ import Slide from 'react-reveal/Slide';
 import Tooltip from '@material-ui/core/Tooltip';
 import DialogSlide from '@material-ui/core/Slide';
 import Fade from 'react-reveal/Fade';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <DialogSlide direction="up" ref={ref} {...props} />;
@@ -137,18 +139,30 @@ class MyJobs extends Component {
     const name = e.target.getAttribute('name');
     console.log(`name: ${name}`);
 
-    const value = e.target.textContent;
+    const value = e.target.textContent.trim();
+    const baseline = e.target.getAttribute('value').trim();
     const jobID = e.target.id;
 
     const details = {
       [name]: value
     };
 
-    API.updateJob(jobID, details)
-      .then(res => {
-        console.log(res.status, res.statusText);
-    })
+    if (baseline !== value) {
 
+      API.updateJob(jobID, details)
+        .then(res => {
+          console.log("updates sent");
+          console.log(res.status, res.statusText);
+      })
+    
+      this.notify();
+    } else {
+      console.log("no update necessary");
+    }
+  }
+
+  notify = () => {
+    toast("✅ Changes Saved", { autoClose: 7000 });
   }
 
     render() {
@@ -204,12 +218,12 @@ class MyJobs extends Component {
                     <tbody className="contacts-table">
                       {this.state.apiJobs.map((job, index) => (
                         <tr key={index}>
-                          <td contentEditable='true' name={'company'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.company}</td>
-                          <td contentEditable='true' name={'role'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.role}</td>
-                          <td contentEditable='true' name={'location'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.location}</td>
-                          <td contentEditable='true' name='milestone' onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.milestone}</td>
-                          <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{job.updatedAt}</td>
+                          <td contentEditable='true' value={job.company} name={'company'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.company}</td>
+                          <td contentEditable='true' value={job.role} name={'role'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.role}</td>
+                          <td contentEditable='true' value={job.location} name={'location'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.location}</td>
+                          <td contentEditable='true' value={job.milestone} name='milestone' onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.milestone}</td>
                           <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{job.createdAt}</td>
+                          <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{job.updatedAt}</td>
                           <td><button className="delete-contact btn" id={job._id} onClick={ (e) => { if (window.confirm('Delete this job?')) this.deleteJob(e) }}>X</button></td>
                         </tr>
                       ))}

@@ -141,6 +141,32 @@ class Contacts extends Component {
     this.getContacts();
   }
 
+  editDetails = (e) => {
+    console.log(`ID: ${e.target.id} Value: ${e.target.textContent}`);
+
+    const name = e.target.getAttribute('name');
+    console.log(`name: ${name}`);
+
+    const value = e.target.textContent.trim();
+    const baseline = e.target.getAttribute('value').trim();
+    const contactID = e.target.id;
+
+    const details = {
+      [name]: value
+    };
+
+    if (baseline !== value) {
+
+      API.updateContact(contactID, details)
+        .then(res => {
+          console.log("updates made");
+          console.log(res.status, res.statusText);
+      })
+    } else {
+      console.log("no update necessary");
+    }
+  }
+
     render() {
 
       return (
@@ -194,12 +220,12 @@ class Contacts extends Component {
                     <tbody className="contacts-table">
                       {this.state.apiContacts.map((contact, index) => (
                         <tr key={index}>
-                          <td>{contact.fullName}</td>
-                          <td>{contact.company}</td>
-                          <td>{contact.email}</td>
-                          <td>{contact.linkedin}</td>
-                          <td>{contact.phone}</td>
-                          <td>{contact.relationship}</td>
+                          <td contentEditable='true' name={'fullName'} onBlur={this.editDetails} id={contact._id} value={contact.fullName} suppressContentEditableWarning="true">{contact.fullName}</td>
+                          <td contentEditable='true' name={'company'} onBlur={this.editDetails} id={contact._id} value={contact.company} suppressContentEditableWarning="true">{contact.company}</td>
+                          <td contentEditable='true' name={'email'} onBlur={this.editDetails} id={contact._id} value={contact.email} suppressContentEditableWarning="true">{contact.email}</td>
+                          <td contentEditable='true' name={'linkedin'} onBlur={this.editDetails} id={contact._id} value={contact.linkedin} suppressContentEditableWarning="true">{contact.linkedin}</td>
+                          <td contentEditable='true' name={'phone'} onBlur={this.editDetails} id={contact._id} value={contact.phone} suppressContentEditableWarning="true">{contact.phone}</td>
+                          <td contentEditable='true' name={'relationship'} onBlur={this.editDetails} id={contact._id} value={contact.relationship} suppressContentEditableWarning="true">{contact.relationship}</td>
                           <td><button className="delete-contact btn" id={contact._id} onClick={ (e) => { if (window.confirm('Delete this contact?')) this.deleteContact(e) }}>X</button></td>
                         </tr>
                       ))}

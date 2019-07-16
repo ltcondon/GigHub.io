@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 3001;
 const path = require('path');
 
 mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useNewUrlParser', true);
 
 // View engine setup
 app.set('views', path.join(__dirname, 'client/src/views'));

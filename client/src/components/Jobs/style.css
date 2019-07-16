@@ -76,3 +76,8 @@
 .refresh-db .refresh-icon {
     transition: transform 0.45s ease-in-out;
 }
+
+td:focus {
+    color: black;
+    background-color: #F7F4E9;
+}
