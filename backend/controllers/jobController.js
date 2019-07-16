@@ -12,7 +12,7 @@ module.exports = {
 
   updateUserJob: function(req, res) {
     db.Job
-      .findOneAndUpdate({_id: req.params.id }, {$set: req.body})
+      .findByIdAndUpdate({_id: req.params.id }, {$set: req.body})
       .catch(err => res.status(422).json(err));
   },
 

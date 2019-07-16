@@ -23,6 +23,7 @@ import DialogSlide from '@material-ui/core/Slide';
 import Fade from 'react-reveal/Fade';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import moment from 'moment'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <DialogSlide direction="up" ref={ref} {...props} />;
@@ -144,7 +145,8 @@ class MyJobs extends Component {
     const jobID = e.target.id;
 
     const details = {
-      [name]: value
+      [name]: value,
+      lastUpdated: Date.now
     };
 
     if (baseline !== value) {
@@ -222,8 +224,8 @@ class MyJobs extends Component {
                           <td contentEditable='true' value={job.role} name={'role'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.role}</td>
                           <td contentEditable='true' value={job.location} name={'location'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.location}</td>
                           <td contentEditable='true' value={job.milestone} name='milestone' onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.milestone}</td>
-                          <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{job.createdAt}</td>
-                          <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{job.updatedAt}</td>
+                          <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{moment(job.createdAt).fromNow()}</td>
+                          <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{moment(job.updatedAt).fromNow() || moment(job.createdAt).fromNow()}</td>
                           <td><button className="delete-contact btn" id={job._id} onClick={ (e) => { if (window.confirm('Delete this job?')) this.deleteJob(e) }}>X</button></td>
                         </tr>
                       ))}
