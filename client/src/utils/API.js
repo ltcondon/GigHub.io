@@ -15,6 +15,11 @@ export default {
     return axios.get(`/api/jobs/${id}`)
   },
 
+  updateJob: function(id, details) {
+    console.log(details);
+    return axios.put(`/api/jobs/update/${id}`, details)
+  },
+
   deleteJob: function (id) {
     return axios.delete(`/api/jobs/delete/${id}`);
   },

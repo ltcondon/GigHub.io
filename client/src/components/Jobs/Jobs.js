@@ -40,10 +40,10 @@ class MyJobs extends Component {
   // Grab state passed down from contact route from dashboard
   componentDidMount () {
     this.setState({...this.props.state});
-    this.getUserJobs();
+    this.getUserJobs(); 
   };
 
-  // Grab user contacts from db when component updates if userID has been passed down to this components' state
+  // Grab user jobs from db when component updates if userID has been passed down to this components' state
   componentDidUpdate (prevProps) {
     if (this.props.state.id !== prevProps.state.id) {
       this.setState({...this.props.state});
@@ -100,7 +100,7 @@ class MyJobs extends Component {
     this.getUserJobs();
   };
 
-  // Hit the get API route for all contacts associated with current user's unique ID, and update network number to reflect number of contacts
+  // Hit the get API route for all jobs associated with current user's unique ID, and update network number to reflect number of jobs
   getUserJobs = () => {
     console.log("this state id: " + this.state.id);
     API.getUserJobs(this.props.state.id)
@@ -129,6 +129,26 @@ class MyJobs extends Component {
     })
 
     this.getUserJobs();
+  }
+
+  editDetails = (e) => {
+    console.log(`ID: ${e.target.id} Value: ${e.target.textContent}`);
+
+    const name = e.target.getAttribute('name');
+    console.log(`name: ${name}`);
+
+    const value = e.target.textContent;
+    const jobID = e.target.id;
+
+    const details = {
+      [name]: value
+    };
+
+    API.updateJob(jobID, details)
+      .then(res => {
+        console.log(res.status, res.statusText);
+    })
+
   }
 
     render() {
@@ -184,12 +204,12 @@ class MyJobs extends Component {
                     <tbody className="contacts-table">
                       {this.state.apiJobs.map((job, index) => (
                         <tr key={index}>
-                          <td name='company' onChange={this.editDetails} id={job._id}>{job.company}</td>
-                          <td name='role' onChange={this.editDetails} id={job._id}>{job.role}</td>
-                          <td name='location' onChange={this.editDetails} id={job._id}>{job.location}</td>
-                          <td name='milestone' onChange={this.editDetails} id={job._id}>{job.milestone}</td>
-                          <td id={job._id}>{job.createdAt}</td>
-                          <td id={job._id}>{job.updatedAt}</td>
+                          <td contentEditable='true' name={'company'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.company}</td>
+                          <td contentEditable='true' name={'role'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.role}</td>
+                          <td contentEditable='true' name={'location'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.location}</td>
+                          <td contentEditable='true' name='milestone' onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.milestone}</td>
+                          <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{job.updatedAt}</td>
+                          <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{job.createdAt}</td>
                           <td><button className="delete-contact btn" id={job._id} onClick={ (e) => { if (window.confirm('Delete this job?')) this.deleteJob(e) }}>X</button></td>
                         </tr>
                       ))}
