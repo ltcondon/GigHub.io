@@ -28,6 +28,11 @@ export default {
     return axios.post('/api/contacts', contactData);
   },
 
+  updateContact: function(id, details) {
+    console.log(details);
+    return axios.put(`/api/contacts/update/${id}`, details)
+  },
+  
   getUserContacts: function (id) {
     return axios.get(`/api/contacts/${id}`);
   },

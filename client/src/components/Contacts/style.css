@@ -114,3 +114,8 @@
   color: #FF5C62;
   background-color: #2D2D2D;
 }
+
+td:focus {
+  color: black;
+  background-color: #F7F4E9;
+}

@@ -25,6 +25,9 @@ router.route("/contacts")
 router.route("/contacts/:id")
   .get(contactController.findAllUserContacts); 
 
+router.route("/contacts/update/:id")
+  .put(contactController.updateUserContact);
+
 router.route("/contacts/delete/:id") 
   .delete(contactController.deleteUserContact);
 
