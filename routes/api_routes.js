@@ -3,11 +3,13 @@ const jobController = require("../backend/controllers/jobController");
 const contactController = require("../backend/controllers/contactController");
 
 router.route("/jobs")
- .post(jobController.create);
+  .post(jobController.create);
 
 router.route("/jobs/:id")
- .get(jobController.findAllUserJobs)
+  .get(jobController.findAllUserJobs)
 
+router.route("/jobs/update/:id")
+  .put(jobController.updateUserJob);
 
 router.route("/jobs/delete/:id")
   .delete(jobController.deleteUserJob);
@@ -17,11 +19,11 @@ router.route("/jobs/delete/:id")
 //   .delete(jobController.deleteUserJob);
 
 router.route("/contacts")
- .get(contactController.findAll)
- .post(contactController.create);
+  .get(contactController.findAll)
+  .post(contactController.create);
 
 router.route("/contacts/:id")
- .get(contactController.findAllUserContacts); 
+  .get(contactController.findAllUserContacts); 
 
 router.route("/contacts/delete/:id") 
   .delete(contactController.deleteUserContact);
