@@ -10,6 +10,7 @@ const JobSchema = new Schema({
   milestone: { type: String, default: 'Applied' },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
+  lastUpdated: { type: Date, required: false },
   hired: { type: Boolean, default: false },
   userID: { type: String, required: true }
 });

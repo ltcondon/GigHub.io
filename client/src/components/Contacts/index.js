@@ -208,9 +208,8 @@ class Contacts extends Component {
                     <thead>
                       <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Company</th>
+                        <th scope="col">Company / Role</th>
                         <th scope="col">Email</th>
-                        <th scope="col">LinkedIn</th>
                         <th scope="col">Phone #</th>
                         <th scope="col">Relationship</th>
                         <th scope="col"></th>
@@ -223,7 +222,6 @@ class Contacts extends Component {
                           <td contentEditable='true' name={'fullName'} onBlur={this.editDetails} id={contact._id} value={contact.fullName} suppressContentEditableWarning="true">{contact.fullName}</td>
                           <td contentEditable='true' name={'company'} onBlur={this.editDetails} id={contact._id} value={contact.company} suppressContentEditableWarning="true">{contact.company}</td>
                           <td contentEditable='true' name={'email'} onBlur={this.editDetails} id={contact._id} value={contact.email} suppressContentEditableWarning="true">{contact.email}</td>
-                          <td contentEditable='true' name={'linkedin'} onBlur={this.editDetails} id={contact._id} value={contact.linkedin} suppressContentEditableWarning="true">{contact.linkedin}</td>
                           <td contentEditable='true' name={'phone'} onBlur={this.editDetails} id={contact._id} value={contact.phone} suppressContentEditableWarning="true">{contact.phone}</td>
                           <td contentEditable='true' name={'relationship'} onBlur={this.editDetails} id={contact._id} value={contact.relationship} suppressContentEditableWarning="true">{contact.relationship}</td>
                           <td><button className="delete-contact btn" id={contact._id} onClick={ (e) => { if (window.confirm('Delete this contact?')) this.deleteContact(e) }}>X</button></td>

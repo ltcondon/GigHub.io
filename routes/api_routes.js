@@ -2,14 +2,16 @@ const router = require("express").Router();
 const jobController = require("../backend/controllers/jobController");
 const contactController = require("../backend/controllers/contactController");
 
+
+router.route("/jobs/update/:id")
+  .put(jobController.updateUserJob);
+
 router.route("/jobs")
   .post(jobController.create);
 
 router.route("/jobs/:id")
   .get(jobController.findAllUserJobs)
 
-router.route("/jobs/update/:id")
-  .put(jobController.updateUserJob);
 
 router.route("/jobs/delete/:id")
   .delete(jobController.deleteUserJob);
