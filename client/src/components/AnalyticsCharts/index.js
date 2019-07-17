@@ -96,7 +96,7 @@ class AnalyticsCharts extends Component {
               case("Code Assessment"):
               numCodeAssessment.push(res.data[i]);
               break;
-              case("On Site"):
+              case("On-Site"):
               numOnSite.push(res.data[i]);
               break;
               case("Offer Extended"):

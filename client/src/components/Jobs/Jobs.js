@@ -149,6 +149,13 @@ class MyJobs extends Component {
       lastUpdated: Date.now
     };
 
+    const milestones = ['interested', 'applied', 'phone screen', 'code assessment', 'on-site', 'offer extended', 'not a good fit'];
+
+    if (name === "milestone" && !milestones.includes(value.toLowerCase())) {
+
+      e.target.textContent = baseline;
+      return alert("Please set 'Milestone' to one of the following:\n\n 'Interested', 'Applied', 'Phone Screen', 'Code Assessment', 'On-site', 'Offer Extended', 'Not A Good Fit'");
+    }
     if (baseline !== value) {
 
       API.updateJob(jobID, details)
