@@ -16,9 +16,8 @@ router.route("/jobs/:id")
 router.route("/jobs/delete/:id")
   .delete(jobController.deleteUserJob);
 
-// router.route("/activejobs/:id") 
-//   .get(jobController.findAllActiveJobs)
-//   .delete(jobController.deleteUserJob);
+router.route("/jobs/milestone/:id")
+  .get(jobController.findJobsByMilestone);
 
 router.route("/contacts")
   .get(contactController.findAll)

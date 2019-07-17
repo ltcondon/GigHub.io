@@ -311,7 +311,7 @@ class MyJobs extends Component {
                 Cancel
               </Button>
               <Button onClick={this.addJob} color="primary">
-                Apply
+                Add Job
               </Button>
             </DialogActions>
           </Dialog>

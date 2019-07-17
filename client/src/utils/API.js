@@ -15,6 +15,10 @@ export default {
     return axios.get(`/api/jobs/${id}`)
   },
 
+  findJobsByMilestone: function (userId, milestone) {
+    return axios.get(`/api/jobs/milestone/${userId}`, milestone)
+  },
+
   updateJob: function(id, details) {
     console.log(details);
     return axios.put(`/api/jobs/update/${id}`, details)

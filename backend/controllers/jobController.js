@@ -16,6 +16,16 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findJobsByMilestone: function(req, res) {
+    db.Job
+      .find({
+        userID: req.params.id,
+        milestone: req.body
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   findAllUserJobs: function(req, res) {
     db.Job
       .find({ userID: req.params.id })
