@@ -208,6 +208,10 @@ class MyJobs extends Component {
 
           <Fade bottom duration={650}>
           <Paper className="contacts-section">
+          {this.state.apiJobs.length ? (
+          <div className="title"><p><span className="updates">Updates?  </span>  Make any changes right in the table below!   ✎ </p></div>
+          
+          ):(<div></div>)}
             <Row className="contacts-display">
               <Col size="sm-12">
                 <Paper className="contacts-list">

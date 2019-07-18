@@ -7,6 +7,22 @@
 .mainbox {
     padding: 4%;
 }
+
 .doughnut-box {
-    padding-top: 6%;
+    padding-top: 8%;
+    padding-right: 8%;
+
 }
+.doughnut-box .chartjs-render-monitor {
+    /* height: 40vh !important;
+    width: 20vw !important; */
+    display: block !important;
+    margin: auto !important;
+    padding-right: 8% !important;
+
+}
+
+/* .doughnut {
+    padding-bottom: 5%
+} */
+

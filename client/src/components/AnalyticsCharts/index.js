@@ -31,11 +31,12 @@ import LineChart from './linechart';
 // Configuration for radar chart from react-chartsjs2
 const doughnutOptions = {
     legend: {
+        display: true,
         position: 'bottom'
     },
     title: {
       display: true,
-      text: "See where you're at in the process"
+      text: "Response Distribution (All Time)"
     },
 };
 
@@ -137,6 +138,8 @@ class AnalyticsCharts extends Component {
     //   ]
     // }
 
+    
+
     const doughnutData = {
       labels: ['Interested', 'Applied', 'Phone Screen', 'Code Assessment', 'On-site', 'Offer Extended', 'Not A Good Fit'],
       
@@ -157,6 +160,13 @@ class AnalyticsCharts extends Component {
         }
       ]
     };
+
+    const doughnutStyle = {
+        display: 'block',
+        height: '65vh',
+        margin: 'auto'
+    
+    }
 
     return (
     <Fade bottom cascade duration={500}>    
@@ -181,6 +191,7 @@ class AnalyticsCharts extends Component {
             options={doughnutOptions}
             width={100}
             height={100}
+            style={doughnutStyle}
             className="doughnut"
           />
           </div>

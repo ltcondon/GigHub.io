@@ -201,6 +201,10 @@ class Contacts extends Component {
 
           <Fade bottom duration={650}>
           <Paper className="contacts-section">
+          {this.state.apiContacts.length ? (
+          <div className="title"><p><span className="updates">People change! </span> Make any updates right in the table below     ✎ </p></div>
+          
+          ):(<div></div>)}
             <Row className="contacts-display">
               <Col size="sm-12">
                 <Paper className="contacts-list">
@@ -216,6 +220,7 @@ class Contacts extends Component {
                       </tr>
                     </thead>
 
+                    {this.state.apiContacts.length ? (
                     <tbody className="contacts-table">
                       {this.state.apiContacts.map((contact, index) => (
                         <tr key={index}>
@@ -228,6 +233,11 @@ class Contacts extends Component {
                         </tr>
                       ))}
                     </tbody>
+                    ):(
+                      <div className="container" id="noContactBox">
+                        <h1>No Contacts yet... Add some above!</h1>
+                      </div>
+                    )}
                   </table>	
                 </Paper>
               </Col>

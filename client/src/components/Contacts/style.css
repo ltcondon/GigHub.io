@@ -119,3 +119,25 @@ td:focus {
   color: black;
   background-color: #F7F4E9;
 }
+
+#noContactBox {
+  text-align: center;
+  display: block;
+  margin: auto;
+  color: #FF5C62;
+  font-size: 1.5vh;
+}
+
+.title {
+  text-align: center;
+  color: #FF5C62;
+  font-size: 1rem;
+  font-weight: bold;
+  padding-top: 5px;
+  margin-bottom: -30px !important;
+}
+
+.updates {
+ color: rgb(116, 29, 156);
+ padding-right: 6px;
+}
