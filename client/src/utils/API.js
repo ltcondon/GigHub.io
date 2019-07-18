@@ -25,7 +25,7 @@ export default {
   },
 
   deleteJob: function (id) {
-    return axios.delete(`/api/jobs/delete/${id}`);
+    return axios.put(`/api/jobs/delete/${id}`);
   },
 
   saveContact: function (contactData) {

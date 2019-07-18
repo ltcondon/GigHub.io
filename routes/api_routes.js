@@ -14,7 +14,7 @@ router.route("/jobs/:id")
 
 
 router.route("/jobs/delete/:id")
-  .delete(jobController.deleteUserJob);
+  .put(jobController.archiveUserJob);
 
 router.route("/jobs/milestone/:id")
   .get(jobController.findJobsByMilestone);

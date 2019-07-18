@@ -154,7 +154,7 @@ class MyJobs extends Component {
     if (name === "milestone" && !milestones.includes(value.toLowerCase())) {
 
       e.target.textContent = baseline;
-      return alert("Please set 'Milestone' to one of the following:\n\n 'Interested', 'Applied', 'Phone Screen', 'Code Assessment', 'On-site', 'Offer Extended', 'Not A Good Fit'");
+      return alert("Please set 'Milestone' to one of the following:\n\n Interested, Applied', Phone Screen', Code Assessment, On-site, Offer Extended, Not A Good Fit");
     }
     if (baseline !== value) {
 
