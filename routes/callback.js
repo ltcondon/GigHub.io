@@ -6,8 +6,6 @@ const db = require("../backend/models");
 
 /* GET users listing. */
 
-
-
 router.get("/", function(req, res, next) {
   requestAccessToken(req.query.code, req.query.state)
   .then((response) => {

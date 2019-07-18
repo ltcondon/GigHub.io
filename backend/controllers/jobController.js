@@ -16,6 +16,16 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findJobsByMilestone: function(req, res) {
+    db.Job
+      .find({
+        userID: req.params.id,
+        milestone: req.body
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   findAllUserJobs: function(req, res) {
     db.Job
       .find({ userID: req.params.id })
@@ -23,9 +33,23 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  deleteUserJob: function(req, res) {
+  getJobsByDate: function(req, res) {
     db.Job
-    .findByIdAndDelete({ _id: req.params.id })
+      .find({ userID: req.params.id, createdAt: req.body, milestone: {$ne: "Interested"}})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
+  findAllActiveUserJobs: function(req, res) {
+    db.Job
+      .find({ userID: req.params.id, status: "In Progress" })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
+  archiveUserJob: function(req, res) {
+    db.Job
+    .findByIdAndUpdate({ _id: req.params.id }, {$set: {status: "Archived"}})
     .catch(err => res.status(422).json(err));
   }
 };

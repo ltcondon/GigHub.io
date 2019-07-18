@@ -106,7 +106,7 @@ class MyJobs extends Component {
   // Hit the get API route for all jobs associated with current user's unique ID, and update network number to reflect number of jobs
   getUserJobs = () => {
     console.log("this state id: " + this.state.id);
-    API.getUserJobs(this.props.state.id)
+    API.getActiveUserJobs(this.props.state.id)
         .then(userJobs => {
           this.setState({apiJobs : userJobs.data});
           // this.setState({numjobs : userJobs.data.length});
@@ -149,6 +149,13 @@ class MyJobs extends Component {
       lastUpdated: Date.now
     };
 
+    const milestones = ['interested', 'applied', 'phone screen', 'code assessment', 'on-site', 'offer extended', 'not a good fit'];
+
+    if (name === "milestone" && !milestones.includes(value.toLowerCase())) {
+
+      e.target.textContent = baseline;
+      return alert("Please set 'Milestone' to one of the following:\n\n Interested, Applied', Phone Screen', Code Assessment, On-site, Offer Extended, Not A Good Fit");
+    }
     if (baseline !== value) {
 
       API.updateJob(jobID, details)
@@ -217,6 +224,7 @@ class MyJobs extends Component {
                       </tr>
                     </thead>
 
+                  {this.state.apiJobs.length ? (
                     <tbody className="contacts-table">
                       {this.state.apiJobs.map((job, index) => (
                         <tr key={index}>
@@ -230,6 +238,11 @@ class MyJobs extends Component {
                         </tr>
                       ))}
                     </tbody>
+                  ):(
+                    <div className="container" id="noJobBox">
+                      <h1>No Jobs yet... Add some above!</h1>
+                    </div>
+                  )}
                   </table>	
                 </Paper>
               </Col>
@@ -311,7 +324,7 @@ class MyJobs extends Component {
                 Cancel
               </Button>
               <Button onClick={this.addJob} color="primary">
-                Apply
+                Add Job
               </Button>
             </DialogActions>
           </Dialog>

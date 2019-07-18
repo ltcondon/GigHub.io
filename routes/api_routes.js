@@ -12,13 +12,17 @@ router.route("/jobs")
 router.route("/jobs/:id")
   .get(jobController.findAllUserJobs)
 
+router.route("/jobs/bydate:id")
+  .get(jobController.getJobsByDate)
+
+router.route("/jobs/active/:id")
+  .get(jobController.findAllActiveUserJobs)
 
 router.route("/jobs/delete/:id")
-  .delete(jobController.deleteUserJob);
+  .put(jobController.archiveUserJob);
 
-// router.route("/activejobs/:id") 
-//   .get(jobController.findAllActiveJobs)
-//   .delete(jobController.deleteUserJob);
+router.route("/jobs/milestone/:id")
+  .get(jobController.findJobsByMilestone);
 
 router.route("/contacts")
   .get(contactController.findAll)

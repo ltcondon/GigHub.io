@@ -54,6 +54,9 @@ class UserOverview extends React.Component {
   }
 
   getUserInfo = () => {
+    API.getActiveUserJobs(this.props.state.id)
+      .then(res =>this.setState({activeJobs : res.data}))
+
     API.getUserJobs(this.props.state.id)
         .then(res => {
           let responses = 0;
@@ -83,7 +86,7 @@ class UserOverview extends React.Component {
           console.log(res.data.length)
           console.log(this.state.id)
           this.setState({
-            activeJobs : res.data,
+            totalJobs : res.data,
             responseRate: responseRate.toFixed(1),
             interviewRate: interviewRate.toFixed(1)
           });
@@ -127,7 +130,9 @@ class UserOverview extends React.Component {
           </Grid>
         </Grid>
 
-        <AnalyticsCharts state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+        <div style={{padding: '20px'}}>
+          <AnalyticsCharts state={{id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, pictureURL: this.state.pictureURL, isAuthorized: this.state.isAuthorized}}/>
+        </div>
       
       </div>
     );

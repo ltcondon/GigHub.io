@@ -282,7 +282,7 @@ class Contacts extends Component {
                 fullWidth
               />
             </DialogContent>
-            <DialogContent>
+            {/* <DialogContent>
               <DialogContentText></DialogContentText>
               <TextField
                 autoFocus
@@ -294,7 +294,7 @@ class Contacts extends Component {
                 onChange={this.onChangeLinkedin}                
                 fullWidth
               />
-            </DialogContent>
+            </DialogContent> */}
             <DialogContent>
               <DialogContentText></DialogContentText>
               <TextField
