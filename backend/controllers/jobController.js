@@ -33,6 +33,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findAllActiveUserJobs: function(req, res) {
+    db.Job
+      .find({ userID: req.params.id, status: "In Progress" })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   archiveUserJob: function(req, res) {
     db.Job
     .findByIdAndUpdate({ _id: req.params.id }, {$set: {status: "Archived"}})

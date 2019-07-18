@@ -106,7 +106,7 @@ class MyJobs extends Component {
   // Hit the get API route for all jobs associated with current user's unique ID, and update network number to reflect number of jobs
   getUserJobs = () => {
     console.log("this state id: " + this.state.id);
-    API.getUserJobs(this.props.state.id)
+    API.getActiveUserJobs(this.props.state.id)
         .then(userJobs => {
           this.setState({apiJobs : userJobs.data});
           // this.setState({numjobs : userJobs.data.length});
@@ -224,6 +224,7 @@ class MyJobs extends Component {
                       </tr>
                     </thead>
 
+                  {this.state.apiJobs.length ? (
                     <tbody className="contacts-table">
                       {this.state.apiJobs.map((job, index) => (
                         <tr key={index}>
@@ -237,6 +238,11 @@ class MyJobs extends Component {
                         </tr>
                       ))}
                     </tbody>
+                  ):(
+                    <div className="container" id="noJobBox">
+                      <h1>No Jobs yet... Add some above!</h1>
+                    </div>
+                  )}
                   </table>	
                 </Paper>
               </Col>

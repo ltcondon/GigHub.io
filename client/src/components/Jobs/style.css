@@ -81,3 +81,9 @@ td:focus {
     color: black;
     background-color: #F7F4E9;
 }
+
+#noJobBox {
+    text-align: center;
+    color: #F7F4E9;
+    font-size: 1.5vh;
+}

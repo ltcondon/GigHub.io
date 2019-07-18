@@ -173,13 +173,17 @@ class AnalyticsCharts extends Component {
           <LineChart/>
         </Col>
         <Col size="sm-4 radar-chart">
-          <Doughnut 
+         <div className="doughnut-box">
+          <h2>Response Spread</h2>
+          
+          <Doughnut
             data={doughnutData} 
             options={doughnutOptions}
             width={100}
             height={100}
             className="doughnut"
           />
+          </div>
         </Col>
       </Row>  
     </Paper>

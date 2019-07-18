@@ -15,6 +15,10 @@ export default {
     return axios.get(`/api/jobs/${id}`)
   },
 
+  getActiveUserJobs: function (id) {
+    return axios.get(`/api/jobs/active/${id}`)
+  },
+
   findJobsByMilestone: function (userId, milestone) {
     return axios.get(`/api/jobs/milestone/${userId}`, milestone)
   },

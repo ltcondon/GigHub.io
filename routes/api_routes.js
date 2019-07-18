@@ -12,6 +12,8 @@ router.route("/jobs")
 router.route("/jobs/:id")
   .get(jobController.findAllUserJobs)
 
+router.route("/jobs/active/:id")
+  .get(jobController.findAllActiveUserJobs)
 
 router.route("/jobs/delete/:id")
   .put(jobController.archiveUserJob);
