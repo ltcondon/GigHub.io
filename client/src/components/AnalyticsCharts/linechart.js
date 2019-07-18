@@ -33,7 +33,7 @@ class LineChart extends Component {
         week.push(moment(weekStart).add(i, 'days').format("MMM Do"));
         console.log(`State ID: ${this.props.state.id}`)
 
-        API.getJobsByDate(this.props.state.id, {$gte: currentDate.setDate(new Date().getDate()-(6 - i)), $lte: currentDate.setDate(new Date().getDate()-(6 - (i+1)))})
+        API.getJobsByDate(this.props.state.id, {$gte: currentDate.getDate()-(6 - i), $lte: currentDate.getDate()-(6 - (i+1))})
             .then(res => {
                 console.log(res);
                 days[i] = res.data.length;
@@ -141,11 +141,22 @@ class LineChart extends Component {
           }
         ]
       };
+
+      const lineOptions = {
+        legend: {
+          display: true,
+          position: 'bottom'
+        },
+        title: {
+          display: true,
+          text: "Your Applications Over Time"
+        },
+    };
       
     return (
       <div className="container mainbox">
         <h2>Recent Activity</h2>
-        <Line ref="chart" data={data} />
+        <Line ref="chart" data={data} options={lineOptions}/>
       </div>
     );
   }
