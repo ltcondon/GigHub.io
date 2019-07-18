@@ -12,6 +12,9 @@ router.route("/jobs")
 router.route("/jobs/:id")
   .get(jobController.findAllUserJobs)
 
+router.route("/jobs/bydate:id")
+  .get(jobController.getJobsByDate)
+
 router.route("/jobs/active/:id")
   .get(jobController.findAllActiveUserJobs)
 

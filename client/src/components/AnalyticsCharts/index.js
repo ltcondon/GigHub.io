@@ -170,7 +170,7 @@ class AnalyticsCharts extends Component {
             height={100}
             className="line"
           /> */}
-          <LineChart/>
+          <LineChart state={{id: this.props.state.id}}/>
         </Col>
         <Col size="sm-4 radar-chart">
          <div className="doughnut-box">

@@ -33,6 +33,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  getJobsByDate: function(req, res) {
+    db.Job
+      .find({ userID: req.params.id, createdAt: req.body, milestone: {$ne: "Interested"}})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   findAllActiveUserJobs: function(req, res) {
     db.Job
       .find({ userID: req.params.id, status: "In Progress" })
