@@ -33,3 +33,8 @@
     color: rgb(136, 135, 135) !important;
     font-style: italic  !important;
 }
+
+.boxTitle {
+    text-decoration: underline;
+    text-decoration-color: #FF5C62
+}

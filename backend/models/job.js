@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const moment = require('moment');
 
 const JobSchema = new Schema({
   // _id: Number,
@@ -8,7 +9,7 @@ const JobSchema = new Schema({
   status: { type: String, default: 'In Progress' },
   location: { type: String, required: true },
   milestone: { type: String, default: 'Applied' },
-  createdAt: { type: Date, default: Date.now },
+  createdAt: { type: Date, default: moment() },
   updatedAt: { type: Date, default: Date.now },
   lastUpdated: { type: Date, required: false },
   hired: { type: Boolean, default: false },

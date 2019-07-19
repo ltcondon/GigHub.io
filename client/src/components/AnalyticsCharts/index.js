@@ -147,7 +147,7 @@ class AnalyticsCharts extends Component {
         {
           label: "Active Jobs (by milestone)",
           fill: true,
-          backgroundColor: ['#FF5C62', '#FB8122', '#FCC133', '#7F3AE8', '#36A2EB', '#11AF23', '#292930' ],
+          backgroundColor: ['rgb(245, 86, 232)', '#FB8122', '#FCC133', 'rgb(36, 48, 160)', 'rgb(20, 100, 44)', 'rgb(49, 255, 111)', 'rgb(174, 173, 175)' ],
           data: [
             this.state.numInterested.length,
             this.state.numApplied.length,
@@ -184,7 +184,7 @@ class AnalyticsCharts extends Component {
         </Col>
         <Col size="sm-4 radar-chart">
          <div className="doughnut-box">
-          <h2>Response Spread</h2>
+          <h2 className="boxTitle">Response Spread</h2>
           
           <Doughnut
             data={doughnutData} 

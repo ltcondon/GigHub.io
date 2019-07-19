@@ -146,7 +146,7 @@ class MyJobs extends PureComponent {
 
     const details = {
       [name]: value,
-      lastUpdated: Date.now
+      lastUpdated: Date.now()
     };
 
     const milestones = ['interested', 'applied', 'phone screen', 'code assessment', 'on-site', 'offer extended', 'not a good fit'];
@@ -237,7 +237,7 @@ class MyJobs extends PureComponent {
                           <td contentEditable='true' value={job.location} name={'location'} onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.location}</td>
                           <td contentEditable='true' value={job.milestone} name='milestone' onBlur={this.editDetails} id={job._id} suppressContentEditableWarning="true">{job.milestone}</td>
                           <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{moment(job.createdAt).fromNow()}</td>
-                          <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{moment(job.updatedAt).fromNow() || moment(job.createdAt).fromNow()}</td>
+                          <td contentEditable='false' id={job._id} suppressContentEditableWarning="true">{moment(job.lastUpdated).fromNow()}</td>
                           <td><button className="delete-contact btn" id={job._id} onClick={ (e) => { if (window.confirm('Delete this job?')) this.deleteJob(e) }}>X</button></td>
                         </tr>
                       ))}
