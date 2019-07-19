@@ -35,7 +35,7 @@ const styles = theme => ({
   },
 });
 
-class UserOverview extends React.Component {
+class UserOverview extends React.PureComponent {
   
   state = {
     interviewRate:''

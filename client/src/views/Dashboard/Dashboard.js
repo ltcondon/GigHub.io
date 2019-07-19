@@ -120,7 +120,7 @@ const styles = theme => ({
 });
 
 
-class Dashboard extends React.Component {
+class Dashboard extends React.PureComponent {
   // Initial state is set to open, and will be set to closed when the sidenav is collapsed
   state = {
     open: true,
@@ -130,6 +130,12 @@ class Dashboard extends React.Component {
   componentDidMount() {
     this.setState({...this.props.location.state})
   }
+
+  componentDidUpdate (prevProps) {
+    if (this.props.location.state.id !== prevProps.location.state.id) {
+      this.setState({...this.props.location.state});
+    }
+  };
 
   // Handle opening side navigation bar...
   handleDrawerOpen = () => {
@@ -172,11 +178,22 @@ class Dashboard extends React.Component {
             <MenuIcon />
           </IconButton>
         
-          <Avatar alt="avatar picture" src={this.state.pictureURL} className={classes.avatar}/>
+          <Avatar alt="avatar picture" src={this.state.pictureURL} className={classes.avatar} id="avatar"/>
         
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Welcome back, <span className="userName">{this.state.firstName} {this.state.lastName}!</span>
           </Typography>
+
+          {/* <Row className="justify-content-center">
+            <Col size="sm-12 m-6">
+              <Avatar alt="avatar picture" src={this.state.pictureURL} className={classes.avatar} id="avatar"/>            
+            </Col>
+            <Col size="sm-12 m-6">
+              <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+              Welcome back, <span className="userName">{this.state.firstName} {this.state.lastName}!</span>
+            </Typography>
+            </Col>
+          </Row> */}
             
           <a className="logoutBtn" href="/">
             <ExitToApp />

@@ -246,3 +246,7 @@
     font-size: 1.4rem !important;
   }
 }
+
+#avatar {
+  display: inline-block;
+}

@@ -31,3 +31,30 @@
   padding-top: 15%;
   padding-bottom: 15%;
 }
+
+.footer {
+	color: black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color: #F7F4E9;
+  height: 100px;
+  margin: 0px;
+  width: 100vw;
+}
+
+.footer p {
+  font-size: 0.87rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer a {
+	color: #FF5C62;
+}
+
+.sticky-footer{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
