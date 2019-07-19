@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import "./style.css";
 import API from "../../utils/API";
 // import { Redirect } from 'react-router-dom';
@@ -22,7 +22,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <DialogSlide direction="up" ref={ref} {...props} />;
 });
 
-class Contacts extends Component {
+class Contacts extends PureComponent {
   state = {
     open: false,
     fullName: '',

@@ -138,6 +138,27 @@ class LineChart extends Component {
             pointRadius: 1,
             pointHitRadius: 10,
             data: [6, 9, 0, 1, 5, 5, 4]
+          },
+          {
+            label: 'LinkedIn Average',
+            fill: true,
+            lineTension: 0.1,
+            backgroundColor: 'rgb(116, 29, 156, 0.637)',
+            borderColor: 'rgb(116, 29, 156)',
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: 'rgb(116, 29, 156)',
+            pointBackgroundColor: '#fff',
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: 'rgb(116, 29, 156)',
+            pointHoverBorderColor: 'rgba(220,220,220,1)',
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2]
           }
         ]
       };
@@ -157,6 +178,7 @@ class LineChart extends Component {
       <div className="container mainbox">
         <h2>Recent Activity</h2>
         <Line ref="chart" data={data} options={lineOptions}/>
+        <div className="source"><a className="source" href="https://expandedramblings.com/index.php/linkedin-job-statistics/">Source</a></div>
       </div>
     );
   }

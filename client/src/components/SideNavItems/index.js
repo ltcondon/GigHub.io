@@ -4,14 +4,15 @@ import { NavLink } from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import Divider from '@material-ui/core/Divider';
+// import ListSubheader from '@material-ui/core/ListSubheader';
+// import Divider from '@material-ui/core/Divider';
 import AccountBox from '@material-ui/icons/AccountBox';
 // import Contacts from '@material-ui/icons/AlternateEmail';
 import Work from '@material-ui/icons/WorkOutline';
 import Domain from '@material-ui/icons/Domain';
 import BarChartIcon from '@material-ui/icons/BarChart';
-import Note from '@material-ui/icons/Note';
+// import Note from '@material-ui/icons/Note';
+// import {Col, Row} from "../Grid/Grid";
 
 
 class SideNavItems extends React.Component {
@@ -56,6 +57,8 @@ render() {
           <ListItemText primary='Companies' className='listTxt' />
         </ListItem>
       </NavLink>
+
+     
      </div>
      {/* <NavLink to='/analytics' style={{ textDecoration: 'none' }}>
        <ListItem button id='progressBtn' className='listBtn' name='analytics'>
@@ -66,13 +69,12 @@ render() {
        </ListItem>
      </NavLink> */}
 
-     <Divider />
 
      {/* Secondary list items are currently a stand-in for a to-do's/notes sections on the side nav */}
 
-     <ListSubheader inset>To-Do's</ListSubheader>
+     {/* <ListSubheader inset>To-Do's</ListSubheader> */}
 
-       <ListItem button className='listBtn'>
+       {/* <ListItem button className='listBtn'>
          <ListItemIcon className='listIcon'>
            <Note />
          </ListItemIcon>
@@ -91,7 +93,9 @@ render() {
            <Note />
          </ListItemIcon>
          <ListItemText primary='Land job' />
-       </ListItem>
+       </ListItem> */}
+
+      
    </div>
 
    );

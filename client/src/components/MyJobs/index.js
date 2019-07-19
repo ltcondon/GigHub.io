@@ -1,17 +1,23 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 // import EnhancedTable from '../EnhancedTable/index';
 // import TempJobsTable from '../TempJobsTable';
-import Jobs from '../Jobs/Jobs';
+import Jobs from '../Jobs';
 import Fade from 'react-reveal/Fade';
 
-export default class MyJobs extends Component {
+export default class MyJobs extends PureComponent {
 
     state = {}
 
-    componentDidMount() {
-        this.setState({...this.props.state})
-    }
+    componentDidMount () {
+        this.setState({...this.props.state});
+      };
     
+    componentDidUpdate (prevProps) {
+        if (this.props.state.id !== prevProps.state.id) {
+          this.setState({...this.props.state});
+        }
+      };
+      
     render() {
         console.log("My Jobs ID: " + this.state.id)
         return (

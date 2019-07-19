@@ -9,7 +9,7 @@ const LandingFooter = () => (
     <Col size="12 col-sm-12" className="pt-3">
 
       <p className="text-center font-italic footer-text">
-        Created by Liam, Eric, Calvin &amp; Thor.
+        A project by Liam &amp; Thor.
         <br />
         Check out our code on <a href="https://github.com/ltcondon/Project-3"><i className="fab fa-github"></i> Github</a>
       </p>
