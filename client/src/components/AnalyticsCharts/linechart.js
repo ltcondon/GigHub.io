@@ -22,7 +22,9 @@ class LineChart extends Component {
   getDataPoints  = () => {
     const days = [];
     const week = [];
-    const currentDate = new Date();
+    const currentDate = moment();
+    console.log(`Current Date: ${currentDate}`);
+    // should be in format of 2019-07-17T21:13:07.056Z
 
     const weekStart = moment().startOf('day').subtract(6, "days")
       console.log(weekStart);
@@ -33,7 +35,7 @@ class LineChart extends Component {
         week.push(moment(weekStart).add(i, 'days').format("MMM Do"));
         console.log(`State ID: ${this.props.state.id}`)
 
-        API.getJobsByDate(this.props.state.id, {$gte: currentDate.getDate()-(6 - i), $lte: currentDate.getDate()-(6 - (i+1))})
+        API.getJobsByDate(this.props.state.id, {$gte: currentDate.startOf('day').subtract(6-i, 'days'), $lte: currentDate.startOf('day').subtract(6-(i+1), 'days')})
             .then(res => {
                 console.log(res);
                 days[i] = res.data.length;
@@ -143,17 +145,17 @@ class LineChart extends Component {
             label: 'LinkedIn Average',
             fill: true,
             lineTension: 0.1,
-            backgroundColor: 'rgb(116, 29, 156, 0.637)',
-            borderColor: 'rgb(116, 29, 156)',
+            backgroundColor: 'rgb(90, 159, 238, 0.637)',
+            borderColor: 'rgb(90, 159, 238)',
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: 'rgb(116, 29, 156)',
+            pointBorderColor: 'rgb(90, 159, 238)',
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgb(116, 29, 156)',
+            pointHoverBackgroundColor: 'rgb(90, 159, 238)',
             pointHoverBorderColor: 'rgba(220,220,220,1)',
             pointHoverBorderWidth: 2,
             pointRadius: 1,
@@ -170,13 +172,13 @@ class LineChart extends Component {
         },
         title: {
           display: true,
-          text: "Your Applications Over Time"
+          text: "Your Activity Last Week"
         },
     };
       
     return (
       <div className="container mainbox">
-        <h2>Recent Activity</h2>
+        <h2 className="boxTitle">Recent Activity</h2>
         <Line ref="chart" data={data} options={lineOptions}/>
         <div className="source"><a className="source" href="https://expandedramblings.com/index.php/linkedin-job-statistics/">Source</a></div>
       </div>
